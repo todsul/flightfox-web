@@ -1,4 +1,4 @@
-{{/*  Transpiled Service Worker  */}}
+{{/* Transpiled Service Worker */}}
 {{ $opts := dict "minified" true "compact" true }}
 
 {{ $swTemp := resources.Get "scripts/sw.ts" | resources.ExecuteAsTemplate "swTemp.ts" . }}
@@ -10,38 +10,7 @@
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register("{{ $sw.Permalink }}", { scope: "/" });
     navigator.serviceWorker.ready.then(registration => {
-      console.log(`             ....
-                              .'' .'''
-.                             .'   :
-\\                          .:    :
-\\                        _:    :       ..----.._
-\\                    .:::.....:::.. .'         ''.
-  \\   -----------   .'  #-. .-######'     #        '.
-  \\ | SW Ready! |    '.##'/ ' ################       :
-    \\ -----------      #####################         :
-    \\               ..##.-.#### .''''###'.._        :
-      \\             :--:########:            '.    .' :
-      \\..__...--.. :--:#######.'   '.         '.     :
-      :     :  : : '':'-:'':'::        .         '.  .'
-      '---'''..: :    ':    '..'''.      '.        :'
-          \\  :: : :     '      ''''''.     '.      .:
-          \\ ::  : :     '            '.      '      :
-            \\::   : :           ....' ..:       '     '.
-            \\::  : :    .....####\\ .~~.:.             :
-              \\':.:.:.:'#########.===. ~ |.'-.   . '''.. :
-              \\    .'  ########## \ \ _.' '. '-.       '''.
-              :\\  :     ########   \ \      '.  '-.        :
-              :  \\'    '   #### :    \ \      :.    '-.      :
-            :  .'\\   :'  :     :     \ \       :      '-.    :
-            : .'  .\\  '  :      :     :\ \       :        '.   :
-            ::   :  \\'  :.      :     : \ \      :          '. :
-            ::. :    \\  : :      :    ;  \ \     :           '.:
-            : ':    '\\ :  :     :     :  \:\     :        ..'
-                :    ' \\ :        :     ;  \|      :   .'''
-                '.   '  \\:                         :.''
-                .:..... \\:       :            ..''
-                '._____|'.\\......'''''''.:..'''
-                          \\`);
+      console.log('Service Worker is ready to use.', registration);
     });
     window.addEventListener("load", () => {
       if (navigator.serviceWorker.controller) {
