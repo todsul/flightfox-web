@@ -1,0 +1,5 @@
+---
+baseURL: https://flightfox.com
+
+minify:
+  minifyOutput: true

@@ -1,0 +1,66 @@
+---
+title: Flightfox
+# content
+languageCode: en-us
+enableRobotsTXT: true
+publishdir: dist
+metaDataFormat: yaml
+disableKinds: ["taxonomyTerm"]
+footnoteReturnLinkContents: ↩
+summarylength: 40
+enableEmoji: true
+canonifyURLs: true
+ignoreErrors: ["error-remote-getjson"]
+timeout: "300s"
+
+security:
+  enableInlineShortcodes: false
+  exec:
+    allow: ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$", "^babel$"]
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    style: dracula
+    tabWidth: 2
+
+mediaTypes:
+  application/feed+json:
+    suffixes:
+      - json
+  text/typescript:
+    suffixes:
+      - ts
+
+outputFormats:
+  manifest:
+    baseName: "manifest"
+    isPlainText: true
+    mediaType: application/feed+json
+    name: "manifest"
+    suffix: "json"
+
+taxonomies:
+  tags: "tags"
+
+permalinks:
+  section: "/:filename/"
+  blog: "/blog/:filename/"
+  tags: "/tags/:slug/"
+
+outputs:
+  home: ["html", "manifest"]
+  page: ["html"]
+  section: ["html", "rss"]
+
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
+
+params:
+  meta:
+    description: The new standard in corporate travel.
+    background: "#1a1a1a"
+    theme: "#c390f3"
