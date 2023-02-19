@@ -1,0 +1,35 @@
+{{ define "main" }}
+  <h1
+    class="font-bold font-mdNichrome mt-0 text-center text-8xl uppercase w-full"
+    data-line="slim"
+  >
+    Recent Posts
+  </h1>
+  {{ $blog := ($.Site.GetPage "section" "posts").Pages }}
+  {{ range first 5 $blog }}
+    {{ .Render "li" }}
+  {{ end }}
+  <a
+    href='{{ "posts" | absURL }}'
+    class="
+      archive-link
+      bg-primary
+      focus:bg-secondary
+      focus:text-background
+      hover:bg-secondary
+      hover:text-background
+      ml-auto
+      mr-0
+      my-6
+      no-underline
+      px-2
+      py-1
+      text-background
+    "
+    data-dark="true"
+  >
+    View Archive
+  </a>
+  {{ partial "intro.html" . }}
+  {{ partial "party-mode.html" . }}
+{{ end }}
