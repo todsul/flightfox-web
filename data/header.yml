@@ -1,0 +1,22 @@
+---
+logo: logo.svg
+nav:
+  - label: Solutions
+    link: solutions
+  - label: About
+    link: about
+  - label: Pricing
+    link: pricing
+  - label: Case Studies
+    link: case-studies
+  - label: Jobs
+    link: jobs
+  - label: Contact
+    link: contact
+ctaNav:
+  login:
+    label: Sign In
+    link: login
+  cta:
+    label: Get Started
+    link:

@@ -1,36 +1,39 @@
-<header class="bg-transparent grid w-full">
-  <section
-    class="col-start-2 flex items-center justify-between row-start-2 w-full"
+<header class="grid w-full">
+  <a
+    href="{{ .Site.BaseURL }}"
+    class="home-link focus:no-underline h-auto hover:no-underline no-underline w-full"
   >
-    <span
-      class="border-0 border-b-under border-meta border-solid border-t-under h-full w-full"
-    ></span>
-    <a
-      href="{{ .Site.BaseURL }}"
-      class="site-name focus:no-underline focus:text-secondary font-bold font-mdNichrome hover:no-underline hover:text-secondary no-underline text-center text-foreground text-4xl uppercase"
-      data-line="slim"
-    >
-      {{ .Site.Title }}
-    </a>
-    <span
-      class="border-0 border-b-under border-meta border-solid border-t-under h-full w-full"
-    ></span>
-  </section>
-  <nav class="col-start-2 flex items-center justify-center row-start-3 w-full">
+    {{ parital "img.html" (dict "src" .Site.Data.header.logo "alt" .Site.Title) }}
+    <span class="sr-only">{{ .Site.Title }}</span>
+  </a>
+  <nav class="flex items-center justify-center w-full">
     <ul
-      class="auto-cols-min border-0 border-b-under border-foreground border-solid gap-x-2 grid grid-rows-1 items-center justify-center list-none m-0 px-0 w-auto xs:gap-x-4"
+      class="auto-cols-min gap-x-2 grid grid-rows-1 items-center justify-center list-none m-0 px-0 w-auto"
     >
-      {{ range .Site.Data.nav.header }}
+      {{ range .Site.Data.header.nav }}
       <li class="flex items-center justify-center m-0 row-start-1">
         <a
           href="{{ .link | absURL }}"
-          class="focus:no-underline focus:text-secondary font-bold font-mdNichrome hover:no-underline hover:text-secondary no-underline text-center text-4xl uppercase"
-          data-line="slim"
+          class="focus:bg-selection focus:no-underline font-medium hover:bg-selection hover:no-underline no-underline rounded-xl text-center text-base"
         >
           {{ .label }}
         </a>
       </li>
       {{ end }}
     </ul>
+  </nav>
+  <nav class="flex items-center justify-center w-full">
+    <a
+      href='{{ .Site.Data.header.ctaNav.login.label | absURL }}'
+      class="focus:bg-selection focus:no-underline font-medium hover:bg-selection hover:no-underline no-underline rounded-xl text-center text-base"
+    >
+      {{ .Site.Data.header.ctaNav.login.link }}
+    </a>
+    <a
+      href='{{ .Site.Data.header.ctaNav.cta.label | absURL }}'
+      class="bg-primary focus:no-underline font-medium hover:no-underline no-underline rounded-xl text-center text-base"
+    >
+      {{ .Site.Data.header.ctaNav.cta.link }}
+    </a>
   </nav>
 </header>
