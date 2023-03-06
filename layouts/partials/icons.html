@@ -1,6 +1,6 @@
 {{ $icons := slice "16" "32" }}
 {{ $touchIcons := slice "120" "152" "167" "180" "256" "512" }}
-{{ $img := resources.Get "/icons/favicon.png" }}
+{{ $img := resources.Get "icons/favicon.png" }}
 
 {{/*  create favicons  */}}
 {{ range $iconSize := $icons }}

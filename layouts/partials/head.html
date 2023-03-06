@@ -1,11 +1,5 @@
 {{ $title := cond (ne .Params.seo_title nil) .Params.seo_title .Title }}
 {{ $description := cond (eq .IsHome true) .Site.Params.meta.description .Params.description }}
-{{ $pageFile := .RelPermalink | replaceRE "/posts" "" | replaceRE "/" "" }}
-{{ $imgFilePath := cond (eq .Title "Archive") "archive" $pageFile }}
-{{ $socialMain := resources.Get "img/social.jpeg" }}
-{{ $socialPage := print .Permalink "social.jpeg" }}
-{{ $socialHome := cond (eq .IsHome true) $socialMain.Permalink $socialPage }}
-{{ $socialImgPath := cond (eq .Kind "term") $socialMain.Permalink $socialHome }}
 
 <head>
   <base href="{{ .Permalink }}" />
@@ -28,7 +22,7 @@
     {{ end }}
   </title>
   <link rel="canonical" href="{{ .Permalink }}" />
-  {{ $about := resources.Get "img/about.png" }}
+  {{ $favicon := resources.Get "icons/favicon.png" }}
   <meta name="description" content="{{ $description }}" />
   <meta property="author" content="{{ .Site.Params.meta.author }}" />
   <meta
@@ -38,21 +32,21 @@
   <meta property="og:site_name" content="{{ .Site.Title }}" />
   <meta property="og:title" content="{{ $title }}" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="{{ $socialImgPath }}" />
-  <meta property="og:image:secure_url" content="{{ $socialImgPath }}" />
+  <meta property="og:image" content="{{ $favicon.Permalink }}" />
+  <meta property="og:image:secure_url" content="{{ $favicon.Permalink }}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <meta property="twitter:site" content="{{ .Site.Params.meta.twitter }}" />
-  <meta name="twitter:image" content="{{ $socialImgPath }}" />
+  <meta name="twitter:image" content="{{ $favicon.Permalink }}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:description"
     content="{{ $description }}"
   />
   <meta name="twitter:title" content="{{ $title }}" />
-  {{- if and (eq .Section "posts") (eq .Kind "page") -}}
+  {{- if and (eq .Section "blog") (eq .Kind "page") -}}
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -62,7 +56,7 @@
           "@id": "{{ .Permalink }}",
         },
         "headline": "{{ $title }}",
-        "image": "{{ $socialImgPath }}",
+        "image": "{{ $favicon.Permalink }}",
         "author": {
           "@type": "Person",
           "name": "{{ .Site.Params.meta.author }}",
@@ -72,7 +66,7 @@
           "name": "{{ .Site.Params.meta.author }}",
           "logo": {
             "@type": "ImageObject",
-            "url": "{{ $about.Permalink }}",
+            "url": "{{ $favicon.Permalink }}",
           },
         },
         "datePublished": "{{ .Date.Format "2006-01-02" }}",
@@ -89,7 +83,7 @@
       }
     </script>
   {{ end }}
-  <meta name="image" content="{{ $about.Permalink }}" />
+  <meta name="image" content="{{ $favicon.Permalink }}" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}" />
@@ -100,13 +94,7 @@
     rel="alternate"
     type="application/rss+xml"
     title="{{ .Site.Title }}"
-    href="{{ .Site.BaseURL }}/posts/index.xml"
-  />
-  <link
-    rel="alternate"
-    type="application/feed+json"
-    title="{{ .Site.Title }}"
-    href="{{ .Site.BaseURL }}/posts/feed.json"
+    href="{{ .Site.BaseURL }}/blog/index.xml"
   />
   <link
     rel="sitemap"
@@ -128,8 +116,9 @@
   {{ partial "fonts-loading.html" . }}
 
   {{ $tailwind := resources.Get "css/tw.css" }}
+  {{ $header := resources.Get "css/header.css" | resources.PostCSS }}
   {{ $main := resources.Get "css/main.css" }}
-  {{ $styles := slice $tailwind $main | resources.Concat "styles.css" | resources.PostCSS | resources.Minify }}
+  {{ $styles := slice $tailwind $header $main | resources.Concat "styles.css" | resources.PostCSS | resources.Minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" />
   {{ if hugo.Environment | eq "production" }}
     <script defer data-domain="flightfox.com" src="https://plausible.io/js/plausible.js"></script>
