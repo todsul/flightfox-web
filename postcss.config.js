@@ -5,7 +5,7 @@ const tailwind = require('tailwindcss');
 module.exports = () => ({
   plugins: [
     postcssPresetEnv({
-      stage: 3,
+      stage: 1,
       features: {
         'custom-properties': {
           preserve: true,
