@@ -6,7 +6,7 @@
   if ('fonts' in document) {
     const fonts = [];
 
-    {{ $weights := dict "Black" "900" "Bold" "700" "Dark" "500" "Regular" "400" "Italic" "400" }}
+    {{ $weights := dict "Regular" "400" "Italic" "400" "Medium" "500" "SemiBold" "600" "Bold" "700" "ExtraBold" "800" }}
     {{ range os.ReadDir "static/fonts" }}
       {{ $sub := .Name | findRE "(subset.woff2)" }}
 
