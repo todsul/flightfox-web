@@ -1,0 +1,40 @@
+header {
+  & .home-link {
+    &,
+    & svg {
+      max-width: 8.9rem;
+    }
+  }
+
+  & nav {
+    & ul {
+      & a {
+        & img {
+          width: 0.75rem;
+        }
+      }
+    }
+  }
+
+  & button {
+    & div {
+      &[data-active="true"] {
+        opacity: 1;
+      }
+      &[data-active="false"] {
+        opacity: 0;
+      }
+    }
+  }
+
+  & section#mobile-menu {
+    --menu-offset: 6.75rem;
+
+    top: var(--menu-offset);
+
+    &[data-active="true"] {
+      height: calc(100vh - var(--menu-offset));
+      opacity: 1;
+    }
+  }
+}

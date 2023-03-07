@@ -3,6 +3,7 @@ logo: logo.svg
 nav:
   - label: Solutions
     link: solutions
+    parent: true
   - label: About
     link: about
   - label: Pricing

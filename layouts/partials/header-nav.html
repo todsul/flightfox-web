@@ -1,0 +1,35 @@
+{{ $navClasses := cond (.mobile) "grid" "hidden lg:grid" }}
+{{ $liClasses := cond (.mobile) "col-start-1" "row-start-1" }}
+{{ $aClasses := cond (.mobile) "col-start-1" "row-start-1" }}
+
+<nav class="{{ $navClasses }} items-center lg:justify-center lg:ml-9 lg:w-auto w-full">
+  <ul class="auto-rows-min grid grid-cols-1 items-center justify-start list-none lg:auto-cols-min lg:grid-rows-1 lg:gap-2 lg:justify-center lg:w-auto m-0 px-0 w-full">
+    {{ range .data.nav }}
+    <li class="flex items-center justify-start lg:justify-center lg:w-auto m-0 {{ $liClasses }} w-full">
+      <a
+        href="{{ .link | absURL }}"
+        class="border-0 border-b border-selection border-solid duration-200 ease-in-out flex font-medium items-center justify-between lg:justify-center lg:border-b-0 lg:border-transparent lg:focus:bg-selection lg:focus:no-underline lg:hover:bg-selection lg:hover:no-underline lg:px-4 lg:rounded-xl lg:w-auto no-underline py-3 text-center text-base transition-colors whitespace-nowrap w-full"
+      >
+        {{ .label }}
+        {{ if .parent }}
+          {{ partial "img.html" (dict "src" "arrow-down.svg" "alt" "Open sub menu" "iClasses" "ml-2 my-0" "hidden" true) }}
+        {{ end }}
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>
+<nav class="{{ $navClasses }} auto-rows-min gap-3 grid-cols-1 items-center justify-center lg:auto-cols-min lg:gap-2 lg:grid-rows-1 lg:w-auto ml-auto w-full">
+  <a
+    href='{{ .data.ctaNav.login.link | absURL }}'
+    class="{{ $aClasses }} duration-200 ease-in-out focus:bg-selection focus:no-underline font-medium hover:bg-selection hover:no-underline lg:w-auto no-underline px-4 py-3 rounded-xl text-center text-base whitespace-nowrap w-full"
+  >
+    {{ .data.ctaNav.login.label }}
+  </a>
+  <a
+    href='{{ .data.ctaNav.cta.link | absURL }}'
+    class="{{ $aClasses }} bg-primary duration-200 ease-in-out focus:no-underline focus:bg-primary-transparent focus:text-primary font-medium hover:no-underline hover:bg-primary-transparent hover:text-primary lg:w-auto no-underline px-4 py-3 rounded-xl text-center text-base text-white transition-colors whitespace-nowrap w-full"
+  >
+    {{ .data.ctaNav.cta.label }}
+  </a>
+</nav>

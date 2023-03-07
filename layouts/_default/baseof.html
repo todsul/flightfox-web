@@ -21,5 +21,14 @@
 
     {{ block "styles" . }}{{ end }}
     {{ block "scripts" . }}{{ end }}
+
+    {{/*  Transpiled scripts  */}}
+    {{ $opts := dict "minified" true "compact" true }}
+
+    {{- $headerTS := resources.Get "scripts/header.ts" | babel -}}
+    {{ $header := slice $headerTS | resources.Concat "header.js" }}
+
+    {{ $scripts := slice $header | resources.Concat "js/bundle.js" | resources.Minify }}
+    <script defer src="{{ $scripts.Permalink }}"></script>
   </body>
 </html>

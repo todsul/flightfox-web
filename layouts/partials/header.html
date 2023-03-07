@@ -1,39 +1,36 @@
-<header class="grid w-full">
-  <a
-    href="{{ .Site.BaseURL }}"
-    class="home-link focus:no-underline h-auto hover:no-underline no-underline w-full"
+<header class="grid pt-7 lg:m-0 w-full" data-mobilemenu="false">
+  <section
+    id="desktop-menu"
+    class="col-span-1 col-start-2 flex items-center justify-between lg:justify-start row-span-1 row-start-2 w-full"
+    data-active="true"
   >
-    {{ parital "img.html" (dict "src" .Site.Data.header.logo "alt" .Site.Title) }}
-    <span class="sr-only">{{ .Site.Title }}</span>
-  </a>
-  <nav class="flex items-center justify-center w-full">
-    <ul
-      class="auto-cols-min gap-x-2 grid grid-rows-1 items-center justify-center list-none m-0 px-0 w-auto"
-    >
-      {{ range .Site.Data.header.nav }}
-      <li class="flex items-center justify-center m-0 row-start-1">
-        <a
-          href="{{ .link | absURL }}"
-          class="focus:bg-selection focus:no-underline font-medium hover:bg-selection hover:no-underline no-underline rounded-xl text-center text-base"
-        >
-          {{ .label }}
-        </a>
-      </li>
-      {{ end }}
-    </ul>
-  </nav>
-  <nav class="flex items-center justify-center w-full">
     <a
-      href='{{ .Site.Data.header.ctaNav.login.label | absURL }}'
-      class="focus:bg-selection focus:no-underline font-medium hover:bg-selection hover:no-underline no-underline rounded-xl text-center text-base"
+      href="{{ .Site.BaseURL }}" class="home-link focus:no-underline h-auto hover:no-underline no-underline w-full"
     >
-      {{ .Site.Data.header.ctaNav.login.link }}
+      {{ partial "img.html" (dict "src" .Site.Data.header.logo "alt" .Site.Title "iClasses" "m-0") }}
+      <span class="sr-only">{{ .Site.Title }}</span>
     </a>
-    <a
-      href='{{ .Site.Data.header.ctaNav.cta.label | absURL }}'
-      class="bg-primary focus:no-underline font-medium hover:no-underline no-underline rounded-xl text-center text-base"
+    {{ partial "header-nav.html" (dict "data" .Site.Data.header "mobile" false) }}
+    <button
+      type="button"
+      id="mobile-menu-toggle"
+      class="bg-transparent border-0 border-transparent cursor-pointer duration-200 ease-in-out flex h-auto items-center justify-center lg:hidden m-0 outline-none p-0 relative transition-colors w-auto"
     >
-      {{ .Site.Data.header.ctaNav.cta.link }}
-    </a>
-  </nav>
+      <span class="sr-only">Open menu</span>
+      <div id="open" class="duration-200 ease-in-out transition-opacity" data-active="true">
+        {{ partial "img.html" (dict "src" "mobile-menu.svg" "alt" "Open menu" "iClasses" "h-10 w-10") }}
+      </div>
+      <div id="close" class="absolute duration-200 ease-in-out transition-opacity" data-active="false">
+        {{ partial "img.html" (dict "src" "close.svg" "alt" "Open menu" "iClasses" "h-10 w-10") }}
+      </div>
+    </button>
+  </section>
+  <section
+    id="mobile-menu"
+    class="absolute bg-white col-span-1 col-start-2 duration-200 ease-in-out flex flex-col h-0 items-start justify-between lg:hidden opacity-0 overflow-hidden pb-12 px-5 row-span-1 row-start-3 transition-all w-full z-100"
+    data-active="false"
+    aria-hidden="true"
+  >
+    {{ partial "header-nav.html" (dict "data" .Site.Data.header "mobile" true) }}
+  </section>
 </header>

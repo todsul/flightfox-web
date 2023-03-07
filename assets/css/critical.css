@@ -64,9 +64,8 @@ footer {
 }
 
 header {
-  gap: 0.5rem 0;
-  grid-template-columns: 1rem auto 1rem;
-  grid-template-rows: 0.5rem repeat(2, min-content) 0rem;
+  grid-template-columns: minmax(1.25rem, 1fr) minmax(335px, 1300px) minmax(1.25rem, 1fr);
+  grid-template-rows: 1.25rem 3rem 1.25rem;
 }
 
 main {
