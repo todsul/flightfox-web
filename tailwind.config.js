@@ -12,12 +12,18 @@ const pallete = {
   'tertiary-transparent': 'var(--tertiary-transparent)',
 };
 
+const widths = {
+  xxs: '18rem',
+  xxxs: '14rem',
+  xxxxs: '10rem',
+};
+
 module.exports = {
   content: ['./layouts/**/*.html'],
   theme: {
     extend: {
       borderColor: pallete,
-      borderWidth: { 'under': '3.55px' },
+      borderWidth: { under: '3.55px' },
       colors: pallete,
       fill: pallete,
       gridTemplateColumns: {
@@ -28,13 +34,10 @@ module.exports = {
         100: '25rem',
         120: '50rem',
         130: '75rem',
-        140: '100rem'
+        140: '100rem',
       },
-      maxWidth: {
-        xxs: '18rem',
-        xxxs: '14rem',
-        xxxxs: '10rem',
-      },
+      maxWidth: widths,
+      minWidth: widths,
       screens: {
         xxxs: '320px',
         xxs: '375px',
