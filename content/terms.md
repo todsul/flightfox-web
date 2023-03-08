@@ -1,5 +1,5 @@
 ---
-title: Terms & Privacy
+title: Terms & Conditions
 description:
 image:
 alt:
