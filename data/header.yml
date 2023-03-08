@@ -5,11 +5,11 @@ nav:
     link: solutions
     parent: true
     children:
-      - label: Traveller
+      - label: Travellers
         link: traveller
-      - label: Travel Manager
+      - label: Travel Managers
         link: travel-manager
-      - label: Finance Manager
+      - label: Finance Managers
         link: finance-manager
   - label: About
     link: about
