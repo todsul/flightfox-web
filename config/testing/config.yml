@@ -1,7 +1,5 @@
 ---
 baseURL: ""
 
-buildDrafts: true
-
 minify:
-  minifyOutput: false
+  minifyOutput: true
