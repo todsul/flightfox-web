@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://flightfox.com/sitemap.xml
-Host: https://flightfox.com
