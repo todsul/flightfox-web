@@ -4,6 +4,13 @@ nav:
   - label: Solutions
     link: solutions
     parent: true
+    children:
+      - label: Traveller
+        link: traveller
+      - label: Travel Manager
+        link: travel-manager
+      - label: Finance Manager
+        link: finance-manager
   - label: About
     link: about
   - label: Pricing

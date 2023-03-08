@@ -8,6 +8,21 @@ header {
 
   nav {
     ul {
+      &[data-type='sub-menu'] {
+        @media screen and (min-width: 1024px) {
+          width: 10rem;
+        }
+      }
+
+      &[data-active='true'] {
+        height: 9.1875rem;
+        opacity: 1;
+
+        @media screen and (min-width: 1024px) {
+          height: 10rem;
+        }
+      }
+
       a {
         img {
           width: 0.75rem;
@@ -17,10 +32,19 @@ header {
   }
 
   button {
+    &[id$='parent'] {
+      &[data-active='true'] {
+        img {
+          transform: scaleY(-1);
+        }
+      }
+    }
+
     div {
       &[data-active='true'] {
         opacity: 1;
       }
+
       &[data-active='false'] {
         opacity: 0;
       }
