@@ -1,0 +1,7 @@
+---
+baseURL: "http://todsul.com/flightfox-web"
+
+buildDrafts: true
+
+minify:
+  minifyOutput: false

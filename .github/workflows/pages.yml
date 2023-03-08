@@ -78,8 +78,8 @@ jobs:
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
+          HUGO_ENVIRONMENT: testing
+          HUGO_ENV: testing
         run: |
           hugo \
             --gc \
