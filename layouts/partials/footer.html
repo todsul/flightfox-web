@@ -1,4 +1,86 @@
-<footer class="grid mt-8 w-full">
-  <section class="col-start-2 flex items-center justify-start row-start-2 w-full">
+<footer class="bg-foreground grid w-full">
+  <section class="col-start-2 flex flex-col items-start justify-between md:flex-row row-start-2 w-full">
+    <div class="flex flex-col items-start justify-start mb-10 md:mr-8 w-auto">
+      <a
+        href="{{ .Site.BaseURL }}" class="home-link focus:no-underline h-auto hover:no-underline no-underline w-full"
+      >
+        {{ partial "img.html" (dict "src" .Site.Data.footer.logo "alt" .Site.Title "iClasses" "m-0") }}
+        <span class="sr-only">{{ .Site.Title }}</span>
+      </a>
+      <nav class="gap-3 grid grid-cols-3 grid-rows-1 items-center justify-start mt-8 w-auto">
+        {{ range .Site.Data.footer.socials }}
+          {{ $icon := printf "footer/%s.svg" (.label | lower) }}
+          <a
+            href="{{ .link }}/{{ $.Site.Params.meta.social }}/"
+            class="duration-200 ease-in-out flex focus:bg-footer focus:no-underline h-12 hover:bg-footer hover:no-underline items-center justify-center m-0 no-underline rounded-full transition-colors w-12"
+            data-type="social"
+          >
+            <span class="sr-only">{{ .label }}</span>
+            {{ partial "img.html" (dict "src" $icon "alt" .Site.Title "iClasses" "m-0 w-auto") }}
+          </a>
+        {{ end }}
+      </nav>
+    </div>
+    <ul id="footer-nav" class="grid grid-rows-3-auto h-auto list-none m-0 p-0 sm:grid-cols-3-auto sm:w-auto w-full">
+      {{ range .Site.Data.footer.nav }}
+        {{ $listHeight := add (mul 40 (len .children)) 16 }}
+        {{ $sectionLabel := .section | replaceRE "\\s" "" | lower }}
+
+        <li
+          class="border-0 border-b border-meta border-solid flex flex-col h-auto items-start justify-start m-0 p-0 sm:border-b-0 sm:w-auto w-full"
+          data-type="footer-section"
+        >
+          <p
+            class="font-semibold m-0 py-6 relative sm:pb-4 sm:w-auto text-background text-xl w-full whitespace-nowrap"
+            data-active="false"
+            data-type="section-label"
+          >
+            {{ .section }}
+            {{ partial "img.html" (dict "src" "arrow-down-light.svg" "alt" "Open sub menu" "iClasses" "absolute duration-200 ease-in-out inset-y-0 ml-auto my-auto right-0 sm:hidden transition-transform w-4 z-10" "hidden" true) }}
+          </p>
+          <ul
+            class="duration-200 ease-in-out flex flex-col h-0 items-start justify-start list-none m-0 overflow-hidden p-0 sm:h-auto sm:w-auto transition-all w-full"
+            style='--list-height: {{ $listHeight }}px;'
+            data-active="false"
+            data-label="{{ $sectionLabel }}"
+          >
+            {{ range .children }}
+              <li class="mx-0 my-2 p-0 w-full">
+                {{ if ne .link nil }}
+                  <a
+                    href="{{ .link | absURL }}"
+                    class="focus:no-underline focus:text-background hover:no-underline hover:text-background m-0 no-underline px-0 py-2 text-selection w-full"
+                  >
+                    {{ .label }}
+                  </a>
+                {{ else }}
+                  <p class="flex items-start justify-start m-0 p-0 text-selection w-full">
+                    {{ partial "img.html" (dict "src" .icon "alt" .label "hidden" true "iClasses" "h-4 mr-3 w-auto") }}
+                    {{ .label }}
+                  </p>
+                {{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+  <section id="footer-base" class="bg-footer col-span-3 col-start-1 grid items-center row-start-4 w-full">
+    <div class="col-start-2 flex flex-wrap-reverse items-center justify-between row-start-2 w-full">
+      <p class="m-0 opacity-50 text-selection">
+        Copyright &copy; {{ time.Now.Format "2006" }} {{ .Site.Title }} {{ .Site.Data.footer.base.copyright }}
+      </p>
+      <nav class="flex flex-col items-start justify-start md:flex-row md:items-center md:justify-center w-auto">
+        {{ range .Site.Data.footer.base.nav }}
+          <a
+            href="{{ .link | absURL }}"
+            class="duration-200 ease-in-out focus:no-underline focus:opacity-100 focus:text-selection hover:no-underline hover:opacity-100 hover:text-selection md:mx-6 md:my-0 mx-0 mb-4 no-underline opacity-50 text-selection transition-opacity"
+          >
+            {{ .label }}
+          </a>
+        {{ end }}
+      </nav>
+    </div>
   </section>
 </footer>

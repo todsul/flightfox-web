@@ -1,0 +1,45 @@
+---
+logo: footer/logo-light.svg
+socials:
+  - label: Facebook
+    link: https://www.facebook.com
+  - label: Twitter
+    link: https://twitter.com
+  - label: LinkedIn
+    link: https://www.linkedin.com/company
+nav:
+  - section: Solutions
+    children:
+      - label: Travellers
+        link: traveller
+      - label: Travel Managers
+        link: travel-manager
+      - label: Finance Managers
+        link: finance-manager
+  - section: Quick Links
+    children:
+      - label: About
+        link: about
+      - label: Pricing
+        link: pricing
+      - label: Case Studies
+        link: case-studies
+      - label: Jobs
+        link: jobs
+      - label: Contact
+        link: contact
+  - section: Contact
+    children:
+      - label: "Headquartered at 1023 Walnet Street, Boulder, Colorado, USA."
+        link:
+        icon: footer/location.svg
+      - label: "support@flightfox.com"
+        link:
+        icon: footer/email.svg
+base:
+  copyright: All rights reserved
+  nav:
+    - label: Terms & Conditions
+      link: terms
+    - label: Privacy Policy
+      link: pricing
