@@ -65,17 +65,14 @@ samp {
   font-family: monospace !important;
 }
 
+header,
 main,
 footer,
 section#footer-base {
-  grid-template-columns: minmax(1rem, 1fr) minmax(18rem, 100rem) minmax(
-      1rem,
-      1fr
-    );
+  grid-template-columns: minmax(1.25rem, 1fr) minmax(335px, 1300px) minmax(1.25rem, 1fr);
 }
 
 header {
-  grid-template-columns: minmax(1.25rem, 1fr) minmax(335px, 1300px) minmax(1.25rem, 1fr);
   grid-template-rows: 1.25rem 3rem 1.25rem;
 }
 
