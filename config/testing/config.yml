@@ -1,5 +1,5 @@
 ---
-baseURL: ""
+baseURL: "http://flighthacker.com"
 
 minify:
   minifyOutput: true
