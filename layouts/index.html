@@ -1,8 +1,6 @@
 {{ define "hero" }}
-  {{ $homeHero := cond (.IsHome) "flex-col justify-center" "flex-wrap justify-between" }}
-
   <div
-    class="bg-no-repeat col-start-2 flex {{ $homeHero }} items-center max-w-main mx-auto overflow-hidden w-full"
+    class="bg-no-repeat col-start-2 flex flex-col items-center justify-center max-w-main mx-auto overflow-hidden w-full"
     {{ with .Params.backgroundAlt }}
       {{ $imgBg := resources.Get (print "/img/" .) }}
       style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right 70vh;'
