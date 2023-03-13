@@ -143,6 +143,10 @@ textarea {
 }
 
 /* Custom */
+section#hero {
+  min-height: 34.25rem;
+}
+
 nav#hero-nav {
   grid-template-columns: repeat(auto-fill, minmax(10rem, var(--hero-cta)));
   max-width: calc((var(--hero-cta) * 2) + 0.75rem);
