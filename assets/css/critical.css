@@ -9,6 +9,10 @@
   --selection: #e2e8f0;
   /* values */
   --header-height: 5.5rem;
+  --hero-bg-size: 33.25rem;
+  --hero-cta: 11.125rem;
+  --main-padding: 4.625rem;
+  --main-width: 1300px;
   --footer-height: 32rem;
   --footer-gap: 5.625rem;
   /* animations */
@@ -18,6 +22,9 @@
 @media screen and (max-width: 768px) {
   :root {
     --header-height: 6.25rem;
+    --hero-bg-size: 11rem;
+    --hero-cta: 20rem;
+    --main-padding: 2.125rem;
     --footer-height: 42.5rem;
     --footer-gap: 3.75rem;
   }
@@ -68,8 +75,12 @@ samp {
 header,
 main,
 footer,
+section#hero,
 section#footer-base {
-  grid-template-columns: minmax(1.25rem, 1fr) minmax(335px, 1300px) minmax(1.25rem, 1fr);
+  grid-template-columns: minmax(1.25rem, 1fr) minmax(335px, var(--main-width)) minmax(
+      1.25rem,
+      1fr
+    );
 }
 
 header {
@@ -77,7 +88,7 @@ header {
 }
 
 main {
-  grid-template-rows: min-content auto 4.625rem;
+  grid-template-rows: var(--main-padding) min-content auto var(--main-padding);
   min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
 }
 

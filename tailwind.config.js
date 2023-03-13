@@ -10,6 +10,7 @@ const pallete = {
 };
 
 const widths = {
+  main: 'var(--main-width)',
   xxs: '18rem',
   xxxs: '14rem',
   xxxxs: '10rem',
