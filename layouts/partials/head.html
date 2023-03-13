@@ -1,4 +1,4 @@
-{{ $title := cond (ne .Params.seo_title nil) .Params.seo_title .Title }}
+{{ $title := cond (ne .Params.seo_title nil) .Params.seo_title .Params.tagLine }}
 {{ $description := cond (eq .IsHome true) .Site.Params.meta.description .Params.description }}
 
 <head>
@@ -18,7 +18,7 @@
     {{ if .IsHome }}
       {{ .Site.Title }}
     {{ else }}
-      {{ .Title }} | {{ .Site.Title }}
+      {{ $title }} | {{ .Site.Title }}
     {{ end }}
   </title>
   <link rel="canonical" href="{{ .Permalink }}" />
