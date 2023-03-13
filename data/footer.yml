@@ -34,7 +34,7 @@ nav:
         link:
         icon: footer/location.svg
       - label: "support@flightfox.com"
-        link:
+        link: "mailto:support@flightfox.com"
         icon: footer/email.svg
 base:
   copyright: All rights reserved

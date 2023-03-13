@@ -45,17 +45,22 @@
             data-label="{{ $sectionLabel }}"
           >
             {{ range .children }}
-              <li class="mx-0 my-2 p-0 w-full">
+              <li class="m-0 p-0 w-full">
                 {{ if ne .link nil }}
                   <a
                     href="{{ .link | absURL }}"
-                    class="focus:no-underline focus:text-background hover:no-underline hover:text-background m-0 no-underline px-0 py-2 text-selection w-full"
+                    class="flex focus:no-underline focus:text-background hover:no-underline hover:text-background items-start justify-start m-0 no-underline px-0 py-2 text-selection w-full"
                   >
+                    {{ with .icon }}
+                      {{ partial "img.html" (dict "src" . "alt" "" "hidden" true "iClasses" "h-4 mr-3 w-auto") }}
+                    {{ end }}
                     {{ .label }}
                   </a>
                 {{ else }}
                   <p class="flex items-start justify-start m-0 p-0 text-selection w-full">
-                    {{ partial "img.html" (dict "src" .icon "alt" .label "hidden" true "iClasses" "h-4 mr-3 w-auto") }}
+                    {{ with .icon }}
+                      {{ partial "img.html" (dict "src" . "alt" "" "hidden" true "iClasses" "h-4 mr-3 w-auto") }}
+                    {{ end }}
                     {{ .label }}
                   </p>
                 {{ end }}
