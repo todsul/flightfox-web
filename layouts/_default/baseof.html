@@ -5,12 +5,17 @@
     {{ partial "header.html" . }}
 
     <main class="grid relative w-full">
-      {{ block "hero" . }}{{ end }}
-      <div
-        class="col-start-2 flex flex-col items-start justify-start relative row-start-2 w-full"
+      {{ $homeHero := cond (.IsHome) "flex-col justify-center" "flex-wrap justify-between" }}
+      <section
+        class="col-span-3 col-start-1 flex {{ $homeHero }} items-center relative row-start-2 w-full"
+      >
+        {{ block "hero" . }}{{ end }}
+      </section>
+      <section
+        class="col-start-2 flex flex-col items-start justify-start relative row-start-3 w-full"
       >
         {{ block "main" . }}{{ end }}
-      </div>
+      </section>
     </main>
 
     {{ partial "footer.html" . }}
