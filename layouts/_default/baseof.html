@@ -5,13 +5,18 @@
     {{ partial "header.html" . }}
 
     <main class="grid relative w-full">
-      {{ $homeHero := cond (.IsHome) "flex-col justify-center" "flex-wrap justify-between" }}
       <section
-        class="col-span-3 col-start-1 flex {{ $homeHero }} items-center relative row-start-2 w-full"
+        id="hero"
+        class="bg-no-repeat col-span-3 col-start-1 grid items-center justify-center relative row-start-2 w-full"
+        {{ with .Params.background }}
+          {{ $imgBg := resources.Get (print "/img/" .) }}
+          style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: -10vw center;'
+        {{ end }}
       >
         {{ block "hero" . }}{{ end }}
       </section>
       <section
+        id="main"
         class="col-start-2 flex flex-col items-start justify-start relative row-start-3 w-full"
       >
         {{ block "main" . }}{{ end }}

@@ -87,6 +87,11 @@ h1 {
   margin: 0.75rem 0 2.625rem;
 }
 
+h1 > span,
+h1 > * > span {
+  color: var(--primary);
+}
+
 h2 {
   font-size: 1.875rem;
   line-height: 1.2;
@@ -138,6 +143,15 @@ textarea {
 }
 
 /* Custom */
+nav#hero-nav {
+  grid-template-columns: repeat(auto-fill, minmax(10rem, var(--hero-cta)));
+  max-width: calc((var(--hero-cta) * 2) + 0.75rem);
+}
+
+ul#clients {
+  min-width: 68.75rem;
+}
+
 article ol,
 article ul {
   padding-left: 1rem;
