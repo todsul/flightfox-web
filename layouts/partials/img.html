@@ -31,11 +31,11 @@
   {{ end }}
   {{ $imgPrimary := resources.Get (print "/img/" $img) }}
   <picture
-    class="{{ with .pClasses }}{{ . }}{{ else }}img-wrap flex items-center justify-center{{ if eq .caption nil }} my-4{{ end }} w-full{{ end }}"
+    class="img-wrap flex items-center justify-center {{ with .pClasses }}{{ . }}{{ else }}{{ if eq .caption nil }} my-4{{ end }} w-full{{ end }}"
   >
-    {{ $webpPrimary := $imgPrimary.Resize (print .size "x webp drawing") }}
+    {{ $webpPrimary := $imgPrimary.Resize (print .size "x webp drawing q100") }}
     <source srcset="{{ $webpPrimary.Permalink }}" type="image/webp" />
-    {{ $imgResized := $imgPrimary.Resize (print .size "x png") }}
+    {{ $imgResized := $imgPrimary.Resize (print .size "x png q100") }}
     <img
       src="{{ $imgResized.Permalink }}"
       alt="{{ .alt }}"
