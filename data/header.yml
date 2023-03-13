@@ -11,8 +11,8 @@ nav:
         link: travel-manager
       - label: Finance Managers
         link: finance-manager
-  - label: About
-    link: about
+  - label: About Us
+    link: about-us
   - label: Pricing
     link: pricing
   - label: Case Studies

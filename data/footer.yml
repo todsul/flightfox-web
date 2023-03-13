@@ -18,8 +18,8 @@ nav:
         link: finance-manager
   - section: Quick Links
     children:
-      - label: About
-        link: about
+      - label: About Us
+        link: about-us
       - label: Pricing
         link: pricing
       - label: Case Studies
