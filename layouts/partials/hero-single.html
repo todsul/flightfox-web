@@ -23,7 +23,7 @@
       {{ $color := cond (.alt) "bg-primary-transparent focus:text-primary hover:text-primary text-primary" "bg-primary focus:text-white hover:text-white text-white" }}
 
       <a
-        class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowra"
+        class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"
         href="{{ .link | absURL }}"
       >
         {{ .label }}
