@@ -1,75 +1,19 @@
 {{ define "hero" }}
-  <div
-    class="bg-no-repeat col-start-2 flex flex-col items-start justify-between max-w-main md:flex-row md:self-center mx-auto overflow-hidden self-start w-full"
-    {{ with .Params.backgroundAlt }}
-      {{ $imgBg := resources.Get (print "/img/" .) }}
-      style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right bottom;'
-    {{ end }}
-  >
-    <div class="flex flex-col h-full items-start justify-start max-w-xl w-full">
-      {{ with .Params.tagLine }}
-        <p class="leading-relaxed mb-4 mt-0 mx-0 text-primary">{{ . }}</p>
-      {{ end }}
-      <h1
-        class="font-normal max-w-4xl md:text-6xl mb-6 mt-0 mx-0 text-3xl leading-snug w-full"
-      >
-        {{ .Title | safeHTML }}
-      </h1>
-      {{ with .Params.description }}
-        <p class="leading-relaxed m-0 max-w-2xl text-meta w-full">{{ . }}</p>
-      {{ end }}
-      {{ with .Params.cta }}
-        <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
-        {{ range . }}
-          {{ $color := cond (.alt) "bg-primary-transparent focus:text-primary hover:text-primary text-primary" "bg-primary focus:text-white hover:text-white text-white" }}
-
-          <a
-            class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowra"
-            href="{{ .link | absURL }}"
-          >
-            {{ .label }}
-          </a>
-        {{ end }}
-        </nav>
-      {{ end }}
-    </div>
-    {{ with .Params.image }}
-      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "h-full md:mt-auto mt-24 w-auto" "iClasses" "max-w-2xl w-full" "size" 1300) }}
-    {{ end }}
-  </div>
-  {{ with .Params.clients }}
-    <div class="col-start-2 flex flex-col items-start justify-center md:mt-6 mt-8 overflow-hidden w-full">
-      <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-left text-meta w-full">
-        {{ .heading }}
-      </p>
-      <ul
-        id="clients"
-        class="gap-x-8 grid grid-cols-6-auto grid-rows-1 items-center list-none md:gap-x-16 md:m-0 mr-auto my-0 p-0 w-full"
-        data-type="single"
-        style='--client-length: {{ len .companies }};'
-      >
-        {{ range .companies }}
-        <li class="h-auto m-0 p-0 w-auto">
-          {{ partial "img.html" (dict "src" .img "alt" .label "pClasses" "w-auto" "iClasses" "h-7 md:h-10 w-auto" "size" 240) }}
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-  {{ end }}
+  {{ partial "hero-single.html" . }}
 {{ end }}
 {{ define "main" }}
 {{ end }}
 {{ define "styles" }}
 <style>
-body {
-  --hero-bg-position: 62vw center;
-}
-
-@media screen and (max-width: 768px) {
   body {
-    --hero-bg-size: 125vw;
-    --hero-bg-position: center bottom;
+    --hero-bg-position: 62vw center;
   }
-}
+
+  @media screen and (max-width: 768px) {
+    body {
+      --hero-bg-size: 125vw;
+      --hero-bg-position: center bottom;
+    }
+  }
 </style>
 {{ end }}
