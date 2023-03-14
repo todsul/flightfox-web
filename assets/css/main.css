@@ -153,7 +153,13 @@ nav#hero-nav {
 }
 
 ul#clients {
-  min-width: 68.75rem;
+  --col-size: calc(var(--client-size) * var(--client-length));
+
+  min-width: var(--col-size);
+}
+
+ul#clients[data-type="single"] picture {
+  justify-content: flex-start;
 }
 
 article ol,

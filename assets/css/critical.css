@@ -12,6 +12,7 @@
   --hero-bg-position: -10vw center;
   --hero-bg-size: 33.25rem;
   --hero-cta: 11.125rem;
+  --client-size: 12.5rem;
   --main-padding: 4.625rem;
   --main-width: 1300px;
   --footer-height: 32rem;
@@ -25,6 +26,7 @@
     --header-height: 6.25rem;
     --hero-bg-size: 11rem;
     --hero-cta: 20rem;
+    --client-size: 9.375rem;
     --main-padding: 2.125rem;
     --footer-height: 42.5rem;
     --footer-gap: 3.75rem;
