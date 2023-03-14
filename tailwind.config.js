@@ -1,5 +1,6 @@
 const pallete = {
   background: 'var(--background)',
+  'background-light': 'var(--background-light)',
   'background-dark': 'var(--background-dark)',
   foreground: 'var(--foreground)',
   footer: 'var(--footer)',
@@ -11,6 +12,7 @@ const pallete = {
 
 const widths = {
   main: 'var(--main-width)',
+  'legal-width': 'var(--legal-width)',
   xxs: '18rem',
   xxxs: '14rem',
   xxxxs: '10rem',
