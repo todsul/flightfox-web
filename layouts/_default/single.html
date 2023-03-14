@@ -1,5 +1,12 @@
 {{ define "hero" }}
-  {{ partial "hero-single.html" . }}
+  {{ if ne .Params.layout nil }}
+    {{ if eq .Params.layout "legal" }}
+      {{ partial "hero-legal.html" . }}
+    {{ else }}
+    {{ end }}
+  {{ else }}
+    {{ partial "hero-single.html" . }}
+  {{ end }}
 {{ end }}
 {{ define "main" }}
 {{ end }}

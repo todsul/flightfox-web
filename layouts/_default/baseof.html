@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
   {{ partial "head.html" . }}
-  <body>
+  <body {{ with .Params.layout }}data-layout="{{ . }}"{{ end }}>
     {{ partial "header.html" . }}
 
-    <main class="grid relative w-full">
+    <main
+      class="grid relative w-full"
+      {{ with .Params.layout }}data-layout="{{ . }}"{{ end }}
+    >
       <section
         id="hero"
         class="bg-no-repeat col-span-3 col-start-1 grid items-center justify-center relative row-start-2 w-full"
         {{ with .Params.background }}
           {{ $imgBg := resources.Get (print "/img/" .) }}
           style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: var(--hero-bg-position);'
+        {{ end }}
+        {{ with .Params.layout }}
+        data-layout="{{ . }}"
         {{ end }}
       >
         {{ block "hero" . }}{{ end }}

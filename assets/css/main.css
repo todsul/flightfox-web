@@ -143,8 +143,25 @@ textarea {
 }
 
 /* Custom */
+body[data-layout="blog-feed"] {
+  background-color: var(--background-light);
+}
+
 section#hero {
   min-height: 34.25rem;
+}
+
+section#hero[data-layout="blog-feed"],
+section#hero[data-layout="legal"] {
+  grid-row-start: 1;
+}
+
+section#hero[data-layout="blog-feed"] {
+  min-height: 13.125rem;
+}
+
+section#hero[data-layout="legal"] {
+  min-height: 17.5rem;
 }
 
 nav#hero-nav {

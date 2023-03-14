@@ -6,8 +6,8 @@ cta:
   - label: Get Started
     link: pricing
     alt: false
-  - label: See Soultions
-    link: traveller
+  - label: See Benefits
+    link: "#benefits"
     alt: true
 image: about-us/hero.png
 alt: ""

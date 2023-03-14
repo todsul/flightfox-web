@@ -7,7 +7,7 @@ cta:
     link: pricing
     alt: false
   - label: See Soultions
-    link: traveller
+    link: "#solutions"
     alt: true
 image: home/hero-desktop.png
 imageMobile: home/hero-mobile.png
