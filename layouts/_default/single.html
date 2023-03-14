@@ -37,11 +37,34 @@
       {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "h-full md:mt-auto mt-24 w-auto" "iClasses" "max-w-2xl w-full" "size" 1300) }}
     {{ end }}
   </div>
+  {{ with .Params.clients }}
+    <div class="col-start-2 flex flex-col items-start justify-center md:mt-6 mt-8 overflow-hidden w-full">
+      <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-left text-meta w-full">
+        {{ .heading }}
+      </p>
+      <ul
+        id="clients"
+        class="gap-x-8 grid grid-cols-6-auto grid-rows-1 items-center list-none md:gap-x-16 md:m-0 mr-auto my-0 p-0 w-full"
+        data-type="single"
+        style='--client-length: {{ len .companies }};'
+      >
+        {{ range .companies }}
+        <li class="h-auto m-0 p-0 w-auto">
+          {{ partial "img.html" (dict "src" .img "alt" .label "pClasses" "w-auto" "iClasses" "h-7 md:h-10 w-auto" "size" 240) }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  {{ end }}
 {{ end }}
 {{ define "main" }}
 {{ end }}
 {{ define "styles" }}
 <style>
+body {
+  --hero-bg-position: 62vw center;
+}
+
 @media screen and (max-width: 768px) {
   body {
     --hero-bg-size: 125vw;
