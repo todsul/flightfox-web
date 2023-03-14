@@ -78,8 +78,9 @@
       </p>
       <nav class="flex flex-col items-start justify-start md:flex-row md:items-center md:justify-center w-auto">
         {{ range .Site.Data.footer.base.nav }}
+          {{ $link := cond (ne .anchor nil) (.link | absURL | replaceRE "/?$" .anchor) (.link | absURL) }}
           <a
-            href="{{ .link | absURL }}"
+            href="{{ $link }}"
             class="duration-200 ease-in-out focus:no-underline focus:opacity-100 focus:text-selection hover:no-underline hover:opacity-100 hover:text-selection md:mx-6 md:my-0 mx-0 mb-4 no-underline opacity-50 text-selection transition-opacity"
           >
             {{ .label }}

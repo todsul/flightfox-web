@@ -42,4 +42,5 @@ base:
     - label: Terms & Conditions
       link: terms
     - label: Privacy Policy
-      link: pricing
+      link: terms
+      anchor: '#privacy'
