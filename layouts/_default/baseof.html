@@ -10,7 +10,7 @@
     >
       <section
         id="hero"
-        class="bg-no-repeat col-span-3 col-start-1 grid items-center justify-center relative row-start-2 w-full"
+        class="bg-background bg-no-repeat col-span-3 col-start-1 grid items-center justify-center relative row-start-2 w-full"
         {{ with .Params.background }}
           {{ $imgBg := resources.Get (print "/img/" .) }}
           style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: var(--hero-bg-position);'

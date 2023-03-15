@@ -1,5 +1,5 @@
 <div
-  class="bg-no-repeat col-start-2 flex flex-col items-start justify-between max-w-main md:flex-row md:self-center mx-auto overflow-hidden self-start w-full"
+  class="bg-no-repeat col-start-2 flex flex-col items-start justify-between max-w-main md:flex-row md:self-center mx-auto overflow-hidden row-start-2 self-start w-full"
   {{ with .Params.backgroundAlt }}
     {{ $imgBg := resources.Get (print "/img/" .) }}
     style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right bottom;'
@@ -37,7 +37,7 @@
 {{ end }}
 </div>
 {{ with .Params.clients }}
-<div class="col-start-2 flex flex-col items-start justify-center md:mt-6 mt-8 overflow-hidden w-full">
+<div class="col-start-2 flex flex-col items-start justify-center md:mt-6 mt-8 overflow-hidden row-start-3 w-full">
   <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-left text-meta w-full">
     {{ .heading }}
   </p>

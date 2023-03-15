@@ -143,10 +143,6 @@ textarea {
 }
 
 /* Custom */
-body[data-layout='blog-feed'] {
-  background-color: var(--background-light);
-}
-
 section#hero {
   --blog-height: 13.125rem;
   --legal-height: 17.5rem;
@@ -167,11 +163,17 @@ section#hero[data-layout='legal'] {
 }
 
 section#hero[data-layout='blog-feed'] {
+  background: var(--background-light);
   min-height: var(--blog-height);
 }
 
 section#hero[data-layout='legal'] {
   min-height: var(--legal-height);
+}
+
+section#hero h1 {
+  line-height: 1.375 !important;
+  min-height: calc(3.75rem * 1.7);
 }
 
 nav#hero-nav {

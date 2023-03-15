@@ -63,7 +63,7 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: var(--background-light);
   color: var(--foreground);
   font-family: Manrope, sans-serif;
   overflow-x: hidden;
@@ -93,13 +93,17 @@ header {
 }
 
 main {
-  grid-template-rows: var(--main-padding) min-content auto var(--main-padding);
+  grid-template-rows: 0 min-content auto var(--main-padding);
   min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
 }
 
 main > h1 {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
+}
+
+section#hero {
+  grid-template-rows: var(--main-padding) repeat(2, auto) var(--main-padding);
 }
 
 footer {

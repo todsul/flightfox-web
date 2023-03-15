@@ -1,6 +1,6 @@
 {{ define "hero" }}
   <div
-    class="bg-no-repeat col-start-2 flex flex-col items-center justify-center max-w-main mx-auto overflow-hidden w-full"
+    class="bg-no-repeat col-start-2 flex flex-col items-center justify-center max-w-main mx-auto overflow-hidden row-start-2 w-full"
     {{ with .Params.backgroundAlt }}
       {{ $imgBg := resources.Get (print "/img/" .) }}
       style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right 70vh;'
