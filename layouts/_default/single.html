@@ -1,9 +1,11 @@
 {{ define "hero" }}
   {{ if ne .Params.layout nil }}
-    {{ if eq .Params.layout "legal" }}
-      {{ partial "hero-legal.html" . }}
-    {{ else if eq .Params.layout "alt" }}
+    {{ if eq .Params.layout "alt" }}
       {{ partial "hero-single-alt.html" . }}
+    {{ else if eq .Params.layout "blog-feed" }}
+      {{ partial "hero-blog-feed.html" . }}
+    {{ else if eq .Params.layout "legal" }}
+      {{ partial "hero-legal.html" . }}
     {{ else }}
     {{ end }}
   {{ else }}
