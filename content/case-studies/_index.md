@@ -1,4 +1,5 @@
 ---
+layout: default
 title: <b>See how</b> modern companies <span>travel</span>
 tagLine: Case Studies
 description: We've helped 1000s of companies save time and money, bringing their business travel into the future. Learn how some of our customers are using TravelPerk to manage their business travel more smoothly than ever before.

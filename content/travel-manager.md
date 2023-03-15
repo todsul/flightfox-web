@@ -1,4 +1,5 @@
 ---
+layout: default
 title: <b>Travel Management</b> that Saves You <span>Time and Money</span>
 tagLine: For Travel Managers
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit varius adipiscing aliquet magna tincidunt iaculis nam morbi. Augue fringilla.

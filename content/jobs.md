@@ -1,4 +1,5 @@
 ---
+layout: default
 title: <b>Help us</b> shape an <span>industry.</span>
 tagLine: Jobs
 description: Flightfox is a close team of the world's best travel experts. We live, work and travel all over the world while providing a valuable service to our customers.

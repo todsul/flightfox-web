@@ -33,25 +33,29 @@
         </nav>
       {{ end }}
     </div>
-    {{ partial "img.html" (dict "src" .Params.image "alt" "" "pClasses" "hidden md:flex w-auto" "iClasses" "max-w-4xl w-full" "size" 1300) }}
+    {{ with .Params.image }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex w-auto" "iClasses" "max-w-4xl w-full" "size" 1300) }}
+    {{ end }}
     {{ with .Params.imageMobile }}
       {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden w-auto" "iClasses" "max-w-xs w-full" "size" 768) }}
     {{ end }}
-    <div class="flex flex-col items-center justify-start w-full">
-      <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-center text-meta w-full">
-        {{ .Params.clients.heading }}
-      </p>
-      <ul
-        id="clients"
-        class="gap-x-16 grid grid-cols-6-auto grid-rows-1 items-center justify-start list-none md:justify-center md:m-0 mr-auto my-0 p-0 w-full"
-      >
-        {{ range .Params.clients.companies }}
-        <li class="h-auto m-0 p-0 w-auto">
-          {{ partial "img.html" (dict "src" .img "alt" .label "pClasses" "w-auto" "iClasses" "h-7 md:h-10 w-auto" "size" 240) }}
-        </li>
-        {{ end }}
-      </ul>
-    </div>
+    {{ with .Params.clients }}
+      <div class="flex flex-col items-center justify-start w-full">
+        <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-center text-meta w-full">
+          {{ .heading }}
+        </p>
+        <ul
+          id="clients"
+          class="gap-x-16 grid grid-cols-6-auto grid-rows-1 items-center justify-start list-none md:justify-center md:m-0 mr-auto my-0 p-0 w-full"
+        >
+          {{ range .companies }}
+          <li class="h-auto m-0 p-0 w-auto">
+            {{ partial "img.html" (dict "src" .img "alt" .label "pClasses" "w-auto" "iClasses" "h-7 md:h-10 w-auto" "size" 240) }}
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
   </div>
 {{ end }}
 {{ define "main" }}

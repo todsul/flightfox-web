@@ -1,4 +1,5 @@
 ---
+layout: default
 title: <b>Business Trips Made <span>Easy</span> For</b> Travellers, Managers & Accounts
 tagLine:
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae adipiscing enim elementum. Mi leo eget proin etiam volutpat facilisi pellentesque.
