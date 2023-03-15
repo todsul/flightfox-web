@@ -17,10 +17,11 @@
       </style>
     {{ end }}
     {{ partial "header.html" . }}
+    {{ $layout := cond (ne .Params.layout nil) .Params.layout (cond (and (ne .Parent nil) (ne .Parent.RelPermalink "/")) "child" nil) }}
 
     <main
       class="grid relative w-full"
-      {{ with .Params.layout }}data-layout="{{ . }}"{{ end }}
+      {{ with $layout }}data-layout="{{ . }}"{{ end }}
     >
       <section
         id="hero"
@@ -29,9 +30,7 @@
           {{ $imgBg := resources.Get (print "/img/" .) }}
           style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: var(--hero-bg-position);'
         {{ end }}
-        {{ with .Params.layout }}
-        data-layout="{{ . }}"
-        {{ end }}
+        {{ with $layout }}data-layout="{{ . }}"{{ end }}
       >
         {{ block "hero" . }}{{ end }}
       </section>

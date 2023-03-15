@@ -13,6 +13,8 @@
   --hero-bg-position: -10vw center;
   --hero-bg-size: 33.25rem;
   --hero-cta: 13rem;
+  --hero-stat-width: 1fr;
+  --hero-stat-height: 7rem;
   --client-size: 13.5rem;
   --main-padding: 4.625rem;
   --bottom-padding: var(--main-padding);
@@ -29,6 +31,8 @@
     --header-height: 6.25rem;
     --hero-bg-size: 11rem;
     --hero-cta: 20rem;
+    --hero-stat-width: 5.9375rem;
+    --hero-stat-height: 5.375rem;
     --client-size: 9.375rem;
     --main-padding: 2.125rem;
     --bottom-padding: var(--main-padding);

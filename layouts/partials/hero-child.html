@@ -1,0 +1,81 @@
+<div
+  class="bg-no-repeat col-start-2 flex flex-col-reverse items-start justify-between max-w-main md:flex-row md:self-center mx-auto overflow-hidden row-start-2 self-start w-full"
+  {{ with .Params.backgroundAlt }}
+    {{ $imgBg := resources.Get (print "/img/" .) }}
+    style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right bottom;'
+  {{ end }}
+>
+  <div class="flex flex-col h-full items-start justify-start max-w-xl md:pr-14 w-full">
+    {{ with .Params.tagLine }}
+      <p class="leading-relaxed mb-4 mt-0 mx-0 text-primary">{{ . }}</p>
+    {{ end }}
+    <h1
+      class="max-w-4xl md:mb-6 md:text-6xl mb-4 mt-0 mx-0 text-3xl text-background leading-snug w-full"
+    >
+      {{ .Title | safeHTML }}
+    </h1>
+    {{ with .Params.stats }}
+      <ul id="hero-stats" class="gap-x-6 grid list-none mb-4 md:gap-x-10 md:mb-8 mx-0 p-0 w-full">
+        {{ range . }}
+          <li
+            class="border-0 border-l border-meta border-solid flex flex-col h-full items-start justify-start pl-4"
+          >
+            <p class="mb-2 mt-0 mx-0 md:text-6xl text-background text-4xl">{{ .number }}</p>
+            <p class="font-medium m-0 md:text-base md:whitespace-nowrap text-primary text-sm">{{ .label }}</p>
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+    {{ with .Params.description }}
+      <p class="leading-relaxed m-0 max-w-2xl text-meta w-full">{{ . }}</p>
+    {{ end }}
+    {{ if eq .Section "blog" }}
+      <div class="flex items-center justify-start mt-8 w-full">
+        {{ with .Params.date }}
+          <time class="leading-relaxed m-0 text-meta" datetime="{{ . }}">
+            {{ dateFormat "02 January 2006" . }}
+          </time>
+          <span class="leading-relaxed mx-3 my-0 text-meta">&bull;</span>
+        {{ end }}
+        {{ $readingPlural := cond (gt .ReadingTime 1) "mins" "min" }}
+        <p class="leading-relaxed m-0 text-meta">{{ .ReadingTime }} {{ $readingPlural }} read</p>
+      </div>
+    {{ end }}}
+    {{ with .Params.cta }}
+      <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
+      {{ range . }}
+        {{ $color := cond (.alt) "bg-primary-transparent focus:text-primary hover:text-primary text-primary" "bg-primary focus:text-white hover:text-white text-white" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+    {{ end }}
+  </div>
+  {{ with .Params.image }}
+    {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "h-full mb-4 md:mt-auto md:px-4 mt-0 w-auto" "iClasses" "max-w-2xl rounded-2xl w-full" "size" 1300) }}
+  {{ end }}
+</div>
+{{ with .Params.clients }}
+<div class="col-start-2 flex flex-col items-start justify-center md:mt-6 mt-8 overflow-hidden row-start-3 w-full">
+  <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-left text-meta w-full">
+    {{ .heading }}
+  </p>
+  <ul
+    id="clients"
+    class="gap-x-8 grid grid-cols-6-auto grid-rows-1 items-center list-none md:gap-x-16 md:m-0 mr-auto my-0 p-0 w-full"
+    data-type="single"
+    style='--client-length: {{ len .companies }};'
+  >
+    {{ range .companies }}
+    <li class="h-auto m-0 p-0 w-auto">
+      {{ partial "img.html" (dict "src" .img "alt" .label "pClasses" "w-auto" "iClasses" "h-7 md:h-10 w-auto" "size" 240) }}
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

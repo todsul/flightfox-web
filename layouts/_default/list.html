@@ -9,6 +9,8 @@
     {{ else }}
       {{ partial "hero-default.html" . }}
     {{ end }}
+  {{ else if ne .Parent.RelPermalink "/" }}
+    {{ partial "hero-child.html" . }}
   {{ else }}
     {{ partial "hero-default.html" . }}
   {{ end }}
