@@ -1,16 +1,10 @@
 ---
-layout: pricing
-title: Pricing
-tagLine:
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit varius adipiscing aliquet magna tincidunt iaculis nam morbi. Augue fringilla.
+layout: alt
+title: <b>Straight Forward</b> Pricing, <span>Next Level</span> Travel.
+tagLine: Pricing
+description: "Get access to the world’s largest travel inventory and our #1 rated Customer Care Team with our flat pricing."
 cta:
-  - label: Get Started
-    link: pricing
-    alt: false
-  - label: See Soultions
-    link: "#solutions"
-    alt: true
-image: about-us/hero.png
-alt: ""
-background: bg-wave-light.svg
+image:
+alt:
+background: bg-wave-dark.svg
 ---

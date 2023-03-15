@@ -150,11 +150,9 @@ section#hero {
   min-height: 34.25rem;
 }
 
-@media screen and (max-width: 768px) {
-  section#hero {
-    --blog-height: 6.75rem;
-    --legal-height: 10rem;
-  }
+section#hero[data-layout='alt'],
+section#hero[data-layout='legal'] {
+  background-color: var(--foreground);
 }
 
 section#hero[data-layout='blog-feed'],
@@ -162,13 +160,28 @@ section#hero[data-layout='legal'] {
   grid-row-start: 1;
 }
 
+section#hero[data-layout='alt'] {
+  --bottom-padding: 14.75rem;
+}
+
 section#hero[data-layout='blog-feed'] {
-  background: var(--background-light);
+  background-color: var(--background-light);
   min-height: var(--blog-height);
 }
 
 section#hero[data-layout='legal'] {
   min-height: var(--legal-height);
+}
+
+@media screen and (max-width: 768px) {
+  section#hero {
+    --blog-height: 6.75rem;
+    --legal-height: 10rem;
+  }
+
+  section#hero[data-layout='alt'] {
+    --bottom-padding: 15.1875rem;
+  }
 }
 
 section#hero h1 {

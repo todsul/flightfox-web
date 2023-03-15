@@ -15,6 +15,7 @@
   --hero-cta: 13rem;
   --client-size: 13.5rem;
   --main-padding: 4.625rem;
+  --bottom-padding: var(--main-padding);
   --main-width: 1300px;
   --legal-width: 860px;
   --footer-height: 32rem;
@@ -30,6 +31,7 @@
     --hero-cta: 20rem;
     --client-size: 9.375rem;
     --main-padding: 2.125rem;
+    --bottom-padding: var(--main-padding);
     --footer-height: 42.5rem;
     --footer-gap: 3.75rem;
   }
@@ -103,7 +105,9 @@ main > h1 {
 }
 
 section#hero {
-  grid-template-rows: var(--main-padding) repeat(2, auto) var(--main-padding);
+  grid-template-rows: var(--main-padding) repeat(2, min-content) var(
+      --bottom-padding
+    );
 }
 
 footer {
