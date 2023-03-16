@@ -6,6 +6,8 @@
       {{ partial "hero-blog-feed.html" . }}
     {{ else if eq .Params.layout "legal" }}
       {{ partial "hero-legal.html" . }}
+    {{ else if eq .Params.layout "login" }}
+      {{ partial "hero-login.html" . }}
     {{ else }}
       {{ partial "hero-default.html" . }}
     {{ end }}

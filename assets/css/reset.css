@@ -123,8 +123,19 @@ blockquote {
   padding-left: 1.3125rem;
 }
 
+button {
+  min-width: 7.75rem;
+}
+
 button:disabled {
   cursor: not-allowed;
+}
+
+button:focus > img,
+button:focus > svg,
+button:hover > img,
+button:hover > svg {
+  transform: translateX(0.25rem);
 }
 
 hr {
@@ -196,6 +207,7 @@ textarea {
   appearance: none;
   border: 1.5px dashed transparent;
   font-size: 1rem;
+  min-height: 3.5rem;
   outline: none;
   padding: 0.25rem;
   transition: border-color var(--duration) ease;
@@ -203,12 +215,29 @@ textarea {
 
 input:required:invalid,
 textarea:required:invalid {
-  border-color: var(--meta);
+  border-color: var(--selection);
 }
 
 input:required:valid,
 textarea:required:valid {
-  border-color: var(--secondary);
+  border-color: var(--meta);
+}
+
+input:focus,
+input:focus:required,
+input:hover,
+input:hover:required {
+  border-color: var(--meta);
+}
+
+input:focus:required:invalid,
+textarea:hover:required:invalid {
+  border-color: var(--primary);
+}
+
+input:focus:required:valid,
+textarea:hover:required:valid {
+  border-color: var(--foreground);
 }
 
 label {

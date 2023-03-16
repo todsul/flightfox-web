@@ -1,0 +1,38 @@
+<div
+  class="bg-background col-start-2 flex flex-col h-full items-center justify-between md:flex-row mx-auto overflow-hidden row-span-4 row-start-1 self-start w-full"
+>
+  <div class="flex flex-col items-start justify-center max-w-screen-sm w-full">
+    {{ partial "img.html" (dict "src" .Site.Data.header.logo "alt" .Site.Title "iClasses" "hidden m-0 md:flex") }}
+    <h1 class="font-semibold my-6 text-xl">{{ .Title }}</h1>
+    <form id="login" class="max-w-sm mb-1 w-full">
+      {{ range .Params.form.inputs }}
+        <div class="flex flex-col items-start justify-start mb-8 w-full">
+          <label
+            for="{{ .name }}"
+            class="font-normal mb-3 mt-0 text-meta"
+          >
+            {{ .label }}
+          </label>
+          <input
+            type="{{ .type }}"
+            name="{{ .name }}"
+            id="{{ .name }}"
+            class="border border-selection border-solid duration-200 ease-in-out focus:border-meta hover:border-meta h-auto m-0 px-4 rounded-xl transition-colors w-full"
+            placeholder="{{ .placeholder }}"
+            {{ if .required }}required{{ end }}
+          />
+        </div>
+      {{ end }}
+      <button
+        type="button"
+        id="login-btn"
+        class="bg-primary border-0 cursor-pointer duration-200 ease-in-out flex items-center font-normal focus:shadow-lg hover:shadow-lg justify-center m-0 px-8 py-4 rounded-xl text-background transition-shadow w-auto"
+      >
+        {{ .Params.form.submit.label }}
+        {{ partial "img.html" (dict "src" "arrow-next.svg" "alt" "" "iClasses" "duration-200 ease-in-out ml-2 mr-0 my-0 w-4 transition-transform" "hidden" true) }}
+    </form>
+  </div>
+  {{ with .Params.image }}
+    {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "h-full hidden max-w-screen-sm md:flex md:mt-auto mt-24" "iClasses" "max-w-screen-sm w-full" "size" 750) }}
+  {{ end }}
+</div>

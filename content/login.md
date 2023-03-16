@@ -1,16 +1,20 @@
 ---
 layout: login
-title: Login
+title: Sign In
 tagLine:
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit varius adipiscing aliquet magna tincidunt iaculis nam morbi. Augue fringilla.
+description:
 cta:
-  - label: Get Started
-    link: pricing
-    alt: false
-  - label: See Soultions
-    link: "#solutions"
-    alt: true
-image: about-us/hero.png
+image: login/hero.png
 alt: ""
-background: bg-wave-light.svg
+background:
+form:
+  inputs:
+    - label: Email address
+      name: email
+      type: email
+      placeholder: james@gmail.com
+      required: true
+  submit:
+    label: Next
+    alt: false
 ---

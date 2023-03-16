@@ -5,11 +5,15 @@
 }
 
 /* Custom */
+body[data-layout='login'] footer {
+  margin-top: 0;
+}
+
 section#hero {
   --blog-height: 13.125rem;
   --legal-height: 17.5rem;
 
-  min-height: 34.25rem;
+  min-height: var(--hero-height);
 }
 
 section#hero[data-layout='alt'],
@@ -19,8 +23,18 @@ section#hero[data-layout='legal'] {
 }
 
 section#hero[data-layout='blog-feed'],
-section#hero[data-layout='legal'] {
+section#hero[data-layout='legal'],
+section#hero[data-layout='login'] {
   grid-row-start: 1;
+}
+
+section#hero[data-layout='login'] {
+  --hero-height: 40.3125rem;
+  grid-row: span 4 / span 4;
+}
+
+section#hero[data-layout='login'] h1 {
+  min-height: auto;
 }
 
 section#hero[data-layout='alt'] {
