@@ -131,13 +131,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-button:focus > img,
-button:focus > svg,
-button:hover > img,
-button:hover > svg {
-  transform: translateX(0.25rem);
-}
-
 hr {
   border: 0.0156rem dashed var(--foreground);
   margin: 2rem 0;

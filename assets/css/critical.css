@@ -118,3 +118,8 @@ section#hero {
 footer {
   grid-template-rows: var(--footer-gap) min-content var(--footer-gap) min-content;
 }
+
+button#mobile-menu-toggle {
+  max-width: 2.5rem;
+  min-width: 2.5rem;
+}

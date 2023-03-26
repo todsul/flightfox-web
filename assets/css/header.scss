@@ -8,9 +8,11 @@ header {
 
   nav {
     ul {
-      &[data-type='sub-menu'] {
-        @media screen and (min-width: 1024px) {
-          width: 10rem;
+      @media screen and (min-width: 1024px) {
+        &[data-type='sub-menu'] {
+          &, li {
+            width: 10.525rem;
+          }
         }
       }
 

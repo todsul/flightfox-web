@@ -14,11 +14,11 @@
           data-active="false"
         >
           {{ .label }}
-          {{ partial "img.html" (dict "src" "arrow-down.svg" "alt" "Open sub menu" "iClasses" "duration-200 ease-in-out ml-2 my-0 transition-transform" "hidden" true) }}
+          {{ partial "img.html" (dict "src" "arrow-down.svg" "alt" "Open sub menu" "iClasses" "duration-200 ease-in-out mx-2 my-0 transition-transform" "hidden" true) }}
         </button>
         <ul
           id="{{ .link }}-sub"
-          class="auto-rows-min duration-200 ease-in-out grid grid-cols-1 h-0 items-center justify-start lg:absolute lg:bg-white lg:gap-2 lg:left-0 lg:overflow-hidden lg:top-14 lg:rounded-xl list-none m-0 opacity-0 px-0 transition-all w-full z-100"
+          class="auto-rows-min duration-200 ease-in-out grid grid-cols-1 h-0 items-center justify-start lg:absolute lg:bg-white lg:gap-2 lg:left-0 lg:overflow-hidden lg:top-14 lg:rounded-xl list-none m-0 opacity-0 px-0 shadow-lg transition-all w-full z-100"
           data-type="sub-menu"
           data-active="false"
           aria-hidden="true"
@@ -27,7 +27,7 @@
             <li class="col-start-1 flex items-center justify-start m-0 w-full">
               <a
                 href="{{ .link | absURL }}"
-                class="border-0 border-b border-selection border-solid duration-200 ease-in-out flex font-medium items-center justify-between lg:justify-center lg:border-b-0 lg:border-transparent lg:focus:bg-selection lg:focus:no-underline lg:hover:bg-selection lg:hover:no-underline px-4 lg:rounded-xl lg:w-auto no-underline py-3 text-center text-base transition-colors whitespace-nowrap w-full"
+                class="border-0 border-b border-selection border-solid duration-200 ease-in-out flex font-medium items-center justify-between lg:justify-start lg:border-b-0 lg:border-transparent lg:focus:bg-selection lg:focus:no-underline lg:hover:bg-selection lg:hover:no-underline px-4 lg:rounded-xl lg:text-left no-underline py-3 text-center text-base transition-colors whitespace-nowrap w-full"
               >
                 {{ .label }}
               </a>

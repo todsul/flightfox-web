@@ -47,6 +47,7 @@
         <ul
           id="clients"
           class="gap-x-16 grid grid-cols-6-auto grid-rows-1 items-center justify-start list-none md:justify-center md:m-0 mr-auto my-0 p-0 w-full"
+          style='--client-length: {{ len .companies }};'
         >
           {{ range .companies }}
           <li class="h-auto m-0 p-0 w-auto">
