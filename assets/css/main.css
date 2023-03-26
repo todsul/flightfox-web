@@ -23,7 +23,6 @@ section#hero[data-layout='legal'] {
 }
 
 section#hero[data-layout='blog-feed'],
-section#hero[data-layout='legal'],
 section#hero[data-layout='login'] {
   grid-row-start: 1;
 }
@@ -94,6 +93,16 @@ ul#clients {
 
 ul#clients[data-type='single'] picture {
   justify-content: flex-start;
+}
+
+section#main[data-layout='legal'] {
+  margin: 0 auto;
+  max-width: var(--legal-width);
+  padding-top: 2.6875rem;
+}
+
+section#main[data-layout='legal'] p {
+  color: var(--meta);
 }
 
 article ol,
