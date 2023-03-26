@@ -5,6 +5,13 @@
 }
 
 /* Custom */
+body[data-layout='contact'] main {
+  --hero-height: 33.5rem;
+  --bottom-padding: 0;
+  --main-padding: 0;
+}
+
+body[data-layout='contact'] footer,
 body[data-layout='login'] footer {
   margin-top: 0;
 }
@@ -105,6 +112,19 @@ section#main[data-layout='legal'] p {
   color: var(--meta);
 }
 
+div#info ul {
+  gap: 1rem 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(19.0625rem, 39.125rem));
+}
+
+div#info li {
+  max-height: 22.25rem;
+}
+
+div#info a {
+  color: var(--primary);
+}
+
 article ol,
 article ul {
   padding-left: 1rem;
@@ -113,6 +133,10 @@ article ul {
 section.footnotes a,
 sup a {
   text-decoration: none !important;
+}
+
+p[data-heading="true"] span {
+  color: var(--primary);
 }
 
 a.footnote-ref {

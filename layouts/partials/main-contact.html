@@ -1,0 +1,27 @@
+<div id="locations" class="grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <div class="flex flex-wrap items-center justify-between w-full">
+      <p class="mr-4 text-5xl" data-heading="true">{{ .Params.locations.heading | safeHTML }}</p>
+      <p class="m-0 max-w-2xl md:pl-11 text-meta w-full">{{ .Params.locations.copy | markdownify }}</p>
+    </div>
+    {{ partial "img.html" (dict "src" .Params.locations.image "alt" "" "pClasses" "h-full md:mt-8 mt-6 w-auto" "iClasses" "max-w-main rounded-5xl w-full" "size" 1500) }}
+  </div>
+</div>
+<div id="info" class="bg-footer grid items-center justify-center row-start-3 w-full">
+  <ul class="col-start-2 grid grid-rows-1 items-center justify-center list-none m-0 p-0 row-start-2 w-full">
+    {{ range .Params.footer }}
+      <li class="bg-background flex flex-col items-start justify-start md:h-full md:p-10 px-6 py-8 rounded-4xl w-full">
+        <div
+          class="bg-primary-transparent flex items-center justify-center h-12 md:h-16 md:mb-6 md:w-16 mb-4 rounded-full w-12"
+        >
+          {{ partial "img.html" (dict "src" .icon "alt" "" "iClasses" "md:w-7 w-6" "size" 34) }}
+        </div>
+        <p class="mb-4 mt-0 text-2xl" data-heading="true">{{ .heading }}</p>
+        <p class="m-0 text-meta w-full">{{ .copy | markdownify }}</p>
+        {{ with .extra }}
+          <p class="mb-0 md:mt-auto mt-4 mx-0 text-meta w-full">{{ . | markdownify }}</p>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>

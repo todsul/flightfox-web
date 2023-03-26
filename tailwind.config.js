@@ -34,6 +34,10 @@ module.exports = {
   theme: {
     extend: {
       borderColor: pallete,
+      borderRadius: {
+        '4xl': '1.75rem',
+        '5xl': '2rem',
+      },
       borderWidth: { under: '3.55px' },
       colors: pallete,
       fill: pallete,

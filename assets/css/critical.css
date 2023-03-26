@@ -19,6 +19,7 @@
   --client-size: 13.5rem;
   --main-padding: 4.625rem;
   --bottom-padding: var(--main-padding);
+  --content-padding: 6.75rem;
   --main-width: 1300px;
   --legal-width: 860px;
   --footer-height: 32rem;
@@ -37,6 +38,7 @@
     --client-size: 9.375rem;
     --main-padding: 2.125rem;
     --bottom-padding: var(--main-padding);
+    --content-padding: 4.625rem;
     --footer-height: 42.5rem;
     --footer-gap: 3.75rem;
   }
@@ -88,6 +90,7 @@ header,
 main,
 footer,
 section#hero,
+section#main > div,
 section#footer-base {
   grid-template-columns: minmax(1.25rem, 1fr) minmax(335px, var(--main-width)) minmax(
       1.25rem,
@@ -102,6 +105,10 @@ header {
 main {
   grid-template-rows: 0 min-content auto var(--main-padding);
   min-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+}
+
+section#main > div {
+  grid-template-rows: var(--content-padding) min-content var(--content-padding);
 }
 
 main > h1 {
