@@ -20,7 +20,7 @@
     {{ with .Params.cta }}
       <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
       {{ range . }}
-        {{ $color := cond (.alt) "bg-primary-transparent focus:text-primary hover:text-primary text-primary" "bg-primary focus:text-white hover:text-white text-white" }}
+        {{ $color := cond (.alt) "bg-primary-transparent focus:text-primary hover:text-primary text-primary" "bg-primary focus:text-white hover:text-white text-white visited:text-white" }}
 
         <a
           class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"
