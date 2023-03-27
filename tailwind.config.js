@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 const pallete = {
   background: 'var(--background)',
   'background-light': 'var(--background-light)',
@@ -92,4 +94,22 @@ module.exports = {
       auto: 'auto',
     },
   },
+  plugins: [
+    plugin(({ addComponents }) => {
+      addComponents({
+        '.white-link': {
+          color: 'var(--background)',
+          '&:focus': {
+            color: 'var(--background)',
+          },
+          '&:hover': {
+            color: 'var(--background)',
+          },
+          '&:visited': {
+            color: 'var(--background)',
+          },
+        },
+      });
+    }),
+  ],
 };
