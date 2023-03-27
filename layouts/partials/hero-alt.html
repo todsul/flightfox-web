@@ -1,5 +1,5 @@
 <div
-  class="col-start-2 flex flex-col items-center justify-center max-w-main mx-auto overflow-hidden row-start-2 w-full"
+  class="col-start-2 flex flex-col items-center justify-center max-w-main mx-auto overflow-visible row-start-2 w-full"
   {{ with .Params.backgroundAlt }}
     {{ $imgBg := resources.Get (print "/img/" .) }}
     style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right 70vh;'
@@ -20,7 +20,7 @@
     {{ with .Params.cta }}
       <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
       {{ range . }}
-        {{ $color := cond (.alt) "bg-primary-transparent focus:text-primary hover:text-primary text-primary" "bg-primary white-link" }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
 
         <a
           class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"

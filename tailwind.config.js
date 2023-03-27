@@ -97,6 +97,18 @@ module.exports = {
   plugins: [
     plugin(({ addComponents }) => {
       addComponents({
+        '.orange-link': {
+          color: 'var(--primary)',
+          '&:focus': {
+            color: 'var(--primary)',
+          },
+          '&:hover': {
+            color: 'var(--primary)',
+          },
+          '&:visited': {
+            color: 'var(--primary)',
+          },
+        },
         '.white-link': {
           color: 'var(--background)',
           '&:focus': {
