@@ -6,6 +6,8 @@
       {{ partial "hero-blog-feed.html" . }}
     {{ else if eq .Params.layout "legal" }}
       {{ partial "hero-legal.html" . }}
+    {{ else if eq .Params.layout "login" }}
+      {{ partial "hero-login.html" . }}
     {{ else }}
       {{ partial "hero-default.html" . }}
     {{ end }}
@@ -16,4 +18,19 @@
   {{ end }}
 {{ end }}
 {{ define "main" }}
+  {{ if ne .Params.layout nil }}
+    {{ if eq .Params.layout "alt" }}
+    {{ else if eq .Params.layout "blog-feed" }}
+    {{ else if eq .Params.layout "case-studies" }}
+      {{ partial "main-case-studies.html" . }}
+    {{ else if eq .Params.layout "contact" }}
+      {{ partial "main-contact.html" . }}
+    {{ else if eq .Params.layout "legal" }}
+      {{ partial "main-legal.html" . }}
+    {{ else if eq .Params.layout "login" }}
+    {{ else }}
+    {{ end }}
+  {{ else if ne .Parent.RelPermalink "/" }}
+  {{ else }}
+  {{ end }}
 {{ end }}

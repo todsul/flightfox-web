@@ -18,6 +18,7 @@
   <img
     src="{{ $simple.Permalink }}"
     alt="{{ .alt }}"
+    {{ with .id }}id="{{ . }}"{{ end }}
     class="{{ with .iClasses }}{{ . }}{{ else }}mb-2 w-full{{ end }}"
     width="{{ .size }}"
     aria-hidden="{{ $isHidden }}"
@@ -31,6 +32,7 @@
   {{ end }}
   {{ $imgPrimary := resources.Get (print "/img/" $img) }}
   <picture
+    {{ with .id }}id="{{ . }}"{{ end }}
     class="img-wrap flex items-center justify-center {{ with .pClasses }}{{ . }}{{ else }}{{ if eq .caption nil }} my-4{{ end }} w-full{{ end }}"
   >
     {{ $webpPrimary := $imgPrimary.Resize (print .size "x webp drawing q100") }}
