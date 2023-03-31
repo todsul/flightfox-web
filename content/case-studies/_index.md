@@ -75,4 +75,23 @@ studies:
     copy: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id augue quisque congue vel lorem tincidunt nec. Sed est quam nibh massa.
     hero: case-studies/hintsa-hero.png
     logo: case-studies/hintsa-logo.png
+testimonies:
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
 ---

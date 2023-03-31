@@ -12,6 +12,8 @@
 {{ $isSmall := cond (ne .small nil) "true" "false" }}
 {{ $maxWidth := cond (ne .small nil) "max-w-xxxxs" "max-w-xs" }}
 
+{{ $resize := cond (ne .width nil) (print .size "x") (print "x" .size) }}
+
 {{/*  Render conditionally by file type  */}}
 {{ if or (eq (index $svg 0) "svg") (eq (index $gif 0) "gif") }}
   {{ $simple := resources.Get (print "/img/" $img) }}

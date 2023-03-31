@@ -11,6 +11,7 @@ body[data-layout='contact'] main {
   --main-padding: 0;
 }
 
+body[data-layout='case-studies'] footer,
 body[data-layout='contact'] footer,
 body[data-layout='login'] footer {
   margin-top: 0;
@@ -110,6 +111,10 @@ section#main[data-layout='legal'] {
 
 section#main[data-layout='legal'] p {
   color: var(--meta);
+}
+
+section#main[data-layout="case-studies"] {
+  grid-row: span 2 / span 2;
 }
 
 div#info ul {
