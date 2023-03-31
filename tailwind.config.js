@@ -15,6 +15,7 @@ const pallete = {
 const widths = {
   main: 'var(--main-width)',
   'legal-width': 'var(--legal-width)',
+  card: '5rem',
   xxs: '18rem',
   xxxs: '14rem',
   xxxxs: '10rem',
