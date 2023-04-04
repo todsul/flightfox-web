@@ -34,3 +34,18 @@
   {{ else }}
   {{ end }}
 {{ end }}
+{{ define "styles" }}
+  {{ if eq .Params.layout "case-studies" }}
+    {{ $glide := resources.Get "css/glide.css" | resources.Minify }}
+    <link rel="stylesheet" href="{{ $glide.Permalink }}" />
+  {{ end }}
+{{ end }}
+{{ define "scripts" }}
+  {{ $opts := dict "minified" true "compact" true }}
+
+  {{ if eq .Params.layout "case-studies" }}
+    {{- $glideJS := resources.Get "scripts/glide.js" | babel -}}
+    {{ $glide := $glideJS | resources.Minify }}
+    <script src="{{ $glide.Permalink }}"></script>
+  {{ end }}
+{{ end }}
