@@ -9,6 +9,7 @@ specifiers:
   '@babel/preset-typescript': ^7.21.0
   '@babel/register': ^7.21.0
   '@builder.io/partytown': ^0.7.6
+  '@glidejs/glide': ^3.6.0
   babel-loader: ^8.3.0
   browserslist: ^4.21.5
   concurrently: ^6.5.1
@@ -35,6 +36,7 @@ specifiers:
 
 dependencies:
   '@builder.io/partytown': 0.7.6
+  '@glidejs/glide': 3.6.0
 
 devDependencies:
   '@babel/cli': 7.21.0_@babel+core@7.21.3
@@ -1704,6 +1706,10 @@ packages:
     resolution: {integrity: sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@glidejs/glide/3.6.0:
+    resolution: {integrity: sha512-47Aa+JmYjY4xTFpTtYCwrqirmI1arnp1UZETwtWpbTPisXUAuxrdJxKJLH8KHFWMsSrLi9+AcfyfzDIuO75rEA==}
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}

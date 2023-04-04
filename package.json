@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build:chroma": "hugo gen chromastyles > assets/css/syntax.css",
-    "build:prod": "npm run tw && hugo -e production --gc --minify",
+    "build:prod": "npm run ts && npm run tw && hugo -e production --gc --minify",
     "build:fallback": "npm run build:prod || npm run build:prod",
     "build:serve": "npm run build:prod && npm run serve",
     "build": "hugo --debug -e development -D --gc --log --minify -v --verboseLog",
@@ -15,7 +15,9 @@
     "lint": "eslint --fix --no-error-on-unmatched-pattern \"assets/**/*.{ts,js}\"",
     "prepare": "husky install",
     "serve": "serve -l 2323 dist",
-    "start": "npm run dev",
+    "start": "npm run ts && npm run dev",
+    "ts": "npm run ts:glide",
+    "ts:glide": "esbuild assets/scripts/glide.ts --bundle --splitting --format=esm --outdir=assets/scripts",
     "tsc": "tsc",
     "tw": "tailwindcss --no-autoprefixer -i ./assets/css/tailwind.css -o ./assets/css/tw.css"
   },
@@ -29,7 +31,8 @@
   },
   "homepage": "https://github.com/todsul/flightfox-web#readme",
   "dependencies": {
-    "@builder.io/partytown": "^0.7.6"
+    "@builder.io/partytown": "^0.7.6",
+    "@glidejs/glide": "^3.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
