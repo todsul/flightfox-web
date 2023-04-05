@@ -1,0 +1,17 @@
+---
+socials:
+  - label: Link
+    icon: "link.svg"
+    type: clip
+  - label: Twitter
+    icon: "twitter.svg"
+    type: link
+  - label: Facebook
+    icon: "facebook.svg"
+    type: link
+  - label: LinkedIn
+    icon: "linkedin.svg"
+    type: link
+  - label: Email
+    icon: "email.svg"
+    type: link
