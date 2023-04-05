@@ -36,3 +36,13 @@
   {{ else }}
   {{ end }}
 {{ end }}
+{{ define "scripts" }}
+  {{ $opts := dict "minified" true "compact" true }}
+
+  {{ if eq .Params.layout "case-study" }}
+    {{- $tocTS := resources.Get "scripts/toc.ts" | babel -}}
+    {{ $tocJS := slice $tocTS | resources.Concat "toc.js" }}
+    {{ $toc := $tocJS | resources.Minify }}
+    <script src="{{ $toc.Permalink }}"></script>
+  {{ end }}
+{{ end }}
