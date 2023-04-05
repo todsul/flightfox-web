@@ -41,11 +41,8 @@
   {{ end }}
 {{ end }}
 {{ define "scripts" }}
-  {{ $opts := dict "minified" true "compact" true }}
-
   {{ if eq .Params.layout "case-studies" }}
-    {{- $glideJS := resources.Get "scripts/glide.js" | babel -}}
-    {{ $glide := $glideJS | resources.Minify }}
+    {{ $glide := resources.Get "scripts/glide.js" | resources.Minify }}
     <script src="{{ $glide.Permalink }}"></script>
   {{ end }}
 {{ end }}
