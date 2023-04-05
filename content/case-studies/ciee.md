@@ -12,68 +12,53 @@ stats:
   - number: 5
     label: International Offices
 image: case-studies/ciee-hero.png
-contributors:
-  - name: Melissa Sands
-    title: Writer
-    img: case-studies/melissa-sands.png
 alt:
 background:
+company:
+  - heading: Industry
+    copy: Tech
+  - heading: Employees
+    copy: 40
+  - heading: Headquarters
+    copy: San Fransisco
 ---
 
-## Why trust what we say?
+## The Client
 
-We have booked 75,000+ trips for our customers from 1,000+ companies. We specialize in flight routing, airline/hotel pricing, credit cards, loyalty benefits and providing localized 24/7 support across the globe. We have a track record of delivering genuine savings to customers from 188 countries.
+One of our largest clients is a student travel company called CIEE. They send a few thousand students around the world throughout the year for exchange or experiential programs.
 
-## Intro
+We don't want to solely become a humanitarian/student travel company, but many of these companies suit us because they have travel at their core and need complex coordination, but don't want to book travel themselves (they focus on the in-country experience).
 
-### Why companies still travel?
+![The Challenge](/case-studies/ciee-the_challenge.png)
 
-Companies still travel for many reasons such as conferences, implementation projects, candidate interviews and sales meetings. Speaking with someone face-to-face is more intimate and can lead to stronger connections and increased business.
+## The Challenge
 
-Whether the increased business covers the cost of travel (compared to video conferencing) depends on many variables, but most companies still swear by in-person meetings.
+What was the challenge?
 
-### Why managing team travel isn't easy
+- 1000s of students traveling in groups of 10-50 to 6 continents
+- All from different airports, but on the same international flights as rest of group
+- Each student booking separately, at different times, on their own credit cards
+- Support required on travel day, when up to 1000 pax travel on the same day
+- Most students are under 18 years old, which presents unique challenges
 
-Booking travel for yourself online at retail prices is relatively easy; the difficult part is managing travel for a team, especially a team that needs to be productive.
+![The Solution](/case-studies/ciee-the_solution.png)
 
-Here are some examples of issues:
+## The Solution
 
-- **Credit Card Authorizations**
-  - If your company books travel on a company credit card, someone needs to handle the credit card authorization forms for all hotels and even some airlines. These need to be faxed (yes, faxed). Without these forms, airlines can deny boarding and hotels may require re-payment. Managing these forms and making sure they're all received is a nightmare.
+What was the solution?
 
-- **Cost vs. Convenience**
-  - The most convenient itineraries typically cost 2-5 times the cheapest itineraries. If your company has no controls in place, travelers will book the most costly options. When you try to implement controls, you will need to designate someone as “bad cop” to reject exception requests. As you grow, this will become a job no one wants.
+- Our value prop is that we combine technology and humans to handle any complexity
+- Use humans to arrange group flights/chaperones and provide 24/7 support
+- Use technology to coordinate everyone and secure the lowest prices
 
-- **Emergencies**
-  - People miss flights all the time. Have you ever tried to re-book a non-refundable international flight at the airport? It can cost thousands and take hours to resolve. What about a group of 20 who miss a flight and have all of their subsequent flights cancelled with no refund. It takes a ton of work to avoid spending $1000s to fix these issues.
+![The Outcome](/case-studies/ciee-the_outcome.png)
 
-## Managing Travel
+## The Outcome
 
-### Insourcing vs. Outsourcing
+What was the outcome?
 
-Not everyone should outsource their travel bookings and management. If you're a small team that doesn't travel much, you can handle it internally.
-
-There are two ways to manage travel internally:
-
-- Distributed (everyone books themselves), or
-- Centralized (a single person books for everyone else)
-
-The main benefit of the centralized style is a single person can hone their skills and save the company a small fortune.
-
-However, you should only centralize travel management if you have someone dedicated to operations. If you choose an engineer, you'll hinder their core work. Even one trip a week is enough to lose one day a week when things go wrong.
-
-> Tip: Only centralize travel management to operations staff.
-
-When insourcing your travel becomes too much, rather than hire a travel manager internally, it makes more sense to outsource. An outsourced team has more resources and experience. Most also have a global presence and provide 24/7 support.
-
-A few cautionary points about outsourcing your travel:
-
-- It costs money, even if advertised as free
-- It may not work as well in the beginning
-- It could lead to spending even more
-
-![United Airlines Itinerary](/case-studies/united-itinerary.png)
-
-Let's say you've taken a ton of United flights this year and you're close to reaching 1K elite status, but you predict you won't quite reach it by the end of the year. You can construct an itinerary that earns those additional miles for the lowest price possible so you qualify. This is called a mileage run.
-
-A mileage run involves flying a flight itinerary purely for the purpose of earning miles. This can be for redeemable miles or elite status miles.
+- 5 years of partnership so far
+- We start each season with human experts working with CIEE to arrange group flights
+- We built a custom landing page to ensure students book the right group flight
+- We use software to ensure the lowest prices from each home airport
+- We use humans on 5 continents to provide 24/7 support on travel days
