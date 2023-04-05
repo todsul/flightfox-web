@@ -4,6 +4,8 @@
       {{ partial "hero-alt.html" . }}
     {{ else if eq .Params.layout "blog-feed" }}
       {{ partial "hero-blog-feed.html" . }}
+    {{ else if eq .Params.layout "case-study" }}
+      {{ partial "hero-case-study.html" . }}
     {{ else if eq .Params.layout "legal" }}
       {{ partial "hero-legal.html" . }}
     {{ else if eq .Params.layout "login" }}
@@ -21,8 +23,8 @@
   {{ if ne .Params.layout nil }}
     {{ if eq .Params.layout "alt" }}
     {{ else if eq .Params.layout "blog-feed" }}
-    {{ else if eq .Params.layout "case-studies" }}
-      {{ partial "main-case-studies.html" . }}
+    {{ else if eq .Params.layout "case-study" }}
+      {{ partial "main-case-study.html" . }}
     {{ else if eq .Params.layout "contact" }}
       {{ partial "main-contact.html" . }}
     {{ else if eq .Params.layout "legal" }}
