@@ -72,18 +72,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Render Tailwind
-        run: npm run tw
-
-      - name: Build with Hugo
+      - name: Build
         env:
           # For maximum backward compatibility with Hugo modules
           HUGO_ENVIRONMENT: testing
           HUGO_ENV: testing
-        run: |
-          hugo \
-            --gc \
-            --minify
+        run: npm run build:test
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
