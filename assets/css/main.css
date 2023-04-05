@@ -25,6 +25,7 @@ section#hero {
 }
 
 section#hero[data-layout='alt'],
+section#hero[data-layout='case-study'],
 section#hero[data-layout='child'],
 section#hero[data-layout='legal'] {
   background-color: var(--foreground);
@@ -200,6 +201,27 @@ div#studies ul li[data-long='true'] picture#study-hero img {
   /* height: var(--study-height-long); */
   min-height: var(--study-height-long);
   max-width: 39rem;
+}
+
+div#study {
+  color: var(--meta);
+}
+
+div#study ul {
+  padding-left: 1rem;
+}
+
+div#study ul > li > p {
+  margin: 0;
+}
+
+div#study ul > li ul {
+  list-style: none;
+  padding: 0;
+}
+
+div#study ul > li ul > li {
+  padding: 0;
 }
 
 p[data-heading='true'] span {
