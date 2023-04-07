@@ -58,10 +58,13 @@
     {{- $headerTS := resources.Get "scripts/header.ts" | babel -}}
     {{ $header := slice $headerTS | resources.Concat "header.js" }}
 
+    {{- $clipboardTS := resources.Get "scripts/clipboard.ts" | babel -}}
+    {{ $clipboard := slice $clipboardTS | resources.Concat "clipboard.js" }}
+
     {{- $footerTS := resources.Get "scripts/footer.ts" | babel -}}
     {{ $footer := slice $footerTS | resources.Concat "footer.js" }}
 
-    {{ $scripts := slice $header $footer | resources.Concat "js/bundle.js" | resources.Minify }}
+    {{ $scripts := slice $header $clipboard $footer | resources.Concat "js/bundle.js" | resources.Minify }}
     <script defer src="{{ $scripts.Permalink }}"></script>
   </body>
 </html>

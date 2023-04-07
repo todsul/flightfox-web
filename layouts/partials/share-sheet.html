@@ -1,0 +1,22 @@
+{{ $link := .permalink }}
+<ul class="gap-x-2 grid grid-cols-5-min-content grid-rows-1 items-center list-none m-0 p-0 w-full">
+  {{ range .data }}
+  <li class="flex h-8 items-center justify-center m-0 p-0 rounded-full w-8">
+    <a
+      class="bg-primary-transparent cursor-pointer duration-200 ease-in-out flex focus:shadow-lg h-8 hover:shadow-lg items-center justify-center m-0 p-0 relative rounded-full transition-shadow w-8"
+      href="{{ .url }}{{ $link }}"
+      {{ if ne .type "clip" }}
+      data-size="large"
+      target="_blank"
+      rel="noopener noreferrer"
+      {{ else }}
+      data-clip="true"
+      data-copied="false"
+      {{ end }}
+    >
+      {{ partial "img.html" (dict "src" .icon "alt" .label "iClasses" "h-4" "size" 16 "hidden" true) }}
+      <span class="sr-only">{{ .label }}</span>
+    </a>
+  </li>
+  {{ end }}
+</ul>

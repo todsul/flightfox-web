@@ -316,6 +316,25 @@ nav#TableOfContents a svg {
   width: auto;
 }
 
+a[data-clip="true"]::before {
+  color: var(--primary);
+  content: 'Copied!';
+  font-size: 0.65rem;
+  opacity: 0;
+  position: absolute;
+  top: -2.25rem;
+  transform: translateY(200%);
+  transform-origin: bottom;
+  transition: all 200ms var(--transition);
+  z-index: -1;
+}
+
+a[data-clip="true"][data-copied="true"]::before {
+  opacity: 1;
+  transform: translateY(100%);
+  z-index: 10;
+}
+
 div#study nav#TableOfContents a::before {
   height: 1.25rem;
   margin-right: 1rem;

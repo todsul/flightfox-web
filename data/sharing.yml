@@ -4,14 +4,18 @@ socials:
     icon: "link.svg"
     type: clip
   - label: Twitter
+    url: https://twitter.com/intent/tweet?text=
     icon: "twitter.svg"
     type: link
   - label: Facebook
+    url: https://www.facebook.com/sharer/sharer.php?u=
     icon: "facebook.svg"
     type: link
   - label: LinkedIn
+    url: https://www.linkedin.com/sharing/share-offsite/?url=
     icon: "linkedin.svg"
     type: link
   - label: Email
+    url: "mailto:?subject="
     icon: "email.svg"
-    type: link
+    type: email
