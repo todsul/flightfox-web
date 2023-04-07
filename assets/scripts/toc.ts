@@ -20,7 +20,7 @@ tocToggle?.addEventListener('click', () => {
 
   toggleState = !toggleState;
 });
-
+console.info(anchors);
 anchors.forEach(anchor => {
   anchors.forEach(el => {
     const href = el.querySelector('a').getAttribute('href');
@@ -31,6 +31,7 @@ anchors.forEach(anchor => {
   });
 
   anchor.addEventListener('click', event => {
+    event.stopPropagation();
     anchors.forEach(el => {
       el.setAttribute('data-active', 'false');
     });
