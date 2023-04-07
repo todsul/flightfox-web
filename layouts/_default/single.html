@@ -4,8 +4,8 @@
       {{ partial "hero-alt.html" . }}
     {{ else if eq .Params.layout "blog-feed" }}
       {{ partial "hero-blog-feed.html" . }}
-    {{ else if eq .Params.layout "case-study" }}
-      {{ partial "hero-case-study.html" . }}
+    {{ else if eq .Params.layout "article" }}
+      {{ partial "hero-article.html" . }}
     {{ else if eq .Params.layout "legal" }}
       {{ partial "hero-legal.html" . }}
     {{ else if eq .Params.layout "login" }}
@@ -23,8 +23,8 @@
   {{ if ne .Params.layout nil }}
     {{ if eq .Params.layout "alt" }}
     {{ else if eq .Params.layout "blog-feed" }}
-    {{ else if eq .Params.layout "case-study" }}
-      {{ partial "main-case-study.html" . }}
+    {{ else if eq .Params.layout "article" }}
+      {{ partial "main-article.html" . }}
     {{ else if eq .Params.layout "contact" }}
       {{ partial "main-contact.html" . }}
     {{ else if eq .Params.layout "legal" }}
@@ -39,7 +39,7 @@
 {{ define "scripts" }}
   {{ $opts := dict "minified" true "compact" true }}
 
-  {{ if eq .Params.layout "case-study" }}
+  {{ if eq .Params.layout "article" }}
     {{- $tocTS := resources.Get "scripts/toc.ts" | babel -}}
     {{ $tocJS := slice $tocTS | resources.Concat "toc.js" }}
     {{ $toc := $tocJS | resources.Minify }}

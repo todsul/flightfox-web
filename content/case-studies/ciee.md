@@ -1,5 +1,5 @@
 ---
-layout: case-study
+layout: article
 title: CIEE
 tagLine:
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id augue quisque congue vel lorem tincidunt nec. Sed est quam nibh massa.
