@@ -1,0 +1,20 @@
+<div id="toc-wrap" class="flex-col hidden items-start justify-start md:flex w-full">
+  <p class="font-bold mb-4 md:text-xl mt-8 text-foreground">Table of Contents</p>
+  {{ .TableOfContents }}
+</div>
+<div
+  id="toc-wrap-mobile"
+  class="border border-selection border-solid duration-200 ease-in-out flex flex-col items-start justify-start md:hidden mt-7 overflow-hidden rounded-xl w-full"
+  data-active="false"
+>
+  <button
+    id="toc-toggle"
+    type="button"
+    class="bg-background border-0 border-b border-transparent border-solid cursor-pointer duration-200 ease-in-out flex items-center justify-between m-0 outline-none px-4 py-3 transition-colors w-full z-10"
+    data-active="false"
+  >
+    Table of Contents
+    {{ partial "img.html" (dict "src" "arrow-down-primary.svg" "alt" "" "iClasses" "duration-200 ease-in-out transition-transform w-3" "size" 24 "hidden" true) }}
+  </button>
+  {{ .TableOfContents }}
+</div>

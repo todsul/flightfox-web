@@ -110,11 +110,15 @@ section#main[data-layout='legal'] {
   padding-top: 2.6875rem;
 }
 
+section#main[data-layout='case-study'] {
+  background-color: var(--background);
+}
+
 section#main[data-layout='legal'] p {
   color: var(--meta);
 }
 
-section#main[data-layout="case-studies"] {
+section#main[data-layout='case-studies'] {
   grid-row: span 2 / span 2;
 }
 
@@ -209,13 +213,18 @@ div#study {
 
 @media screen and (max-width: 768px) {
   div#study {
-    grid-template-rows: var(--content-padding) repeat(2, min-content) var(--content-padding) !important;
+    grid-template-rows: var(--content-padding) repeat(2, min-content) var(
+        --content-padding
+      ) !important;
   }
 }
 
 @media screen and (min-width: 768px) {
   div#study {
-    grid-template-columns: minmax(1.25rem, 1fr) 368px minmax(335px, 944px) minmax(1.25rem, 1fr) !important;
+    grid-template-columns: minmax(1.25rem, 1fr) 368px minmax(335px, 944px) minmax(
+        1.25rem,
+        1fr
+      ) !important;
   }
 }
 
@@ -299,24 +308,117 @@ nav#TableOfContents a:hover {
   background-color: var(--selection);
 }
 
-nav#TableOfContents li[data-active="true"] a,
-nav#TableOfContents li[data-active="true"] a {
+nav#TableOfContents li[data-active='true'] a,
+nav#TableOfContents li[data-active='true'] a {
   color: var(--background);
   background-color: var(--primary);
 }
 
-nav#TableOfContents li[data-active="true"] a svg,
-nav#TableOfContents li[data-active="true"] a svg {
+nav#TableOfContents li[data-active='true'] a svg,
+nav#TableOfContents li[data-active='true'] a svg {
   stroke: var(--background);
 }
 
-nav#TableOfContents a svg {
+div#toc-wrap nav#TableOfContents a svg {
   height: 1.25rem;
   margin-right: 1rem;
   width: auto;
 }
 
-a[data-clip="true"]::before {
+div#toc-wrap nav#TableOfContents a::before {
+  height: 1.25rem;
+  margin-right: 1rem;
+  width: auto;
+}
+
+div#study div#toc-wrap nav#TableOfContents a[href='#the-client']::before {
+  content: url('/img/the_client-icon.svg');
+}
+
+div#study
+  div#toc-wrap
+  nav#TableOfContents
+  li[data-active='true']
+  a[href='#the-client']::before {
+  content: url('/img/the_client-icon-light.svg');
+}
+
+div#study div#toc-wrap nav#TableOfContents a[href='#the-challenge']::before {
+  content: url('/img/the_challenge-icon.svg');
+}
+
+div#study
+  div#toc-wrap
+  nav#TableOfContents
+  li[data-active='true']
+  a[href='#the-challenge']::before {
+  content: url('/img/the_challenge-icon-light.svg');
+}
+
+div#study div#toc-wrap nav#TableOfContents a[href='#the-solution']::before {
+  content: url('/img/the_solution-icon.svg');
+}
+
+div#study
+  div#toc-wrap
+  nav#TableOfContents
+  li[data-active='true']
+  a[href='#the-solution']::before {
+  content: url('/img/the_solution-icon-light.svg');
+}
+
+div#study div#toc-wrap nav#TableOfContents a[href='#the-outcome']::before {
+  content: url('/img/the_outcome-icon.svg');
+}
+
+div#study
+  div#toc-wrap
+  nav#TableOfContents
+  li[data-active='true']
+  a[href='#the-outcome']::before {
+  content: url('/img/the_outcome-icon-light.svg');
+}
+
+button#toc-toggle[data-active='true'] {
+  border-color: var(--selection);
+}
+
+button#toc-toggle[data-active='true'] img {
+  transform: scaleY(-1);
+}
+
+div#toc-wrap-mobile {
+  height: 3.125rem;
+  transition-property: height;
+}
+
+div#toc-wrap-mobile[data-active='true'] {
+  height: calc(var(--count) * 3.125rem);
+}
+
+div#toc-wrap-mobile nav#TableOfContents {
+  opacity: 0;
+  transition: all 200ms var(--transition);
+  transform: translateY(-100%);
+  transform-origin: top;
+  z-index: -1;
+}
+
+div#toc-wrap-mobile nav#TableOfContents[data-active='true'] {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 5;
+}
+
+div#toc-wrap-mobile nav#TableOfContents ul {
+  gap: 0;
+}
+
+div#toc-wrap-mobile nav#TableOfContents a {
+  padding: 0.75rem 1rem;
+}
+
+a[data-clip='true']::before {
   color: var(--primary);
   content: 'Copied!';
   font-size: 0.65rem;
@@ -329,48 +431,30 @@ a[data-clip="true"]::before {
   z-index: -1;
 }
 
-a[data-clip="true"][data-copied="true"]::before {
+a[data-clip='true'][data-copied='true']::before {
   opacity: 1;
   transform: translateY(100%);
   z-index: 10;
 }
 
-div#study nav#TableOfContents a::before {
-  height: 1.25rem;
-  margin-right: 1rem;
-  width: auto;
+div#cta-block p {
+  line-height: 1.25;
 }
 
-div#study nav#TableOfContents a[href="#the-client"]::before {
-  content: url('/img/the_client-icon.svg');
+div#cta-block p span {
+  color: var(--primary);
 }
 
-div#study nav#TableOfContents li[data-active="true"] a[href="#the-client"]::before {
-  content: url('/img/the_client-icon-light.svg');
+div#cta-block picture#cta-img,
+div#cta-block img#cta-img {
+  margin-bottom: -4rem;
 }
 
-div#study nav#TableOfContents a[href="#the-challenge"]::before {
-  content: url('/img/the_challenge-icon.svg');
-}
-
-div#study nav#TableOfContents li[data-active="true"] a[href="#the-challenge"]::before {
-  content: url('/img/the_challenge-icon-light.svg');
-}
-
-div#study nav#TableOfContents a[href="#the-solution"]::before {
-  content: url('/img/the_solution-icon.svg');
-}
-
-div#study nav#TableOfContents li[data-active="true"] a[href="#the-solution"]::before {
-  content: url('/img/the_solution-icon-light.svg');
-}
-
-div#study nav#TableOfContents a[href="#the-outcome"]::before {
-  content: url('/img/the_outcome-icon.svg');
-}
-
-div#study nav#TableOfContents li[data-active="true"] a[href="#the-outcome"]::before {
-  content: url('/img/the_outcome-icon-light.svg');
+@media screen and (max-width: 768px) {
+  div#cta-block picture#cta-img,
+  div#cta-block img#cta-img {
+    margin-bottom: -3rem;
+  }
 }
 
 p[data-heading='true'] span {

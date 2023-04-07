@@ -40,6 +40,9 @@ module.exports = {
       borderRadius: {
         '4xl': '1.75rem',
         '5xl': '2rem',
+        '6xl': '2.5rem',
+        '7xl': '2.75rem',
+        '8xl': '3rem',
       },
       borderWidth: { under: '3.55px' },
       colors: pallete,
