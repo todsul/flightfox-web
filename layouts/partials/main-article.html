@@ -1,0 +1,19 @@
+<div id="study" class="grid items-start justify-start w-full">
+  <aside class="col-start-2 flex flex-col items-start justify-start md:pr-20 row-start-2 w-full">
+    <p class="mb-4 mt-2 text-foreground text-xl">Contributors</p>
+    <ul class="border-0 border-b-2 border-selection border-solid flex flex-col items-start justify-start list-none m-0 p-0 w-full">
+      {{ range .Params.contributors }}
+      <li class="flex items-center justify-start mb-8 p-0 w-full">
+        {{ partial "img.html" (dict "src" .img "alt" .name "pClasses" "h-auto mr-6 my-0 w-auto" "iClasses" "h-10 w-10" "size" 100 "hidden" true) }}
+        <div class="flex flex-col items-start justify-start">
+          <p class="font-bold m-0 text-foreground">{{ .name }}</p>
+          <p class="m-0 text-meta text-sm">{{ .role }}</p>
+        </div>
+      </li>
+      {{ end }}
+    </ul>
+  </aside>
+  <div id="content" class="col-start-3 flex flex-col items-start justify-start md:pl-20 row-start-2 w-full">
+    {{ .Content }}
+  </div>
+</div>
