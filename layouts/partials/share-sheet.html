@@ -1,9 +1,8 @@
 {{ $inlined := cond (eq .mobileOnly true) "flex md:hidden" (cond (eq .desktopOnly true) "hidden md:flex" "flex") }}
 {{ $link := .permalink }}
 
-<div class="{{ $inlined }} flex-col items-start justify-start w-full">
-  <div class="border-0 border-b-2 border-selection border-solid mt-8 w-full"></div>
-  <p class="font-bold mb-4 md:text-xl mt-8 text-foreground">Share This Artcile</p>
+<div class="border-0 border-selection border-solid {{ $inlined }} flex-col items-start justify-start md:border-t-2 w-full">
+  <p class="md:font-bold mb-4 md:text-xl md:mt-8 text-foreground">Share This Artcile</p>
   <ul
     class="gap-x-2 grid grid-cols-5-min-content grid-rows-1 items-center list-none m-0 p-0 w-full"
     style="padding: 0;"
