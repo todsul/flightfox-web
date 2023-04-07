@@ -5,7 +5,7 @@ tagLine:
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae adipiscing enim elementum. Mi leo eget proin etiam volutpat facilisi pellentesque.
 cta:
   - label: Get Started
-    link: pricing
+    link: contact
     alt: false
   - label: See Soultions
     link: "#solutions"

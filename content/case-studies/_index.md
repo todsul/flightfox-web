@@ -5,7 +5,7 @@ tagLine: Case Studies
 description: We've helped 1000s of companies save time and money, bringing their business travel into the future. Learn how some of our customers are using TravelPerk to manage their business travel more smoothly than ever before.
 cta:
   - label: Get Started
-    link: pricing
+    link: contact
     alt: false
   - label: See Case Studies
     link: "#case-studies"

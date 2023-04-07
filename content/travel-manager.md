@@ -5,7 +5,7 @@ tagLine: For Travel Managers
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit varius adipiscing aliquet magna tincidunt iaculis nam morbi. Augue fringilla.
 cta:
   - label: Get Started
-    link: pricing
+    link: contact
     alt: false
   - label: See Benefits
     link: "#benefits"

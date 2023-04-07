@@ -5,7 +5,7 @@ tagLine: About Us
 description: We're a team of software engineers and travel experts changing the way companies travel. No competitor comes close to our technical expertise in helping teams travel better for less.
 cta:
   - label: Get Started
-    link: pricing
+    link: contact
     alt: false
   - label: See Benefits
     link: "#benefits"
