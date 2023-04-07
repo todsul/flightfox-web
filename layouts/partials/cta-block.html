@@ -1,0 +1,26 @@
+{{ $imgBg := resources.Get "img/bg-wave-dark.svg" }}
+{{ $icon := resources.Get (print "img/" .data.icon) }}
+
+<div
+  id="cta-block"
+  class="bg-foreground bg-no-repeat flex flex-col items-start justify-between max-w-7xl md:flex-row md:items-center md:px-20 md:py-16 md:rounded-7xl px-6 py-12 rounded-4xl w-full{{ with .classes }} {{ . }}{{ end }}"
+  style='background-image: url("{{ $imgBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right bottom;'
+>
+  <div class="flex flex-col items-start justify-start max-w-xl md:pr-4 w-full">
+    <img class="h-8 mb-6 md:mb-4" src="{{ $icon.Permalink }}" alt="" aria-hidden="true" />
+    <p class="mb-8 md:mb-12 text-5xl text-white">{{ .data.heading | safeHTML }}</p>
+    <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mb-16 md:m-0 w-full">
+      {{ range .data.cta }}
+        {{ $color := cond (.alt) "bg-footer" "bg-primary" }}
+  
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full white-link whitespace-nowrap"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+    </nav>
+  </div>
+  {{ partial "img.html" (dict "src" .data.img "alt" "" "id" "cta-img" "pClasses" "h-full mt-auto w-auto" "iClasses" "max-w-md w-full" "size" 800) }}
+</div>

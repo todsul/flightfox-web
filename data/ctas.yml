@@ -1,0 +1,12 @@
+---
+readyToBook:
+  icon: wave.svg
+  heading: <b>Ready to book</b> your <span>Business Trip</span> with ease?
+  cta:
+    - label: Get Started
+      link: contact
+      alt: false
+    - label: See Services
+      link: pricing
+      alt: true
+  img: ready-to-book.png
