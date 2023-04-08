@@ -1,9 +1,9 @@
 ---
 layout: article
-title: CIEE
+title: Vida
 tagLine:
-subtitle: Easily sends 1000s of students to 6 continents
-description: All from different airports, but on the same international flights as rest of group. Each student booking separately, at different times, on their own credit cards.
+subtitle: More freedom, less overhead
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id augue quisque congue vel lorem tincidunt nec. Sed est quam nibh massa.
 cta:
 stats:
   - number: 80%
@@ -12,11 +12,11 @@ stats:
     label: Monthly Trips
   - number: 5
     label: International Offices
-image: case-studies/ciee-hero.png
-logo: case-studies/ciee-logo.png
+image: case-studies/vida-hero.png
+logo: case-studies/vida-logo.png
 alt:
 background:
-weight: 100
+weight: 90
 company:
   - heading: Industry
     copy: Tech
