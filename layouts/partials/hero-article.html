@@ -25,6 +25,18 @@
     {{ with .Params.description }}
       <p class="leading-relaxed m-0 max-w-2xl text-meta w-full">{{ . }}</p>
     {{ end }}
+    {{ with .Params.date }}
+      <div class="flex items-center justify-start max-w-2xl mt-6 w-full">
+        <time
+          class="leading-relaxed m-0 text-meta"
+          datetime='{{ .Format "2006-01-02" }}'
+        >
+          {{ .Format "02 January 2006" }}
+        </time>
+        <span class="leading-relaxed mx-3 my-0 text-meta">&bull;</span>
+        <p class="leading-relaxed m-0 text-meta">{{ $.ReadingTime }} min read</p>
+      </div>
+    {{ end }}
   </div>
   {{ with .Params.image }}
     {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "h-full mb-6 md:mb-0 md:mt-auto mt-0 w-auto" "iClasses" "max-w-xl w-full" "size" 1300) }}
