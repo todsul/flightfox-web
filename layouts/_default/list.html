@@ -21,6 +21,7 @@
   {{ if ne .Params.layout nil }}
     {{ if eq .Params.layout "alt" }}
     {{ else if eq .Params.layout "blog-feed" }}
+      {{ partial "main-blog-feed.html" . }}
     {{ else if eq .Params.layout "case-studies" }}
       {{ partial "main-case-studies.html" . }}
     {{ else if eq .Params.layout "contact" }}

@@ -31,7 +31,6 @@ section#hero[data-layout='legal'] {
   background-color: var(--foreground);
 }
 
-section#hero[data-layout='blog-feed'],
 section#hero[data-layout='login'] {
   grid-row-start: 1;
 }
@@ -114,10 +113,15 @@ section#main[data-layout='article'] {
   background-color: var(--background);
 }
 
+section#main[data-layout='blog-feed'] {
+  --study-height: 13.5rem;
+}
+
 section#main[data-layout='legal'] p {
   color: var(--meta);
 }
 
+section#main[data-layout='blog-feed'],
 section#main[data-layout='case-studies'] {
   grid-row: span 2 / span 2;
 }
