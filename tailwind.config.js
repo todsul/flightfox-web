@@ -45,6 +45,9 @@ module.exports = {
         '8xl': '3rem',
       },
       borderWidth: { under: '3.55px' },
+      boxShadow: {
+        card: '0px 20px 50px rgba(22, 63, 149, 0.05)',
+      },
       colors: pallete,
       fill: pallete,
       gridTemplateColumns: {

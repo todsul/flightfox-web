@@ -11,10 +11,15 @@ body[data-layout='contact'] main {
   --main-padding: 0;
 }
 
+body[data-layout='article'] footer,
 body[data-layout='case-studies'] footer,
 body[data-layout='contact'] footer,
 body[data-layout='login'] footer {
   margin-top: 0;
+}
+
+main[data-layout='article'] {
+  --main-padding: 0;
 }
 
 section#hero {
@@ -151,61 +156,64 @@ sup a {
 
 div#studies {
   --content-padding: 4rem;
-  --content-gap: 3;
 }
 
-div#studies ul {
+ul#article-cards {
+  --content-gap: 3;
   grid-template-columns: repeat(var(--content-gap), minmax(10rem, 25.5rem));
 }
 
 @media screen and (max-width: 768px) {
   div#studies {
     --content-padding: 2rem;
+  }
+
+  ul#article-cards {
     --content-gap: 1;
   }
 }
 
-div#studies ul li {
+ul#article-cards li {
   border-radius: 2.625rem;
 }
 
-div#studies ul li picture#study-hero,
-div#studies ul li picture#study-hero img {
+ul#article-cards li picture#study-hero,
+ul#article-cards li picture#study-hero img {
   /* height: var(--study-height); */
   min-height: var(--study-height);
 }
 
-div#studies ul li picture#study-hero {
+ul#article-cards li picture#study-hero {
   border-radius: 1.875rem;
 }
 
-div#studies ul li picture#study-hero img {
+ul#article-cards li picture#study-hero img {
   margin: 0;
   object-fit: cover;
   transform: scale(1.15);
 }
 
-div#studies ul li[data-long='false'] {
+ul#article-cards li[data-long='false'] {
   /* min-width: 20.9375rem; */
   max-width: 26rem;
 }
 
-div#studies ul li[data-long='true'] picture#study-logo img {
+ul#article-cards li[data-long='true'] picture#study-logo img {
   height: 3rem;
 }
 
 @media screen and (max-width: 768px) {
-  div#studies ul li[data-long='true'] picture#study-logo img {
+  ul#article-cards li[data-long='true'] picture#study-logo img {
     height: 1.75rem;
   }
 }
 
-div#studies ul li picture#study-logo img {
+ul#article-cards li picture#study-logo img {
   height: 1.75rem;
 }
 
-div#studies ul li[data-long='true'] picture#study-hero,
-div#studies ul li[data-long='true'] picture#study-hero img {
+ul#article-cards li[data-long='true'] picture#study-hero,
+ul#article-cards li[data-long='true'] picture#study-hero img {
   /* height: var(--study-height-long); */
   min-height: var(--study-height-long);
   max-width: 39rem;
@@ -213,6 +221,11 @@ div#studies ul li[data-long='true'] picture#study-hero img {
 
 div#study {
   color: var(--meta);
+}
+
+div#cta,
+div#related {
+  --content-padding: 3.375rem;
 }
 
 @media screen and (max-width: 768px) {

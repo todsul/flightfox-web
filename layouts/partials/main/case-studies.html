@@ -1,27 +1,14 @@
 <div id="studies" class="grid items-center justify-center w-full">
-  <ul class="auto-rows-min col-start-2 gap-4 grid justify-center m-0 md:gap-8 p-0 list-none row-start-2 w-full">
+  <ul id="article-cards" class="auto-rows-min col-start-2 gap-4 grid justify-center m-0 md:gap-8 p-0 list-none row-start-2 w-full">
     {{ range .Pages.ByWeight.Reverse }}
       {{ $featured := gt .Params.weight 99 }}
       {{ $heroMargin := cond ($featured) "mb-6 md:mb-0 md:mr-10" "mb-6" }}
       {{ $heroMax := cond ($featured) "max-w-3xl" "max-w-md mb-6" }}
       {{ $heroSize := cond ($featured) 700 500 }}
-      {{ $headingMargin := cond ($featured) "mb-4" "mb-8" }}
+      {{ $headingClasses := print "max-w-lg md:text-4xl " (cond ($featured) "mb-4" "mb-8") }}
       {{ $span := cond ($featured) "col-span-1 flex flex-col md:col-span-3 md:flex-row pb-4" "col-span-1 flex flex-col pb-7" }}
 
-      <li
-        class="bg-background {{ $span }} items-start justify-start m-0 pt-4 px-4 w-full"
-        data-long="{{ $featured }}"
-      >
-        {{ partial "img.html" (dict "src" .Params.image "alt" .Title "id" "study-hero" "pClasses" (print "m-0 " $heroMargin) "iClasses" (print $heroMax " w-full") "size" $heroSize "hidden" true) }}
-        <div class="flex flex-col h-full items-start justify-start w-full">
-          {{ partial "img.html" (dict "src" .Params.logo "alt" .Title "id" "study-logo" "pClasses" "h-auto mx-0 mb-4 w-auto" "iClasses" "w-auto" "size" 200 "hidden" true) }}
-          <h2 class="max-w-lg mt-0 {{ $headingMargin }} md:text-4xl p-0 text-xl w-full">{{ .Params.subtitle }}</h2>
-          {{ if $featured }}
-            <p class="mb-5 md:m-0 text-meta">{{ .Params.description }}</p>
-          {{ end }}
-          <a href="{{ .Permalink }}" class="mb-1 mt-auto no-underline orange-link">Read More</a>
-        </div>
-      </li>
+      {{ partial "main/card.html" (dict "span" $span "featured" $featured "image" .Params.image "title" .Title "heroMargin" $heroMargin "heroMax" $heroMax "heroSize" $heroSize "logo" .Params.logo "headingClasses" $headingClasses "subtitle" .Params.subtitle "description" .Params.description "permalink" .Permalink) }}
     {{ end }}
   </ul>
 </div>

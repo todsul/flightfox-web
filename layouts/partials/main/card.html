@@ -1,0 +1,32 @@
+{{ $notFeat := not .featured }}
+
+<li
+  class="bg-background {{ .span }} items-start justify-start m-0 p-4 relative w-full"
+  data-long="{{ .featured }}"
+>
+  {{ partial "img.html" (dict "src" .image "alt" .title "id" "study-hero" "pClasses" (print "m-0 " .heroMargin) "iClasses" (print .heroMax " w-full") "size" .heroSize "hidden" true) }}
+
+  <div class="flex flex-col h-full items-start justify-start w-full">
+    {{ with .logo }}
+      {{ partial "img.html" (dict "src" . "alt" $.title "id" "study-logo" "pClasses" "h-auto mx-0 mb-4 w-auto" "iClasses" "w-auto" "size" 200 "hidden" true) }}
+    {{ end }}
+    {{ with .tagLine }}
+      <p class="bg-background {{ $.tagMargin }} flex items-center justify-center overflow-hidden rounded-full text-primary">
+        <span class="bg-primary-transparent px-5 py-2">{{ . }}</span>
+      </p>
+    {{ end }}
+    {{ with .date }}
+      {{ if $notFeat }}
+        <p class="mb-2 text-meta">{{ .Format "02 January 2006" }}</p>
+      {{ end }}
+    {{ end }}
+    <h2 class="mt-0 {{ .headingClasses }} p-0 text-xl w-full">{{ .subtitle }}</h2>
+    {{ if .featured }}
+      <p class="mb-5 md:m-0 text-meta">{{ $.description }}</p>
+      {{ with .date }}
+        <p class="mb-0 mt-auto text-meta">{{ .Format "02 January 2006" }}</p>
+      {{ end }}
+    {{ end }}
+    <a href="{{ .permalink }}" class="mb-1 mt-auto no-underline orange-link">Read More</a>
+  </div>
+</li>
