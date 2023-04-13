@@ -1,33 +1,33 @@
 {{ define "hero" }}
   {{ if ne .Params.layout nil }}
     {{ if eq .Params.layout "alt" }}
-      {{ partial "hero-alt.html" . }}
+      {{ partial "hero/alt.html" . }}
     {{ else if eq .Params.layout "blog-feed" }}
-      {{ partial "hero-blog-feed.html" . }}
+      {{ partial "hero/blog-feed.html" . }}
     {{ else if eq .Params.layout "legal" }}
-      {{ partial "hero-legal.html" . }}
+      {{ partial "hero/legal.html" . }}
     {{ else if eq .Params.layout "login" }}
-      {{ partial "hero-login.html" . }}
+      {{ partial "hero/login.html" . }}
     {{ else }}
-      {{ partial "hero-default.html" . }}
+      {{ partial "hero/default.html" . }}
     {{ end }}
   {{ else if ne .Parent.RelPermalink "/" }}
-    {{ partial "hero-child.html" . }}
+    {{ partial "hero/child.html" . }}
   {{ else }}
-    {{ partial "hero-default.html" . }}
+    {{ partial "hero/default.html" . }}
   {{ end }}
 {{ end }}
 {{ define "main" }}
   {{ if ne .Params.layout nil }}
     {{ if eq .Params.layout "alt" }}
     {{ else if eq .Params.layout "blog-feed" }}
-      {{ partial "main-blog-feed.html" . }}
+      {{ partial "main/blog-feed.html" . }}
     {{ else if eq .Params.layout "case-studies" }}
-      {{ partial "main-case-studies.html" . }}
+      {{ partial "main/case-studies.html" . }}
     {{ else if eq .Params.layout "contact" }}
-      {{ partial "main-contact.html" . }}
+      {{ partial "main/contact.html" . }}
     {{ else if eq .Params.layout "legal" }}
-      {{ partial "main-legal.html" . }}
+      {{ partial "main/legal.html" . }}
     {{ else if eq .Params.layout "login" }}
     {{ else }}
     {{ end }}
