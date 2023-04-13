@@ -32,3 +32,26 @@
 >
   {{ partial "cta-block.html" (dict "data" .Site.Data.ctas.readyToBook "classes" "col-start-2 row-start-2") }}
 </div>
+{{ with .Params.related }}
+{{ end }}
+<div
+  id="related"
+  class="grid items-center justify-center w-full"
+  >
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <h3 class="text-3xl">Related Articles</h3>
+    {{ $section := .Site.GetPage "section" .Section }}
+    <ul id="article-cards" class="auto-rows-min gap-4 grid justify-center m-0 md:gap-8 p-0 list-none w-full">
+      {{ range last 3 $section.Pages.ByWeight.Reverse }}
+        {{ $tagMargin := "absolute left-8 m-0 top-8" }}
+        {{ $heroMargin := "mb-6" }}
+        {{ $heroMax := "max-w-md mb-6" }}
+        {{ $heroSize := 500 }}
+        {{ $headingClasses := "mb-8 md:text-2xl" }}
+        {{ $span := "col-span-1 flex flex-col shadow-card" }}
+
+        {{ partial "main/card.html" (dict "span" $span "featured" false "image" .Params.image "title" .Title "heroMargin" $heroMargin "heroMax" $heroMax "heroSize" $heroSize "logo" .Params.logo "tagLine" .Params.tagLine "tagMargin" $tagMargin "date" .Params.date "headingClasses" $headingClasses "subtitle" .Params.subtitle "description" .Params.description "permalink" .Permalink "related" true) }}
+      {{ end }}
+    </ul>
+  </div>
+</div>
