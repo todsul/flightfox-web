@@ -54,6 +54,8 @@ section#hero[data-layout='alt'] {
 }
 
 section#hero[data-layout='blog-feed'] {
+  --bottom-padding: 0;
+
   background-color: var(--background-light);
   min-height: var(--blog-height);
 }
@@ -106,6 +108,11 @@ ul#clients {
 
 ul#clients[data-type='single'] picture {
   justify-content: flex-start;
+}
+
+button.tag-filter[data-active="true"] {
+  background-color: var(--primary);
+  color: var(--background);
 }
 
 section#main[data-layout='legal'] {
@@ -175,6 +182,10 @@ ul#article-cards {
 
 ul#article-cards li {
   border-radius: 2.625rem;
+}
+
+ul#article-cards li[data-active="false"] {
+  display: none;
 }
 
 ul#article-cards li picture#study-hero,

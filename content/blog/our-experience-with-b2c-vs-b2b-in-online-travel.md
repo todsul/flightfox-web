@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Our Experience With B2C vs. B2B in Online Travel
-tagLine: Future of Work
+tagLine: Events
 subtitle: We have booked 75,000+ trips for our customers from 1,000+ companies.
 description: Managing business travel is tough, especially as you raise money, build out your team and travel more frequently. In this post we explain all of the lessons, tips and tricks we've learned managing travel for more than 1,000 companies.
 date: 2022-09-05

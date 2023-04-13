@@ -42,8 +42,16 @@
   {{ end }}
 {{ end }}
 {{ define "scripts" }}
+  {{ $opts := dict "minified" true "compact" true }}
+
   {{ if eq .Params.layout "case-studies" }}
     {{ $glide := resources.Get "scripts/glide.js" | resources.Minify }}
     <script src="{{ $glide.Permalink }}"></script>
+  {{ else if eq .Params.layout "blog-feed" }}
+    {{- $filterTS := resources.Get "scripts/blog-filter.ts" | babel -}}
+    {{ $filterJS := slice $filterTS | resources.Concat "blog-filter.js" }}
+    {{ $filter := $filterJS | resources.Minify }}
+    <script src="{{ $filter.Permalink }}"></script>
+  {{ else }}
   {{ end }}
 {{ end }}

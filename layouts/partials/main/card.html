@@ -3,6 +3,11 @@
 <li
   class="bg-background {{ .span }} items-start justify-start m-0 p-4 relative w-full"
   data-long="{{ .featured }}"
+  {{ with .tagLine }}
+    {{ $tag := . | lower | replaceRE "\\s" "-" }}
+    data-active="true"
+    data-tag="{{ $tag }}"
+  {{ end }}
 >
   {{ partial "img.html" (dict "src" .image "alt" .title "id" "study-hero" "pClasses" (print "m-0 " .heroMargin) "iClasses" (print .heroMax " w-full") "size" .heroSize "hidden" true) }}
 
