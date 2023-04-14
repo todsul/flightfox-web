@@ -1,16 +1,39 @@
-const filters = document.querySelectorAll<HTMLButtonElement>('button.tag-filter');
+const filterDropdown =
+  document.querySelector<HTMLUListElement>('ul#filter-dropdown');
+const mobileFilters = document.querySelectorAll<HTMLButtonElement>(
+  'ul#filter-dropdown button'
+);
+const filters =
+  document.querySelectorAll<HTMLButtonElement>('button.tag-filter');
 const cards = document.querySelectorAll<HTMLLIElement>('ul#article-cards li');
 
-const setFilters = (el: HTMLButtonElement) => {
+filterDropdown.addEventListener('click', () => {
+  const attr = filterDropdown.getAttribute('data-active');
+  const state = attr === 'true';
+  const activeTag = document.querySelector<HTMLLIElement>('li#active-tag');
+
+  activeTag.setAttribute('data-active', 'false');
+  filterDropdown.setAttribute('data-active', !state);
+});
+
+const setFilters = (el: HTMLButtonElement, inlined: boolean) => {
   const tag = el.getAttribute('data-tag');
 
-  filters.forEach(filter => {
-    if (filter === el) return;
+  if (inlined) {
+    const activeTag = document.querySelector<HTMLLIElement>('li#active-tag');
 
-    filter.setAttribute('data-active', 'false');
-  });
+    filterDropdown.setAttribute('data-active', 'false');
+    activeTag.setAttribute('data-active', 'true');
+    activeTag.innerHTML = el.innerHTML;
+  } else {
+    filters.forEach(filter => {
+      if (filter === el) return;
 
-  el.setAttribute('data-active', 'true');
+      filter.setAttribute('data-active', 'false');
+    });
+
+    el.setAttribute('data-active', 'true');
+  }
 
   cards.forEach(card => {
     const cardTag = card.getAttribute('data-tag');
@@ -30,5 +53,12 @@ const setFilters = (el: HTMLButtonElement) => {
 };
 
 filters.forEach(filter => {
-  filter.addEventListener('click', () => setFilters(filter));
+  filter.addEventListener('click', () => setFilters(filter, false));
+});
+
+mobileFilters.forEach(filter => {
+  filter.addEventListener('click', evt => {
+    evt.stopPropagation();
+    setFilters(filter, true);
+  });
 });

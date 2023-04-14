@@ -1,7 +1,7 @@
 {{ $var := newScratch }}
 {{ $var.Delete "tags" }}
 {{ range .Pages }}
-  {{ $var.Add "tags" (slice .Params.tagLine)}}
+{{ $var.Add "tags" (slice .Params.tagLine)}}
 {{ end }}
 {{ $tags := $var.Get "tags" | uniq }}
 
@@ -10,12 +10,46 @@
   <h1 class="max-w-main md:text-6xl m-0 text-3xl text-left leading-snug w-full">
     {{ .Title | safeHTML }}
   </h1>
-  <ul class="flex flex-wrap items-center justify-start list-none m-0 p-0 w-full">
+  <ul class="flex-wrap hidden items-center justify-start list-none m-0 md:flex p-0 w-full">
     <li class="flex items-center justify-center mr-2 my-2 p-0">
+      <button type="button"
+        class="tag-filter bg-background border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-primary focus:text-background hover:bg-primary hover:text-background items-center justify-center outline-none px-5 py-2 rounded-full text-primary transition-colors"
+        data-active="true" data-tag="all">
+        All Posts
+      </button>
+    </li>
+    {{ range $tags }}
+    {{ $tag := . | lower | replaceRE "\\s" "-" }}
+
+    <li class="flex items-center justify-center mr-2 my-2 p-0">
+      <button type="button"
+        class="tag-filter bg-background border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-primary focus:text-background hover:bg-primary hover:text-background items-center justify-center outline-none px-5 py-2 rounded-full text-primary transition-colors"
+        data-active="false" data-tag="{{ $tag }}">
+        {{ . }}
+      </button>
+    </li>
+    {{ end }}
+  </ul>
+  <ul
+    id="filter-dropdown"
+    class="duration-200 ease-in-out flex flex-col h-12 items-start justify-start list-none mb-0 mt-7 mx-0 md:hidden overflow-hidden p-0 relative rounded-xl transition-all w-full"
+    style="--tag-count: {{ add (len $tags) 1 }};"
+    data-active="false"
+  >
+    <li class="absolute flex items-center justify-center m-0 p-0 z-20" data-toggle="true">
+      {{ partial "img.html" (dict "src" "arrow-down-primary.svg" "alt" "" "iClasses" "duration-200 ease-in-out transition-transform w-3" "size" 24 "hidden" true) }}
+    </li>
+    <li
+      id="active-tag"
+      class="bg-background flex items-center justify-start m-0 px-5 py-3 w-full"
+      data-active="true"
+    >
+      All Posts
+    </li>
+    <li class="flex items-center justify-center m-0 p-0 w-full">
       <button
         type="button"
-        class="tag-filter bg-background border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-primary focus:text-background hover:bg-primary hover:text-background items-center justify-center outline-none px-5 py-2 rounded-full text-primary transition-colors"
-        data-active="true"
+        class="bg-background border-0 border-transparent cursor-pointer flex items-center justify-start outline-none px-5 py-3 w-full"
         data-tag="all"
       >
         All Posts
@@ -24,11 +58,10 @@
     {{ range $tags }}
     {{ $tag := . | lower | replaceRE "\\s" "-" }}
 
-    <li class="flex items-center justify-center mr-2 my-2 p-0">
+    <li class="flex items-center justify-center m-0 p-0 w-full">
       <button
         type="button"
-        class="tag-filter bg-background border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-primary focus:text-background hover:bg-primary hover:text-background items-center justify-center outline-none px-5 py-2 rounded-full text-primary transition-colors"
-        data-active="false"
+        class="bg-background border-0 border-transparent cursor-pointer flex items-center justify-start outline-none px-5 py-3 w-full"
         data-tag="{{ $tag }}"
       >
         {{ . }}
