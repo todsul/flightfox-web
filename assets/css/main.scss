@@ -6,38 +6,42 @@
 
 /* Custom */
 /* Link Interactivity */
-body[data-layout='contact'] {
-  main {
-    --hero-height: 33.5rem;
-    --bottom-padding: 0;
+body {
+  &[data-layout='contact'] {
+    main {
+      --hero-height: 33.5rem;
+      --bottom-padding: 0;
+      --main-padding: 0;
+    }
+
+    footer {
+      margin-top: 0;
+    }
+  }
+
+  &[data-layout='article'] {
+    footer {
+      margin-top: 0;
+    }
+  }
+
+  &[data-layout='case-studies'] {
+    footer {
+      margin-top: 0;
+    }
+  }
+
+  &[data-layout='login'] {
+    footer {
+      margin-top: 0;
+    }
+  }
+}
+
+main {
+  &[data-layout='article'] {
     --main-padding: 0;
   }
-
-  footer {
-    margin-top: 0;
-  }
-}
-
-body[data-layout='article'] {
-  footer {
-    margin-top: 0;
-  }
-}
-
-body[data-layout='case-studies'] {
-  footer {
-    margin-top: 0;
-  }
-}
-
-body[data-layout='login'] {
-  footer {
-    margin-top: 0;
-  }
-}
-
-main[data-layout='article'] {
-  --main-padding: 0;
 }
 
 section#hero {
@@ -50,43 +54,69 @@ section#hero {
     line-height: 1.375 !important;
     min-height: calc(3.75rem * 1.7);
   }
-}
 
-section#hero[data-layout='alt'] {
-  --bottom-padding: 14.75rem;
+  &[data-layout='alt'] {
+    --bottom-padding: 14.75rem;
 
-  background-color: var(--foreground);
-}
+    background-color: var(--foreground);
+  }
 
-section#hero[data-layout='article'] {
-  background-color: var(--foreground);
-}
+  &[data-layout='article'] {
+    background-color: var(--foreground);
+  }
 
-section#hero[data-layout='child'] {
-  background-color: var(--foreground);
-}
+  &[data-layout='child'] {
+    background-color: var(--foreground);
+  }
 
-section#hero[data-layout='legal'] {
-  background-color: var(--foreground);
-  min-height: var(--legal-height);
-}
+  &[data-layout='legal'] {
+    background-color: var(--foreground);
+    min-height: var(--legal-height);
+  }
 
-section#hero[data-layout='login'] {
-  --hero-height: 40.3125rem;
+  &[data-layout='login'] {
+    --hero-height: 40.3125rem;
 
-  grid-row-start: 1;
-  grid-row: span 4 / span 4;
+    grid-row-start: 1;
+    grid-row: span 4 / span 4;
 
-  h1 {
-    min-height: auto;
+    h1 {
+      min-height: auto;
+    }
+  }
+
+  &[data-layout='blog-feed'] {
+    --bottom-padding: 0;
+
+    background-color: var(--background-light);
+    min-height: var(--blog-height);
   }
 }
 
-section#hero[data-layout='blog-feed'] {
-  --bottom-padding: 0;
+section#main {
+  &[data-layout='legal'] {
+    margin: 0 auto;
+    max-width: var(--legal-width);
+    padding-top: 2.6875rem;
 
-  background-color: var(--background-light);
-  min-height: var(--blog-height);
+    p {
+      color: var(--meta);
+    }
+  }
+
+  &[data-layout='article'] {
+    background-color: var(--background);
+  }
+
+  &[data-layout='blog-feed'] {
+    --study-height: 13.5rem;
+
+    grid-row: span 2 / span 2;
+  }
+
+  &[data-layout='case-studies'] {
+    grid-row: span 2 / span 2;
+  }
 }
 
 ul#hero-stats {
@@ -136,30 +166,6 @@ ul#filter-dropdown {
     right: 1.375rem;
     top: 1.3rem;
   }
-}
-
-section#main[data-layout='legal'] {
-  margin: 0 auto;
-  max-width: var(--legal-width);
-  padding-top: 2.6875rem;
-
-  p {
-    color: var(--meta);
-  }
-}
-
-section#main[data-layout='article'] {
-  background-color: var(--background);
-}
-
-section#main[data-layout='blog-feed'] {
-  --study-height: 13.5rem;
-
-  grid-row: span 2 / span 2;
-}
-
-section#main[data-layout='case-studies'] {
-  grid-row: span 2 / span 2;
 }
 
 div#info {
@@ -753,7 +759,7 @@ a.tags {
     }
   }
 
-  section#hero[data-layout='alt'] {
+  &[data-layout='alt'] {
     --bottom-padding: 15.1875rem;
   }
 
