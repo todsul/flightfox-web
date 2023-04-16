@@ -100,6 +100,23 @@ a:hover {
   outline: none;
 }
 
+a[data-email="true"],
+a[data-email="true"]:visited,
+a[data-email="true"]:focus,
+a[data-email="true"]:hover {
+  color: var(--primary);
+}
+
+a[data-email="true"] {
+  text-decoration: none;
+}
+
+a[data-email="true"]:visited,
+a[data-email="true"]:focus,
+a[data-email="true"]:hover {
+  text-decoration: underline;
+}
+
 blockquote,
 li,
 p {

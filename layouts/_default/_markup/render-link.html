@@ -6,4 +6,7 @@
   {{ if and (strings.HasPrefix .Destination "http") (not (strings.HasPrefix $desturl.Host $baseurl.Host)) }}
     target="_blank" rel="noopener noreferrer"
   {{ end }}
+  {{ if strings.HasPrefix .Destination "mailto" }}
+    data-email="true"
+  {{ end }}
 >{{ htmlUnescape .Text }}</a>
