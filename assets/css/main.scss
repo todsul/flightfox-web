@@ -5,7 +5,6 @@
 }
 
 /* Custom */
-/* Link Interactivity */
 body {
   &[data-layout='contact'] {
     main {
@@ -90,6 +89,10 @@ section#hero {
 
     background-color: var(--background-light);
     min-height: var(--blog-height);
+  }
+
+  &[data-flushed='true'] {
+    --bottom-padding: 0;
   }
 }
 
@@ -749,6 +752,7 @@ a.tags {
     }
   }
 }
+
 @media screen and (max-width: 768px) {
   section#hero {
     --blog-height: 6.75rem;
@@ -759,7 +763,7 @@ a.tags {
     }
   }
 
-  &[data-layout='alt'] {
+  section#hero[data-layout='alt'] {
     --bottom-padding: 15.1875rem;
   }
 
@@ -778,6 +782,7 @@ a.tags {
       }
     }
   }
+
   div#study {
     --content-padding: 2rem;
 
@@ -796,6 +801,7 @@ a.tags {
     }
   }
 }
+
 @media screen and (min-width: 768px) {
   button.tag-filter[data-active='true'] {
     background-color: var(--primary);
