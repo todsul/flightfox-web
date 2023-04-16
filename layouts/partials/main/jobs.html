@@ -1,0 +1,47 @@
+{{ $introBg := resources.Get "/img/bg-wave-dark.svg" }}
+{{ $benefitsBg := resources.Get "/img/bg-wave-light.svg" }}
+
+<div
+  id="intro"
+  class="bg-footer bg-no-repeat grid items-center justify-center relative w-full"
+  style='background-image: url("{{ $introBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+>
+  <div class="col-start-2 flex flex-col items-center justify-center max-w-2xl md:px-3 mx-auto row-start-2 w-full">
+    <h2 class="font-bold mb-10 mt-0 p-0 text-background text-center">{{ .Params.intro.heading }}</h2>
+    <p class="m-0 text-background text-center">{{ .Params.intro.copy | safeHTML }}</p>
+  </div>
+  {{ partial "img.html" (dict "src" .Params.intro.img "alt" "" "pClasses" "absolute bottom-0 h-auto left-0 right-0 w-full" "iClasses" "max-w-screen-2xl" "size" 2000) }}
+</div>
+<div
+  id="benefits"
+  class="grid items-center justify-center w-full"
+  style='background-image: url("{{ $benefitsBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: 105% center; background-repeat: no-repeat;'
+>
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <h2 class="font-bold mb-12 mt-0 p-0 text-start">{{ .Params.benefits.heading | safeHTML }}</h2>
+    <ul class="auto-rows-auto gap-8 grid items-center list-none m-0 p-0 w-full">
+      {{ range .Params.benefits.items }}
+      <li class="bg-background flex flex-col m-0 max-w-md p-10 rounded-4xl w-full">
+        <div class="bg-primary-transparent flex h-12 items-center justify-center mb-6 rounded-full w-12">
+          {{ partial "img.html" (dict "src" .icon "alt" "" "iClasses" "h-auto w-6" "size" 30 "hidden" true) }}
+        </div>
+        <h3 class="font-semibold mb-4 mt-0 p-0 text-2xl">{{ .name }}</h3>
+        <p class="m-0 text-meta">{{ .description }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+<div id="available-jobs" class="bg-background grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    {{ range .Pages.Reverse }}
+      <article class="border-0 border-b border-selection border-solid flex flex-col items-start justify-start md:flex-row md:py-24 py-14 w-full">
+        <aside class="flex flex-col items-start justify-start max-w-xs md:pr-3 w-full">
+          <p class="mb-4 md:mb-7 text-primary">Available Job</p>
+          <h3 class="font-bold mb-6 md:text-5xl mt-0 p-0 text-3xl">{{ .Title }}</h3>
+        </aside>
+        <div class="flex flex-col items-start justify-start md:pl-28 md:pt-8 w-full">{{ .Content }}</div>
+      </article>
+    {{ end }}
+  </div>
+</div>

@@ -12,24 +12,12 @@ body {
       --bottom-padding: 0;
       --main-padding: 0;
     }
-
-    footer {
-      margin-top: 0;
-    }
   }
 
-  &[data-layout='article'] {
-    footer {
-      margin-top: 0;
-    }
-  }
-
-  &[data-layout='case-studies'] {
-    footer {
-      margin-top: 0;
-    }
-  }
-
+  &[data-layout='article'],
+  &[data-layout='case-studies'],
+  &[data-layout='contact'],
+  &[data-layout='jobs'],
   &[data-layout='login'] {
     footer {
       margin-top: 0;
@@ -38,7 +26,8 @@ body {
 }
 
 main {
-  &[data-layout='article'] {
+  &[data-layout='article'],
+  &[data-layout='jobs'] {
     --main-padding: 0;
   }
 }
@@ -56,20 +45,16 @@ section#hero {
 
   &[data-layout='alt'] {
     --bottom-padding: 14.75rem;
-
-    background-color: var(--foreground);
   }
 
-  &[data-layout='article'] {
-    background-color: var(--foreground);
-  }
-
-  &[data-layout='child'] {
+  &[data-layout='alt'],
+  &[data-layout='article'],
+  &[data-layout='child'],
+  &[data-layout='legal'] {
     background-color: var(--foreground);
   }
 
   &[data-layout='legal'] {
-    background-color: var(--foreground);
     min-height: var(--legal-height);
   }
 
@@ -85,8 +70,6 @@ section#hero {
   }
 
   &[data-layout='blog-feed'] {
-    --bottom-padding: 0;
-
     background-color: var(--background-light);
     min-height: var(--blog-height);
   }
@@ -485,6 +468,49 @@ div#toc-wrap {
   }
 }
 
+div#intro {
+  padding-bottom: 16.375rem;
+}
+
+div#intro,
+div#benefits {
+  h2,
+  p {
+    span {
+      color: var(--primary);
+    }
+  }
+}
+
+div#benefits {
+  background: linear-gradient(
+    0deg,
+    #ebedf2 -3.81%,
+    rgba(245, 246, 248, 0) 97.81%
+  );
+
+  ul {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    justify-content: start;
+  }
+}
+
+div#available-jobs {
+  article {
+    &:nth-of-type(1) {
+      padding-top: 0;
+    }
+
+    &:nth-last-of-type(1) {
+      border-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
 button#toc-toggle[data-active='true'] {
   border-color: var(--selection);
 
@@ -809,9 +835,8 @@ a.tags {
   }
 
   div#study {
-    grid-template-columns: minmax(1.25rem, 1fr) 368px minmax(335px, 944px) minmax(
-        1.25rem,
-        1fr
-      ) !important;
+    grid-template-columns:
+      minmax(var(--grid-pad-min), 1fr) 368px minmax(335px, 944px)
+      minmax(var(--grid-pad-min), 1fr) !important;
   }
 }
