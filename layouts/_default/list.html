@@ -37,7 +37,7 @@
 {{ end }}
 {{ define "styles" }}
   {{ if eq .Params.layout "case-studies" }}
-    {{ $glide := resources.Get "css/glide.css" | resources.Minify }}
+    {{ $glide := resources.Get "css/glide.scss" | resources.ToCSS | resources.Minify }}
     <link rel="stylesheet" href="{{ $glide.Permalink }}" />
   {{ end }}
 {{ end }}

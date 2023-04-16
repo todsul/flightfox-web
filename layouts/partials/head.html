@@ -117,9 +117,9 @@
 
   {{ $tailwind := resources.Get "css/tw.css" }}
   {{ $header := resources.Get "css/header.scss" | resources.ToCSS }}
-  {{ $main := resources.Get "css/main.css" }}
+  {{ $main := resources.Get "css/main.scss" | resources.ToCSS }}
   {{ $footer := resources.Get "css/footer.scss" | resources.ToCSS }}
-  {{ $styles := slice $tailwind $header $main $footer | resources.Concat "css/main.css" | resources.PostCSS | resources.Minify }}
+  {{ $styles := slice $tailwind $header $main $footer | resources.Concat "css/styles.css" | resources.PostCSS | resources.Minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" />
   {{ if hugo.Environment | eq "production" }}
     <script defer data-domain="flightfox.com" src="https://plausible.io/js/plausible.js"></script>
