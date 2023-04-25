@@ -12,6 +12,8 @@
       {{ partial "hero/legal.html" . }}
     {{ else if eq .Params.layout "login" }}
       {{ partial "hero/login.html" . }}
+    {{ else if eq .Params.layout "pricing" }}
+      {{ partial "hero/alt.html" . }}
     {{ else }}
       {{ partial "hero/default.html" . }}
     {{ end }}
@@ -34,6 +36,8 @@
     {{ else if eq .Params.layout "legal" }}
       {{ partial "main/legal.html" . }}
     {{ else if eq .Params.layout "login" }}
+    {{ else if eq .Params.layout "pricing" }}
+      {{ partial "main/pricing.html" . }}
     {{ else }}
     {{ end }}
   {{ else if ne .Parent.RelPermalink "/" }}

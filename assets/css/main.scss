@@ -23,6 +23,10 @@ body {
       margin-top: 0;
     }
   }
+
+  &[data-layout='pricing'] {
+    background-color: var(--background);
+  }
 }
 
 main {
@@ -43,15 +47,22 @@ section#hero {
     min-height: calc(3.75rem * 1.7);
   }
 
-  &[data-layout='alt'] {
+  &[data-layout='alt'],
+  &[data-layout='pricing'] {
     --bottom-padding: 14.75rem;
   }
 
   &[data-layout='alt'],
   &[data-layout='article'],
   &[data-layout='child'],
-  &[data-layout='legal'] {
+  &[data-layout='legal'],
+  &[data-layout='pricing'] {
     background-color: var(--foreground);
+  }
+
+  &[data-layout='blog-feed'] {
+    background-color: var(--background-light);
+    min-height: var(--blog-height);
   }
 
   &[data-layout='legal'] {
@@ -69,9 +80,8 @@ section#hero {
     }
   }
 
-  &[data-layout='blog-feed'] {
-    background-color: var(--background-light);
-    min-height: var(--blog-height);
+  &[data-layout='pricing'] {
+    --hero-bg-position: right center;
   }
 
   &[data-flushed='true'] {
@@ -90,7 +100,8 @@ section#main {
     }
   }
 
-  &[data-layout='article'] {
+  &[data-layout='article'],
+  &[data-layout='pricing'] {
     background-color: var(--background);
   }
 
@@ -188,6 +199,48 @@ section.footnotes {
 sup {
   a {
     text-decoration: none !important;
+  }
+}
+
+div#plans {
+  div#primary-plan {
+    box-shadow: 0px 40px 80px rgba(22, 63, 149, 0.08);
+    margin-top: -11.25rem;
+  }
+
+  p {
+    span {
+      color: var(--primary);
+    }
+  }
+
+  li {
+    &::before {
+      content: url('/img/list-image-alt.svg');
+      height: 1.25rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+div#full-feature-list {
+  --content-padding: 0;
+
+  h2 {
+    span {
+      color: var(--primary);
+    }
+  }
+
+  div#feature-list {
+    ul {
+      li {
+        img {
+          height: 1.25rem;
+          width: 1.25rem;
+        }
+      }
+    }
   }
 }
 
@@ -335,6 +388,7 @@ div#content {
   }
 
   ul {
+    list-style-image: url('/img/list-image.svg');
     padding-left: 1rem;
 
     > li {
@@ -789,8 +843,11 @@ a.tags {
     }
   }
 
-  section#hero[data-layout='alt'] {
-    --bottom-padding: 15.1875rem;
+  section#hero {
+    &[data-layout='alt'],
+    &[data-layout='pricing'] {
+      --bottom-padding: 15.1875rem;
+    }
   }
 
   div#studies {

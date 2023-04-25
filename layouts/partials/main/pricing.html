@@ -1,0 +1,97 @@
+<div id="plans" class="flex items-center justify-center w-full">
+  <div id="primary-plan" class="bg-background flex flex-col items-start justify-start max-w-md mx-4 my-0 px-8 py-9 w-full z-20">
+    <p id="cost" class="font-extrabold mb-4 mt-0 my-0 md:text-6xl text-5xl">{{ .Params.plan.cost }}</p>
+    <p class="mb-0 mt-2 text-meta">{{ .Params.plan.description | safeHTML }}</p>
+    <ul class="flex flex-col items-start justify-start mb-8 mt-3 mx-0 p-0 w-full">
+      {{ range .Params.plan.included }}
+      <li class="flex items-center justify-start mx-0 my-3 p-0 w-full">
+        <p class="font-medium m-0 p-0 text-foreground">{{ . }}</p>
+      </li>
+      {{ end }}
+    </ul>
+    {{ range .Params.plan.cta }}
+      {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug min-w-xxxxs my-3 no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"
+          href="{{ .link | absURL }}"
+        >
+        {{ .label }}
+      </a>
+    {{ end }}
+    {{ range .Params.plan.anchors }}
+      <a
+        href="{{ .link | relURL }}"
+        class="duration-200 ease-in-out focus:text-primary hover:text-primary my-3 text-center transition-colors text-primary w-full"
+      >
+        {{ .label }}
+      </a>
+    {{ end }}
+  </div>
+</div>
+<div id="clients" class="grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-start justify-center md:mt-6 mt-8 overflow-hidden row-start-2 w-full">
+    <p class="leading-relaxed mb-10 mt-0 mx-auto max-w-2xl text-center text-meta w-full">
+      {{ .Params.clients.heading }}
+    </p>
+    <ul
+      id="clients"
+      class="gap-x-8 grid grid-cols-6-auto grid-rows-1 items-center list-none md:gap-x-16 md:m-0 mr-auto my-0 p-0 w-full"
+      data-type="single"
+      style='--client-length: {{ len .Params.clients.companies }};'
+    >
+      {{ range .Params.clients.companies }}
+      <li class="h-auto m-0 p-0 w-auto">
+        {{ partial "img.html" (dict "src" .img "alt" .label "pClasses" "w-auto" "iClasses" "h-7 md:h-10 w-auto" "size"
+        240) }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+<div id="full-feature-list" class="grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-center justify-center m-0 overflow-hidden row-start-2 w-full">
+    <h2 class="font-normal m-0 md:text-5xl text-center text-3xl">
+      {{ .Params.features.heading | safeHTML }}
+    </h2>
+    <div id="feature-list" class="flex flex-col items-start justify-start max-w-4xl md:mt-16 mt-8 px-1 w-full">
+      {{ range $section := .Params.features.sections }}
+      <div class="flex flex-col items-start justify-start mb-4 w-full">
+        <p class="border-0 border-b border-meta border-solid leading-none m-0 px-0 py-4 text-meta uppercase w-full">
+          {{ $section.heading }}
+        </p>
+        <ul class="flex flex-col items-start justify-start list-none m-0 p-0 w-full">
+          {{ range $section.offerings }}
+          {{ $rowSpan := cond (.exclusive) "" "row-span-2" }}
+          <li
+            class="border-0 border-b border-selection border-solid flex h-16 items-center justify-start m-0 overflow-hidden p-0 w-full"
+          >
+            <div class="grid grid-cols-1 grid-rows-2 items-center md:grid-cols-3 md:grid-rows-1 px-0 py-4 w-full">
+              <p class="col-start-1 font-medium leading-none m-0 md:col-span-2 p-0 text-foreground {{ $rowSpan }}">
+                {{ .title }}
+              </p>
+              {{ if .exclusive }}
+              <p class="col-start-1 font-medium leading-none mb-0 mt-1 md:m-0 md:col-start-3 md:row-start-1 md:text-base md:text-center p-0 row-start-2 text-meta text-xs">
+                Only on <span class="text-primary">Flightfox</span>
+              </p>
+              {{ end }}
+            </div>
+            <div class="bg-selection-light flex h-16 items-center justify-center md:w-48 px-2 py-4 w-20">
+              {{ if .available }}
+              {{ partial "img.html" (dict "src" "pricing/available.svg" "alt" "" "iClasses" "m-0" "size" 20 "hidden" true) }}
+              {{ else }}
+                {{ with .description }}
+                <p class="col-start-3 font-medium leading-none m-0 md:text-base p-0 text-center text-foreground text-xs">
+                  {{ . }}
+                </p>
+                {{ end }}
+              {{ end }}
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

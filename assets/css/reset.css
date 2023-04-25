@@ -277,7 +277,3 @@ textarea {
   height: 6.75rem;
   resize: none;
 }
-
-ul {
-  list-style-image: url('/img/list-image.svg');
-}

@@ -8,6 +8,7 @@
   --primary: #dd4124;
   --primary-transparent: rgba(221, 65, 36, 0.07);
   --selection: #e2e8f0;
+  --selection-light: #ebecee;
   /* values */
   --grid-pad-min: 1.25rem;
   --header-height: 5.5rem;

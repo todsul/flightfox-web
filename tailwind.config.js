@@ -10,6 +10,7 @@ const pallete = {
   primary: 'var(--primary)',
   'primary-transparent': 'var(--primary-transparent)',
   selection: 'var(--selection)',
+  'selection-light': 'var(--selection-light)',
 };
 
 const widths = {
