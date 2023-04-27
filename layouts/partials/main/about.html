@@ -7,11 +7,11 @@
   style='background-image: url("{{ $whoIsBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
 >
   <div class="col-start-2 flex flex-col items-center justify-center max-w-2xl md:px-3 mx-auto row-start-2 w-full">
-    <h2 class="font-normal mb-10 mt-0 p-0 text-background text-center">{{ .Params.whoIs.heading | safeHTML }}</h2>
+    <h2 class="font-normal mb-10 md:text-5xl mt-0 p-0 text-background text-3xl text-center">{{ .Params.whoIs.heading | safeHTML }}</h2>
     <p class="m-0 opacity-70 text-background text-center">{{ .Params.whoIs.copy | safeHTML }}</p>
     <p class="mb-0 mt-4 mx-0 opacity-70 text-background text-center">{{ .Params.whoIs.subcopy | safeHTML }}</p>
   </div>
-  {{ partial "img.html" (dict "src" .Params.whoIs.img "alt" "" "pClasses" "absolute bottom-0 h-auto left-0 right-0 w-full" "iClasses" "max-w-screen-2xl" "size" 2000) }}
+  {{ partial "img.html" (dict "src" .Params.whoIs.img "alt" "" "pClasses" "absolute bottom-0 h-auto left-0 right-0 w-full" "iClasses" "max-w-5xl md:max-w-screen-2xl" "size" 2000) }}
 </div>
 <div
   id="manifesto"
@@ -19,7 +19,7 @@
   style='background-image: url("{{ $manifestoBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: 105% center; background-repeat: no-repeat;'
 >
   <div class="col-start-2 flex flex-col items-center justify-center row-start-2 w-full">
-    <h2 class="font-normal mb-12 mr-auto mt-0 p-0 text-start">{{ .Params.manifesto.heading | safeHTML }}</h2>
+    <h2 class="font-normal mb-12 md:text-5xl mr-auto mt-0 p-0 text-3xl text-start">{{ .Params.manifesto.heading | safeHTML }}</h2>
     <ul class="auto-rows-auto gap-8 grid list-none m-0 p-0 w-full">
       {{ range .Params.manifesto.statements }}
       <li class="bg-background flex flex-col h-full m-0 p-10 rounded-4xl w-full">
@@ -33,10 +33,10 @@
 </div>
 <div id="team" class="bg-foreground grid items-center justify-center w-full">
   <div class="col-start-2 flex flex-col items-center justify-start row-start-2 w-full">
-    <h2 class="font-normal mb-10 mt-0 p-0 text-background text-center">{{ .Params.team.heading | safeHTML }}</h2>
+    <h2 class="font-normal mb-10 md:text-5xl mt-0 p-0 text-3xl text-background text-center">{{ .Params.team.heading | safeHTML }}</h2>
     <ul class="gap-12 grid h-auto justify-center list-none m-0 p-0 w-full">
       {{ range .Params.team.members }}
-      <li class="flex flex-col items-center justify-start m-0 p-0 w-full">
+      <li class="flex flex-col items-center justify-start m-0 md:max-w-full p-0 w-full">
         <div class="flex h-auto items-end justify-center mb-10 overflow-hidden rounded-6xl w-full">
           {{ partial "img.html" (dict "src" .img "alt" "" "pClasses" "h-auto overflow-visible rounded-6xl w-full" "iClasses" "h-full object-bottom w-full" "size" 600 "hidden" true) }}
         </div>
@@ -49,7 +49,7 @@
 </div>
 <div id="investor" class="bg-footer grid items-center justify-center w-full">
   <div class="col-start-2 flex flex-col items-center justify-center row-start-2 w-full">
-    <h2 class="m-0 text-background text-center">{{ .Params.investor.heading }}</h2>
+    <h2 class="m-0 md:text-5xl text-3xl text-background text-center">{{ .Params.investor.heading }}</h2>
     {{ range .Params.investor.companies }}
     <p class="m-0 text-background text-center w-full">{{ .title | markdownify }}</p>
     {{ end }}
@@ -57,12 +57,11 @@
 </div>
 <div id="case-studies" class="bg-foreground grid items-center justify-center w-full">
   <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
-    <div class="grid grid-cols-3 grid-rows-1 w-full">
-      <h2 class="font-normal m-0 max-w-xs p-0 text-background text-start w-full">{{ .Params.caseStudies.heading | safeHTML }}</h2>
-      <div></div>
-      <div class="flex items-end justify-end self-end w-auto">
+    <div class="grid grid-cols-1 grid-rows-2 md:grid-cols-3 md:grid-rows-1 w-full">
+      <h2 class="font-normal m-0 max-w-xs md:max-w-xs md:p-0 md:text-5xl pr-32 py-0 row-start-1 text-3xl text-background text-start w-full">{{ .Params.caseStudies.heading | safeHTML }}</h2>
+      <div class="flex items-end justify-start md:col-start-3 md:justify-end md:row-start-1 md:self-end row-start-2 w-auto">
         <a
-          class="duration-200 ease-in-out focus:text-primary focus:underline hover:text-primary hover:underline m-0 no-underline text-primary text-right transition-colors visited:text-primary"
+          class="duration-200 ease-in-out focus:text-primary focus:underline hover:text-primary hover:underline m-0 md:text-right no-underline text-primary transition-colors visited:text-primary"
           href='{{ "case-studies" | absURL }}'
         >
           View Case Studies &rarr;
@@ -71,7 +70,7 @@
     </div>
 
     <div class="glide col-start-2 mt-14 relative row-start-2 w-full">
-      <div class="glide__arrows absolute flex items-center justify-between w-36" data-glide-el="controls">
+      <div class="glide__arrows absolute hidden items-center justify-between md:flex w-36" data-glide-el="controls">
         <button
           class="glide__arrow glide__arrow--left bg-foreground-light border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-background hover:bg-background items-center justify-center outline-none rounded-full transition-colors"
           data-glide-dir="<"
