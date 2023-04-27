@@ -300,6 +300,7 @@ div#case-studies {
   }
 
   ul#article-cards {
+    overflow: visible;
     width: calc(26rem * var(--content-gap));
 
     li {
