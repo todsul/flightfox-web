@@ -1,0 +1,123 @@
+{{ $whoIsBg := resources.Get "/img/bg-wave-dark.svg" }}
+{{ $manifestoBg := resources.Get "/img/bg-wave-light.svg" }}
+
+<div
+  id="who-is"
+  class="bg-foreground bg-no-repeat grid items-center justify-center relative w-full"
+  style='background-image: url("{{ $whoIsBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+>
+  <div class="col-start-2 flex flex-col items-center justify-center max-w-2xl md:px-3 mx-auto row-start-2 w-full">
+    <h2 class="font-normal mb-10 mt-0 p-0 text-background text-center">{{ .Params.whoIs.heading | safeHTML }}</h2>
+    <p class="m-0 opacity-70 text-background text-center">{{ .Params.whoIs.copy | safeHTML }}</p>
+    <p class="mb-0 mt-4 mx-0 opacity-70 text-background text-center">{{ .Params.whoIs.subcopy | safeHTML }}</p>
+  </div>
+  {{ partial "img.html" (dict "src" .Params.whoIs.img "alt" "" "pClasses" "absolute bottom-0 h-auto left-0 right-0 w-full" "iClasses" "max-w-screen-2xl" "size" 2000) }}
+</div>
+<div
+  id="manifesto"
+  class="grid items-center justify-center w-full"
+  style='background-image: url("{{ $manifestoBg.Permalink }}"); background-size: var(--hero-bg-size); background-position: 105% center; background-repeat: no-repeat;'
+>
+  <div class="col-start-2 flex flex-col items-center justify-center row-start-2 w-full">
+    <h2 class="font-normal mb-12 mr-auto mt-0 p-0 text-start">{{ .Params.manifesto.heading | safeHTML }}</h2>
+    <ul class="auto-rows-auto gap-8 grid list-none m-0 p-0 w-full">
+      {{ range .Params.manifesto.statements }}
+      <li class="bg-background flex flex-col h-full m-0 p-10 rounded-4xl w-full">
+        <h3 class="font-semibold mb-4 mt-0 p-0 text-2xl">{{ .title }}</h3>
+        <p class="m-0 text-meta">{{ .copy | safeHTML }}</p>
+        <p class="mb-0 mt-4 text-meta">{{ .subcopy | safeHTML }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+<div id="team" class="bg-foreground grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-center justify-start row-start-2 w-full">
+    <h2 class="font-normal mb-10 mt-0 p-0 text-background text-center">{{ .Params.team.heading | safeHTML }}</h2>
+    <ul class="gap-12 grid h-auto justify-center list-none m-0 p-0 w-full">
+      {{ range .Params.team.members }}
+      <li class="flex flex-col items-center justify-start m-0 p-0 w-full">
+        <div class="flex h-auto items-end justify-center mb-10 overflow-hidden rounded-6xl w-full">
+          {{ partial "img.html" (dict "src" .img "alt" "" "pClasses" "h-auto overflow-visible rounded-6xl w-full" "iClasses" "h-full object-bottom w-full" "size" 600 "hidden" true) }}
+        </div>
+        <p class="m-0 text-2xl text-background">{{ .name }}</p>
+        <p class="mb-0 mt-2 mx-0 opacity-50 text-background text-xl">{{ .title }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+<div id="investor" class="bg-footer grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-center justify-center row-start-2 w-full">
+    <h2 class="m-0 text-background text-center">{{ .Params.investor.heading }}</h2>
+    {{ range .Params.investor.companies }}
+    <p class="m-0 text-background text-center w-full">{{ .title | markdownify }}</p>
+    {{ end }}
+  </div>
+</div>
+<div id="case-studies" class="bg-foreground grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <div class="grid grid-cols-3 grid-rows-1 w-full">
+      <h2 class="font-normal m-0 max-w-xs p-0 text-background text-start w-full">{{ .Params.caseStudies.heading | safeHTML }}</h2>
+      <div></div>
+      <div class="flex items-end justify-end self-end w-auto">
+        <a
+          class="duration-200 ease-in-out focus:text-primary focus:underline hover:text-primary hover:underline m-0 no-underline text-primary text-right transition-colors visited:text-primary"
+          href='{{ "case-studies" | absURL }}'
+        >
+          View Case Studies &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="glide col-start-2 mt-14 relative row-start-2 w-full">
+      <div class="glide__arrows absolute flex items-center justify-between w-36" data-glide-el="controls">
+        <button
+          class="glide__arrow glide__arrow--left bg-foreground-light border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-background hover:bg-background items-center justify-center outline-none rounded-full transition-colors"
+          data-glide-dir="<"
+        >
+          <span class="sr-only">Go to previous slide</span>
+          {{ partial "arrow-left.html" . }}
+        </button>
+        <button
+          class="glide__arrow glide__arrow--right bg-foreground-light border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-background hover:bg-background items-center justify-center outline-none rounded-full transition-colors"
+          data-glide-dir=">"
+          >
+          <span class="sr-only">Go to next slide</span>
+          {{ partial "arrow-right.html" . }}
+        </button>
+      </div>
+
+      <div data-glide-el="track" class="glide__track max-w-5xl m-0 w-full">
+        <ul
+          id="article-cards"
+          class="glide__slides auto-rows-min gap-4 grid justify-center m-0 md:gap-8 p-0 list-none w-full"
+          style="--content-gap: {{ len .Params.caseStudies.studies }};"
+        >
+        {{ range .Params.caseStudies.studies }}
+        {{ with $.Site.GetPage . }}
+          {{ $heroMargin := "mb-6" }}
+          {{ $heroMax := "max-w-md mb-6" }}
+          {{ $heroSize := 500 }}
+          {{ $headingClasses := "max-w-lg md:text-4xl mb-8" }}
+          {{ $span := "glide__slide col-span-1 flex flex-col pb-7" }}
+
+          {{ partial "main/card.html" (dict "span" $span "featured" false "featuredList" true "image" .Params.image "title" .Title "heroMargin" $heroMargin "heroMax" $heroMax "heroSize" $heroSize "logo" .Params.logo "headingClasses" $headingClasses "subtitle" .Params.subtitle "description" .Params.description "permalink" .Permalink "ctaType" "button") }}
+        {{ end }}
+        {{ end }}
+        </ul>
+      </div>
+
+      <div class="glide__bullets flex items-center justify-start ml-0 mr-auto mt-10 w-full" data-glide-el="controls[nav]">
+        {{ range $i, $data := .Params.caseStudies.studies }}
+          <button
+            class="glide__bullet bg-background border-0 border-transparent cursor-pointer duration-200 ease-in-out focus:opacity-75 hover:opacity-75 md:mx-2 mr-3 opacity-50 outline-none p-1 rounded-full transition-opacity"
+            data-glide-dir="={{ $i }}"
+          >
+            <span class="sr-only">Go to slide {{ add $i 1 }}</span>
+          </button>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

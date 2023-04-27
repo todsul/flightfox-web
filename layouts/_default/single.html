@@ -1,6 +1,8 @@
 {{ define "hero" }}
   {{ if ne .Params.layout nil }}
-    {{ if eq .Params.layout "alt" }}
+    {{ if eq .Params.layout "about" }}
+      {{ partial "hero/default.html" . }}
+    {{ else if eq .Params.layout "alt" }}
       {{ partial "hero/alt.html" . }}
     {{ else if eq .Params.layout "blog-feed" }}
       {{ partial "hero/blog-feed.html" . }}
@@ -25,8 +27,9 @@
 {{ end }}
 {{ define "main" }}
   {{ if ne .Params.layout nil }}
-    {{ if eq .Params.layout "alt" }}
-    {{ else if eq .Params.layout "blog-feed" }}
+    {{ if eq .Params.layout "about" }}
+      {{ partial "main/about.html" . }}
+    {{ else if eq .Params.layout "alt" }}
     {{ else if eq .Params.layout "article" }}
       {{ partial "main/article.html" . }}
     {{ else if eq .Params.layout "contact" }}
@@ -35,13 +38,18 @@
       {{ partial "main/jobs.html" . }}
     {{ else if eq .Params.layout "legal" }}
       {{ partial "main/legal.html" . }}
-    {{ else if eq .Params.layout "login" }}
     {{ else if eq .Params.layout "pricing" }}
       {{ partial "main/pricing.html" . }}
     {{ else }}
     {{ end }}
   {{ else if ne .Parent.RelPermalink "/" }}
   {{ else }}
+  {{ end }}
+{{ end }}
+{{ define "styles" }}
+  {{ if eq .Params.layout "about" }}
+    {{ $glide := resources.Get "css/glide.scss" | resources.ToCSS | resources.Minify }}
+    <link rel="stylesheet" href="{{ $glide.Permalink }}" />
   {{ end }}
 {{ end }}
 {{ define "scripts" }}
@@ -52,5 +60,12 @@
     {{ $tocJS := slice $tocTS | resources.Concat "toc.js" }}
     {{ $toc := $tocJS | resources.Minify }}
     <script src="{{ $toc.Permalink }}"></script>
+    <script>
+      new Glide('.glide', { gap: 32 }).mount({ Controls });
+    </script>
+  {{ end }}
+  {{ if eq .Params.layout "about" }}
+    {{ $glideAlt := resources.Get "scripts/glide-alt.js" | resources.Minify }}
+    <script src="{{ $glideAlt.Permalink }}"></script>
   {{ end }}
 {{ end }}
