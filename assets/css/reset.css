@@ -194,11 +194,6 @@ h1 {
   margin: 0.75rem 0 2.625rem;
 }
 
-h1 > span,
-h1 > * > span {
-  color: var(--primary);
-}
-
 h2 {
   font-size: 3rem;
   margin-top: 0.75rem;
@@ -267,6 +262,16 @@ label {
 
 li {
   padding-left: 0.75rem;
+}
+
+p > span,
+h1 > span,
+h2 > span,
+h3 > span,
+h1 > * > span,
+h2 > * > span,
+h3 > * > span {
+  color: var(--primary);
 }
 
 strong {

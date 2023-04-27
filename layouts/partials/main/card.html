@@ -1,4 +1,6 @@
 {{ $notFeat := not .featured }}
+{{ $ctaType := cond (ne .ctaType nil) .ctaType "default" }}
+{{ $ctaStyle := cond (eq $ctaType "button") "bg-primary-transparent orange-link px-5 py-3 rounded-xl" "orange-link" }}
 
 <li
   class="bg-background {{ .span }} items-start justify-start m-0 p-4 relative w-full"
@@ -32,6 +34,16 @@
         <p class="mb-0 mt-auto text-meta">{{ .Format "02 January 2006" }}</p>
       {{ end }}
     {{ end }}
-    <a href="{{ .permalink }}" class="mb-1 mt-auto no-underline orange-link">Read More</a>
+    {{ if .featuredList }}
+      <p class="mb-5 text-meta">{{ $.description }}</p>
+    {{ end }}
+    <a
+      href="{{ .permalink }}"
+      class="mb-1 mt-auto no-underline {{ $ctaStyle }}"
+      data-type="{{ $ctaType }}"
+    >
+      Read More
+      {{ if eq $ctaType "button" }}&gt;{{ end }}
+    </a>
   </div>
 </li>
