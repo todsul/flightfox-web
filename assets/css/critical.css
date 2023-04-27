@@ -3,6 +3,7 @@
   --background: #ffffff;
   --background-light: #f5f6f8;
   --foreground: #0c1c3e;
+  --foreground-light: #192e5b;
   --footer: #071533;
   --meta: #718096;
   --primary: #dd4124;
@@ -98,10 +99,9 @@ footer,
 section#hero,
 section#main > div,
 section#footer-base {
-  grid-template-columns: minmax(var(--grid-pad-min), 1fr) minmax(
-      335px,
-      var(--main-width)
-    ) minmax(var(--grid-pad-min), 1fr);
+  grid-template-columns:
+    minmax(var(--grid-pad-min), 1fr) minmax(335px, var(--main-width))
+    minmax(var(--grid-pad-min), 1fr);
 }
 
 header {
