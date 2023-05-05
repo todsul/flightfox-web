@@ -8,6 +8,8 @@
       {{ partial "hero/blog-feed.html" . }}
     {{ else if eq .Params.layout "article" }}
       {{ partial "hero/article.html" . }}
+    {{ else if eq .Params.layout "home" }}
+      {{ partial "hero/default.html" . }}
     {{ else if eq .Params.layout "jobs" }}
       {{ partial "hero/default.html" . }}
     {{ else if eq .Params.layout "legal" }}
@@ -34,6 +36,8 @@
       {{ partial "main/article.html" . }}
     {{ else if eq .Params.layout "contact" }}
       {{ partial "main/contact.html" . }}
+    {{ else if eq .Params.layout "home" }}
+      {{ partial "main/home.html" . }}
     {{ else if eq .Params.layout "jobs" }}
       {{ partial "main/jobs.html" . }}
     {{ else if eq .Params.layout "legal" }}

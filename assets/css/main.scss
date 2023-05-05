@@ -18,6 +18,7 @@ body {
   &[data-layout='article'],
   &[data-layout='case-studies'],
   &[data-layout='contact'],
+  &[data-layout='home'],
   &[data-layout='jobs'],
   &[data-layout='login'] {
     footer {
@@ -33,6 +34,7 @@ body {
 main {
   &[data-layout='about'],
   &[data-layout='article'],
+  &[data-layout='home'],
   &[data-layout='jobs'] {
     --main-padding: 0;
   }
@@ -119,6 +121,19 @@ section#main {
 
   &[data-layout='case-studies'] {
     grid-row: span 2 / span 2;
+  }
+
+  &[data-layout='home'] {
+    > div {
+      &[data-flushed='true'] {
+        grid-template-rows: var(--content-padding) min-content 0;
+      }
+
+      &[data-edged='true'] {
+        grid-template-rows: var(--content-padding) repeat(2, min-content) var(--content-padding);
+
+      }
+    }
   }
 }
 
@@ -210,6 +225,15 @@ section.footnotes {
 sup {
   a {
     text-decoration: none !important;
+  }
+}
+
+div#customers {
+  > picture {
+    img {
+      max-width: unset;
+      width: 150vw;
+    }
   }
 }
 

@@ -40,7 +40,7 @@
       {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden w-auto" "iClasses" "max-w-xs w-full" "size" 768) }}
     {{ end }}
     {{ with .Params.clients }}
-      <div class="flex flex-col items-center justify-start w-full">
+      <div class="flex flex-col items-center justify-start overflow-hidden w-full">
         <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-center text-meta w-full">
           {{ .heading }}
         </p>
@@ -60,4 +60,191 @@
   </div>
 {{ end }}
 {{ define "main" }}
+  {{ $waveBgDark := resources.Get "/img/bg-wave-dark.svg" }}
+  {{ $waveBgLight := resources.Get "/img/bg-wave-light.svg" }}
+
+  <div
+    id="travellers"
+    class="bg-foreground bg-no-repeat grid items-center justify-center relative w-full"
+    style='background-image: url("{{ $waveBgDark.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+    data-flushed="true"
+  >
+    <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+      <h2 class="font-normal mb-5 md:text-5xl mr-auto mt-0 p-0 text-background text-3xl text-left">
+        {{ .Params.travellers.heading | safeHTML }}
+      </h2>
+      <p class="lg:pr-10 m-0 max-w-2xl text-background w-full">{{ .Params.travellers.description }}</p>
+      <ul class="auto-cols-fr auto-rows-auto gap-10 grid items-center list-none mb-0 md:mt-16 mt-10 mx-0 p-0 w-full">
+        {{ range .Params.travellers.items }}
+        <li class="bg-transparent flex flex-col m-0 md:row-start-1 p-0 rounded-4xl w-full">
+          <div class="bg-background-transparent flex h-12 items-center justify-center mb-6 rounded-full w-12">
+            {{ partial "img.html" (dict "src" .icon "alt" "" "iClasses" "h-auto w-6" "size" 30 "hidden" true) }}
+          </div>
+          <h3 class="font-semibold mb-4 mt-0 p-0 text-xl text-background">{{ .name }}</h3>
+          <p class="m-0 text-meta">{{ .description }}</p>
+        </li>
+        {{ end }}
+      </ul>
+      <nav class="auto-cols-fr auto-rows-auto col-start-2 gap-3 grid items-center justify-start md:auto-cols-auto mt-12 w-full">
+      {{ range .Params.travellers.cta }}
+        {{ $color := cond (.dark) "bg-background-transparent" "bg-primary" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:row-start-1 md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full white-link whitespace-nowrap"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+      {{ with .Params.travellers.image }}
+        {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+      {{ end }}
+      {{ with .Params.travellers.imageMobile }}
+        {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16 w-auto" "iClasses" "max-w-xs w-full" "size" 768) }}
+      {{ end }}
+    </div>
+  </div>
+  <div
+    id="managers"
+    class="bg-background bg-no-repeat grid items-center justify-center relative w-full"
+    style='background-image: url("{{ $waveBgLight.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+    data-flushed="true"
+  >
+    <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+      <h2 class="font-normal mb-5 md:text-5xl mr-auto mt-0 p-0 text-foreground text-3xl text-left">
+        {{ .Params.managers.heading | safeHTML }}
+      </h2>
+      <p class="lg:pr-10 m-0 max-w-2xl text-foreground w-full">{{ .Params.managers.description }}</p>
+      <ul class="auto-cols-fr auto-rows-auto gap-10 grid items-center list-none mb-0 md:mt-16 mt-10 mx-0 p-0 w-full">
+        {{ range .Params.managers.items }}
+        <li class="bg-transparent flex flex-col m-0 md:row-start-1 p-0 rounded-4xl w-full">
+          <div class="bg-primary-transparent flex h-12 items-center justify-center mb-6 rounded-full w-12">
+            {{ partial "img.html" (dict "src" .icon "alt" "" "iClasses" "h-auto w-6" "size" 30 "hidden" true) }}
+          </div>
+          <h3 class="font-semibold mb-4 mt-0 p-0 text-xl">{{ .name }}</h3>
+          <p class="m-0 text-meta">{{ .description }}</p>
+        </li>
+        {{ end }}
+      </ul>
+      <nav class="auto-cols-fr auto-rows-auto col-start-2 gap-3 grid items-center justify-start md:auto-cols-auto mt-12 w-full">
+      {{ range .Params.managers.cta }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:row-start-1 md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+      {{ with .Params.managers.image }}
+        {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+      {{ end }}
+      {{ with .Params.managers.imageMobile }}
+        {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16 w-auto" "iClasses" "max-w-xs w-full" "size" 768) }}
+      {{ end }}
+    </div>
+  </div>
+  <div
+    id="finance"
+    class="bg-foreground bg-no-repeat grid items-center justify-center relative w-full"
+    style='background-image: url("{{ $waveBgDark.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+    data-flushed="true"
+  >
+    <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+      <h2 class="font-normal mb-5 md:text-5xl mr-auto mt-0 p-0 text-background text-3xl text-left">
+        {{ .Params.finance.heading | safeHTML }}
+      </h2>
+      <p class="lg:pr-10 m-0 max-w-2xl text-background w-full">{{ .Params.finance.description }}</p>
+      <ul class="auto-cols-fr auto-rows-auto gap-10 grid items-center list-none mb-0 md:mt-16 mt-10 mx-0 p-0 w-full">
+        {{ range .Params.finance.items }}
+        <li class="bg-transparent flex flex-col m-0 md:row-start-1 p-0 rounded-4xl w-full">
+          <div class="bg-background-transparent flex h-12 items-center justify-center mb-6 rounded-full w-12">
+            {{ partial "img.html" (dict "src" .icon "alt" "" "iClasses" "h-auto w-6" "size" 30 "hidden" true) }}
+          </div>
+          <h3 class="font-semibold mb-4 mt-0 p-0 text-xl text-background">{{ .name }}</h3>
+          <p class="m-0 text-meta">{{ .description }}</p>
+        </li>
+        {{ end }}
+      </ul>
+      <nav class="auto-cols-fr auto-rows-auto col-start-2 gap-3 grid items-center justify-start md:auto-cols-auto mt-12 w-full">
+      {{ range .Params.finance.cta }}
+        {{ $color := cond (.dark) "bg-background-transparent" "bg-primary" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:row-start-1 md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full white-link whitespace-nowrap"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+      {{ with .Params.finance.image }}
+        {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+      {{ end }}
+      {{ with .Params.finance.imageMobile }}
+        {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16 w-auto" "iClasses" "max-w-xs w-full" "size" 768) }}
+      {{ end }}
+    </div>
+  </div>
+  <div
+    id="users"
+    class="bg-transparent bg-no-repeat grid items-center justify-center relative w-full"
+  >
+    <div class="col-start-2 flex flex-col items-center justify-start mx-auto row-start-2 w-full">
+      <h2 class="font-normal mb-5 md:text-5xl mt-0 mx-auto p-0 text-foreground text-3xl text-center">
+        {{ .Params.users.heading | safeHTML }}
+      </h2>
+      <p class="lg:px-5 mx-auto my-0 max-w-2xl text-foreground text-center w-full">
+        {{ .Params.users.description }}
+      </p>
+      <ul class="auto-cols-fr auto-rows-auto gap-10 grid items-center list-none mb-0 md:mt-16 mt-10 mx-0 p-0 w-full">
+        {{ range .Params.users.cards }}
+        <li class="bg-background flex flex-col items-center justify-center m-0 md:row-start-1 p-9 rounded-4xl w-full">
+          <div class="bg-primary-transparent flex h-20 items-center justify-center mb-6 rounded-full w-20">
+            {{ partial "img.html" (dict "src" .icon "alt" "" "iClasses" "h-auto w-10" "size" 40 "hidden" true) }}
+          </div>
+          <h3 class="font-semibold m-0 p-0 text-xl">{{ .name }}</h3>
+        </li>
+        {{ end }}
+      </ul>
+      <nav class="auto-cols-fr auto-rows-auto col-start-2 gap-3 grid items-center justify-center md:auto-cols-auto mt-12 w-full">
+      {{ range .Params.managers.cta }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:row-start-1 md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+    </div>
+  </div>
+  <div
+    id="cta"
+    class="grid items-center justify-center w-full"
+  >
+    {{ partial "cta-block.html" (dict "data" .Params.save "classes" "col-start-2 row-start-2") }}
+  </div>
+  <div
+    id="customers"
+    class="bg-transparent bg-no-repeat grid items-center justify-center relative w-full"
+    data-edged="true"
+  >
+    <div class="col-start-2 flex flex-col items-center justify-center row-start-2 w-full">
+      <h2 class="font-normal mb-10 md:mb-16 md:text-5xl mt-0 mx-auto p-0 text-foreground text-3xl text-center">
+        {{ .Params.customers.heading | safeHTML }}
+      </h2>
+      {{ with .Params.customers.imageMobile }}
+        {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden w-full" "iClasses" "w-full" "size" 768) }}
+      {{ end }}
+    </div>
+    {{ with .Params.customers.image }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "col-span-3 col-start-1 hidden md:flex row-start-3 w-auto" "iClasses" "w-full" "size" 2500) }}
+    {{ end }}
+  </div>
 {{ end }}

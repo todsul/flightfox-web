@@ -4,6 +4,7 @@ const pallete = {
   background: 'var(--background)',
   'background-light': 'var(--background-light)',
   'background-dark': 'var(--background-dark)',
+  'background-transparent': 'var(--background-transparent)',
   foreground: 'var(--foreground)',
   'foreground-light': 'var(--foreground-light)',
   footer: 'var(--footer)',
