@@ -2,6 +2,9 @@
 {{ $description := cond (eq .IsHome true) .Site.Params.meta.description .Params.description }}
 
 <head>
+  {{ with .Params.redirect }}
+  <meta http-equiv="refresh" content="0; URL={{ . | absURL }}">
+  {{ end }}
   <base href="{{ .Permalink }}" />
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
