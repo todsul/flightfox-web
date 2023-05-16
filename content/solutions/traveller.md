@@ -1,5 +1,6 @@
 ---
 layout: default
+flushed: true
 title: <b>Always Get <span>Peace</span> of Mind</b> While Travelling
 tagLine: For Travellers
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit varius adipiscing aliquet magna tincidunt iaculis nam morbi. Augue fringilla.
