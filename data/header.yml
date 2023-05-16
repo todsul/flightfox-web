@@ -6,11 +6,11 @@ nav:
     parent: true
     children:
       - label: Travellers
-        link: traveller
+        link: solutions/traveller
       - label: Travel Managers
-        link: travel-manager
+        link: solutions/travel-manager
       - label: Finance Managers
-        link: finance-manager
+        link: solutions/finance-manager
   - label: About Us
     link: about-us
   - label: Pricing

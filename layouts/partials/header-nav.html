@@ -5,7 +5,7 @@
 <nav class="{{ $navClasses }} items-center lg:justify-center lg:ml-9 lg:w-auto w-full">
   <ul class="auto-rows-min grid grid-cols-1 items-center justify-start list-none lg:auto-cols-min lg:grid-rows-1 lg:gap-2 lg:justify-center lg:w-auto m-0 px-0 w-full">
     {{ range .data.nav }}
-    <li class="flex flex-col items-start justify-center lg:flex-row lg:items-center lg:overflow-visible lg:w-auto m-0 {{ $liClasses }} relative w-full">
+    <li class="flex flex-col items-start justify-center lg:flex-row lg:items-center lg:overflow-visible lg:w-auto m-0 p-0 {{ $liClasses }} relative w-full">
       {{ if .parent }}
         <button
           type="button"
@@ -24,7 +24,7 @@
           aria-hidden="true"
         >
           {{ range .children }}
-            <li class="col-start-1 flex items-center justify-start m-0 w-full">
+            <li class="col-start-1 flex items-center justify-start m-0 p-0 w-full">
               <a
                 href="{{ .link | absURL }}"
                 class="border-0 border-b border-selection border-solid duration-200 ease-in-out flex font-medium items-center justify-between lg:justify-start lg:border-b-0 lg:border-transparent lg:focus:bg-selection lg:focus:no-underline lg:hover:bg-selection lg:hover:no-underline px-4 lg:rounded-xl lg:text-left no-underline py-3 text-center text-base transition-colors whitespace-nowrap w-full"
