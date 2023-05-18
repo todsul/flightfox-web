@@ -68,6 +68,12 @@
       new Glide('.glide', { gap: 32 }).mount({ Controls });
     </script>
   {{ end }}
+  {{ if eq .Section "solutions" }}
+    {{- $faqTS := resources.Get "scripts/faq.ts" | babel -}}
+    {{ $faqJS := slice $faqTS | resources.Concat "faq.js" }}
+    {{ $faq := $faqJS | resources.Minify }}
+    <script src="{{ $faq.Permalink }}"></script>
+  {{ end }}
   {{ if .Params.glide }}
     {{ $glide := resources.Get "scripts/glide.js" | resources.Minify }}
     <script src="{{ $glide.Permalink }}"></script>

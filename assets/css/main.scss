@@ -161,6 +161,39 @@ div#faq {
   ul {
     max-width: 46.75rem;
   }
+
+  button.faq-question {
+    div.icon-wrap {
+      min-width: 1.5rem;
+
+      @media screen and (min-width: 768px) {
+        min-width: 2.5rem;
+      }
+
+      &[data-active='true'] {
+        background-color: var(--primary);
+
+        img.plus {
+          display: none;
+        }
+
+        img.minus {
+          display: block;
+        }
+      }
+    }
+  }
+
+  p.faq-answer {
+    transition-delay: 200ms, 0s, 0s;
+    transition-property: display, opacity, transform;
+
+    &[data-active='false'] {
+      display: none;
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
 }
 
 ul#hero-stats {
@@ -357,6 +390,7 @@ div#plans {
 
 div#case-studies {
   --study-height: 17.25rem;
+  overflow: hidden;
 
   .glide__track {
     overflow: visible;
