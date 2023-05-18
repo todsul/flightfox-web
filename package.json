@@ -17,9 +17,10 @@
     "prepare": "husky install",
     "serve": "serve -l 2323 dist",
     "start": "run-s ts dev",
-    "ts": "run-p ts:glide ts:glide-alt",
+    "ts": "run-p ts:glide ts:glide-alt ts:glide-double",
     "ts:glide": "esbuild assets/scripts/glide.ts --bundle --splitting --format=esm --outdir=assets/scripts",
     "ts:glide-alt": "esbuild assets/scripts/glide-alt.ts --bundle --splitting --format=esm --outdir=assets/scripts",
+    "ts:glide-double": "esbuild assets/scripts/glide-double.ts --bundle --splitting --format=esm --outdir=assets/scripts",
     "tsc": "tsc",
     "tw": "tailwindcss --no-autoprefixer -i ./assets/css/tailwind.css -o ./assets/css/tw.css"
   },
