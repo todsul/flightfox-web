@@ -1,0 +1,20 @@
+<div id="faq" class="grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-start justify-start md:flex-row overflow-hidden row-start-2 w-full">
+    <div class="flex flex-col items-start justify-start max-w-md pr-6 w-full">
+      <h2 class="font-normal mb-4 md:text-5xl mx-0 p-0 text-3xl"><b>Frequently Asked</b> Questions</h2>
+      <p class="m-0 text-meta">Do you have more questions?</p>
+      <a class="bg-primary-transparent duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs mt-10 no-underline orange-link px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap z-20"
+        href='{{ "contact" | absURL }}'>
+        Contact Us
+      </a>
+    </div>
+    <ul class="flex flex-col items-start justify-start list-none m-0 p-0 w-full">
+      {{ range .Site.Data.faq.items }}
+      <li class="border-0 border-b border-selection border-solid flex flex-col items-start justify-start m-0 px-0 py-6 w-full">
+        <p class="font-medium m-0 md:text-2xl">{{ .question }}</p>
+        <p class="font-medium m-0 py-4 text-meta">{{ .answer }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

@@ -157,6 +157,12 @@ section#main {
   }
 }
 
+div#faq {
+  ul {
+    max-width: 46.75rem;
+  }
+}
+
 ul#hero-stats {
   align-items: start;
   grid-template-columns: repeat(3, var(--hero-stat-width));
