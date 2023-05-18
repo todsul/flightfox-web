@@ -52,12 +52,6 @@
   {{ else }}
   {{ end }}
 {{ end }}
-{{ define "styles" }}
-  {{ if .Params.glide }}
-    {{ $glide := resources.Get "css/glide.scss" | resources.ToCSS | resources.Minify }}
-    <link rel="stylesheet" href="{{ $glide.Permalink }}" />
-  {{ end }}
-{{ end }}
 {{ define "scripts" }}
   {{ $opts := dict "minified" true "compact" true }}
 
@@ -77,5 +71,9 @@
   {{ if .Params.glideAlt }}
     {{ $glideAlt := resources.Get "scripts/glide-alt.js" | resources.Minify }}
     <script src="{{ $glideAlt.Permalink }}"></script>
+  {{ end }}
+  {{ if .Params.glideDouble }}
+    {{ $glideDouble := resources.Get "scripts/glide-double.js" | resources.Minify }}
+    <script src="{{ $glideDouble.Permalink }}"></script>
   {{ end }}
 {{ end }}

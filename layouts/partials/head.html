@@ -124,6 +124,8 @@
   {{ $footer := resources.Get "css/footer.scss" | resources.ToCSS }}
   {{ $styles := slice $tailwind $header $main $footer | resources.Concat "css/styles.css" | resources.PostCSS | resources.Minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" />
+  {{ $glide := resources.Get "css/glide.scss" | resources.ToCSS | resources.Minify }}
+  <link rel="stylesheet" href="{{ $glide.Permalink }}" />
   {{ if hugo.Environment | eq "production" }}
     <script defer data-domain="flightfox.com" src="https://plausible.io/js/plausible.js"></script>
   {{ end }}

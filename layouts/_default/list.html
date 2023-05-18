@@ -43,12 +43,6 @@
   {{ else }}
   {{ end }}
 {{ end }}
-{{ define "styles" }}
-  {{ if .Params.glide }}
-    {{ $glide := resources.Get "css/glide.scss" | resources.ToCSS | resources.Minify }}
-    <link rel="stylesheet" href="{{ $glide.Permalink }}" />
-  {{ end }}
-{{ end }}
 {{ define "scripts" }}
   {{ $opts := dict "minified" true "compact" true }}
 
