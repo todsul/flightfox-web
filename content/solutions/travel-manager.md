@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: travel-manager
 flushed: true
+glideDouble: true
 title: <b>Travel Management</b> that Saves You <span>Time and Money</span>
 tagLine: For Travel Managers
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit varius adipiscing aliquet magna tincidunt iaculis nam morbi. Augue fringilla.
@@ -56,6 +57,25 @@ realTimeAlerts:
     alt: false
   image: travel-manager/real-time-alerts.png
   imageMobile: travel-manager/real-time-alerts-mobile.png
+testimonies:
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
 knowWhere:
   heading: <b>Know where</b> your travellers <span>are at all times.</span>
   description: Give yourself and your travelers peace of mind with status updates on where your travellers are at all times.
@@ -106,4 +126,16 @@ customReporting:
   description: Flightfox can build a customer reporting solution for you so that you can view, track and manage all your company’s travel data in real-time for greater control.
   image: travel-manager/custom-reporting.png
   imageMobile: travel-manager/custom-reporting-mobile.png
+caseStudies:
+  heading: <b>Featured</b> Case Studies
+  studies:
+    - content/case-studies/adventures-in-mission.md
+    - content/case-studies/ciee.md
+    - content/case-studies/coulisse.md
+    - content/case-studies/hintsa.md
+    - content/case-studies/pioneer.md
+    - content/case-studies/pitcher.md
+    - content/case-studies/upguard.md
+    - content/case-studies/vida.md
+    - content/case-studies/zenysis.md
 ---

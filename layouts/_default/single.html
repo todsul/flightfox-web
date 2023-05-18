@@ -46,6 +46,8 @@
       {{ partial "main/pricing.html" . }}
     {{ else if eq .Params.layout "traveller" }}
       {{ partial "main/traveller.html" . }}
+    {{ else if eq .Params.layout "travel-manager" }}
+      {{ partial "main/travel-manager.html" . }}
     {{ else }}
     {{ end }}
   {{ else if ne .Parent.RelPermalink "/" }}

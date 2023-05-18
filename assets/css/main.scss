@@ -138,7 +138,8 @@ section#main {
     }
   }
 
-  &[data-layout='traveller'] {
+  &[data-layout='traveller'],
+  &[data-layout='travel-manager'] {
     > div {
       &[data-desktopflushed='true'] {
         grid-template-rows: var(--content-padding) min-content 1.5rem;
