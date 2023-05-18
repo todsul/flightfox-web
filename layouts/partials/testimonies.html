@@ -1,11 +1,12 @@
 {{ $bg := resources.Get "/img/bg-wave-dark.svg" }}
+{{ $glideClass := cond (ne .glideClass nil) .glideClass "glide" }}
 
 <div
   id="testimonies"
   class="bg-footer bg-no-repeat grid items-center justify-center w-full"
   style='background-image: url("{{ $bg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
 >
-  <div class="glide col-start-2 relative row-start-2 w-full">
+  <div class="{{ $glideClass }} col-start-2 relative row-start-2 w-full">
     <div data-glide-el="track" class="glide__track max-w-5xl mx-auto w-full">
       <ul class="glide__slides flex items-center justify-start list-none m-0 p-0 w-full">
         {{ range .data }}
