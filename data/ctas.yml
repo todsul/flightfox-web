@@ -10,3 +10,25 @@ readyToBook:
       link: pricing
       alt: true
   img: ready-to-book.png
+readyToSimply:
+  icon: wave.svg
+  heading: <b>Ready to simplify</b> your job with <span>Flightfox travel maangement?<span>
+  cta:
+    - label: Get Started
+      link: contact
+      alt: false
+    - label: See Services
+      link: pricing
+      alt: true
+  img: ready-to-book.png
+startSaving:
+  icon: wave.svg
+  heading: <b>Start</b> <span>saving money</span> on your business travel today.
+  cta:
+    - label: Get Started
+      link: contact
+      alt: false
+    - label: See Services
+      link: pricing
+      alt: true
+  img: ready-to-book.png
