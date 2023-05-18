@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: finance-manager
 flushed: true
+glideDouble: true
 title: <b>Travel Management</b> that Saves You <span>Money</span>
 tagLine: For the Finance Manager
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit varius adipiscing aliquet magna tincidunt iaculis nam morbi. Augue fringilla.
@@ -33,6 +34,25 @@ customReporting:
   description: Flightfox can build a customer reporting solution for you so that you can view, track and manage all your company’s travel data in real-time for greater control.
   image: finance-manager/custom-reporting.png
   imageMobile: finance-manager/custom-reporting-mobile.png
+testimonies:
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
+  - name: Represent
+    logo: case-studies/represent-logo.svg
+    copy: <b>Flightfox</b> saved us over $800,000 last year and gave us peace of mind with their global support too.
+    owner: Samuel Hafer
+    position: Chief of Staff, Represent
+    img: case-studies/samuel-hafer.png
 refundsGuaranteed:
   heading: <b>95% Refunds</b> <span>guaranteed</span> for cancelled flights.
   description: Flightfox can get the refund, we know what to say, we have access to all the platinum lines (not the standard phone lines), straight to the decision maker.<br/>The airline sees that Flightfox we have made 1000s of bookings and give us priority, there are normally 7 hour phone cues, and we can wait that long cause we have 1000s refunds to request, this would not make sense for individual person booking travel - cashback for over 95% of customers.
@@ -51,4 +71,16 @@ expenseManagement:
     alt: false
   image: finance-manager/expense-management.png
   imageMobile: finance-manager/expense-management-mobile.png
+caseStudies:
+  heading: <b>Featured</b> Case Studies
+  studies:
+    - content/case-studies/adventures-in-mission.md
+    - content/case-studies/ciee.md
+    - content/case-studies/coulisse.md
+    - content/case-studies/hintsa.md
+    - content/case-studies/pioneer.md
+    - content/case-studies/pitcher.md
+    - content/case-studies/upguard.md
+    - content/case-studies/vida.md
+    - content/case-studies/zenysis.md
 ---

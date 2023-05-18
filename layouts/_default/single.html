@@ -36,6 +36,8 @@
       {{ partial "main/article.html" . }}
     {{ else if eq .Params.layout "contact" }}
       {{ partial "main/contact.html" . }}
+    {{ else if eq .Params.layout "finance-manager" }}
+      {{ partial "main/finance-manager.html" . }}
     {{ else if eq .Params.layout "home" }}
       {{ partial "main/home.html" . }}
     {{ else if eq .Params.layout "jobs" }}
