@@ -24,7 +24,7 @@
           {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
 
           <a
-            class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap"
+            class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap z-20"
             href="{{ .link | absURL }}"
           >
             {{ .label }}

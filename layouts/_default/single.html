@@ -44,6 +44,8 @@
       {{ partial "main/legal.html" . }}
     {{ else if eq .Params.layout "pricing" }}
       {{ partial "main/pricing.html" . }}
+    {{ else if eq .Params.layout "traveller" }}
+      {{ partial "main/traveller.html" . }}
     {{ else }}
     {{ end }}
   {{ else if ne .Parent.RelPermalink "/" }}
