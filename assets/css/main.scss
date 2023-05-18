@@ -123,15 +123,33 @@ section#main {
     grid-row: span 2 / span 2;
   }
 
-  &[data-layout='home'] {
+  &[data-layout='home'],
+  &[data-layout='traveller'] {
     > div {
       &[data-flushed='true'] {
         grid-template-rows: var(--content-padding) min-content 0;
       }
 
       &[data-edged='true'] {
-        grid-template-rows: var(--content-padding) repeat(2, min-content) var(--content-padding);
+        grid-template-rows: var(--content-padding) repeat(2, min-content) var(
+            --content-padding
+          );
+      }
+    }
+  }
 
+  &[data-layout='traveller'] {
+    > div {
+      &[data-desktopflushed='true'] {
+        grid-template-rows: var(--content-padding) min-content 1.5rem;
+
+        @media screen and (min-width: 768px) {
+          grid-template-rows: var(--content-padding) min-content 0;
+        }
+      }
+
+      &#clients {
+        grid-template-rows: 4.125rem min-content 4.125rem;
       }
     }
   }

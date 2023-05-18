@@ -1,0 +1,266 @@
+{{ $waveBgDark := resources.Get "/img/bg-wave-dark.svg" }}
+{{ $waveBgLight := resources.Get "/img/bg-wave-light.svg" }}
+
+<div
+  id="largestInventory"
+  class="bg-foreground bg-no-repeat grid items-center justify-center relative w-full"
+  style='background-image: url("{{ $waveBgDark.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+  data-desktopflushed="true"
+>
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <p class="font-semibold mb-3 mt-0 mx-0 text-primary">The Benefits</p>
+    <h2 class="font-normal max-w-3xl mb-5 md:text-5xl mr-auto mt-0 p-0 text-background text-3xl text-left w-full">
+      {{ .Params.largestInventory.heading | safeHTML }}
+    </h2>
+    <p class="lg:pr-10 m-0 max-w-3xl opacity-60 text-background w-full">{{ .Params.largestInventory.description }}</p>
+    {{ with .Params.largestInventory.cta }}
+      <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
+      {{ range . }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap z-20"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+    {{ end }}
+    {{ with .Params.largestInventory.image }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+    {{ end }}
+    {{ with .Params.largestInventory.imageMobile }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16" "iClasses" "w-full" "size" 768) }}
+    {{ end }}
+  </div>
+</div>
+<div
+  id="instantCustomerService"
+  class="bg-background bg-no-repeat grid items-center justify-center relative w-full"
+  style='background-image: url("{{ $waveBgLight.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+  data-desktopflushed="true"
+>
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <p class="font-semibold mb-3 mt-0 mx-0 text-primary">The Benefits</p>
+    <h2 class="font-normal max-w-3xl mb-5 md:text-5xl mr-auto mt-0 p-0 text-3xl text-left w-full">
+      {{ .Params.instantCustomerService.heading | safeHTML }}
+    </h2>
+    <p class="lg:pr-10 m-0 max-w-3xl opacity-60 w-full">{{ .Params.instantCustomerService.description }}</p>
+    {{ with .Params.instantCustomerService.cta }}
+      <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
+      {{ range . }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap z-20"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+    {{ end }}
+    {{ with .Params.instantCustomerService.image }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+    {{ end }}
+    {{ with .Params.instantCustomerService.imageMobile }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16" "iClasses" "w-full" "size" 768) }}
+    {{ end }}
+  </div>
+</div>
+{{ partial "testimonies.html" (dict "data" .Params.testimonies "glideClass" "glide-1") }}
+<div
+  id="realTimeAlerts"
+  class="bg-background bg-no-repeat grid items-center justify-center relative w-full"
+  style='background-image: url("{{ $waveBgLight.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+  data-desktopflushed="true"
+>
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <p class="font-semibold mb-3 mt-0 mx-0 text-primary">The Benefits</p>
+    <h2 class="font-normal max-w-3xl mb-5 md:text-5xl mr-auto mt-0 p-0 text-3xl text-left w-full">
+      {{ .Params.realTimeAlerts.heading | safeHTML }}
+    </h2>
+    <p class="lg:pr-10 m-0 max-w-3xl opacity-60 w-full">{{ .Params.realTimeAlerts.description }}</p>
+    {{ with .Params.realTimeAlerts.cta }}
+      <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
+      {{ range . }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap z-20"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+    {{ end }}
+    {{ with .Params.realTimeAlerts.image }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+    {{ end }}
+    {{ with .Params.realTimeAlerts.imageMobile }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16" "iClasses" "w-full" "size" 768) }}
+    {{ end }}
+  </div>
+</div>
+<div
+  id="neverLeftAlone"
+  class="bg-foreground bg-no-repeat grid items-center justify-center relative w-full"
+  style='background-image: url("{{ $waveBgDark.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+  data-desktopflushed="true"
+>
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <p class="font-semibold mb-3 mt-0 mx-0 text-primary">The Benefits</p>
+    <h2 class="font-normal max-w-3xl mb-5 md:text-5xl mr-auto mt-0 p-0 text-background text-3xl text-left w-full">
+      {{ .Params.neverLeftAlone.heading | safeHTML }}
+    </h2>
+    <p class="lg:pr-10 m-0 max-w-3xl opacity-60 text-background w-full">{{ .Params.neverLeftAlone.description }}</p>
+    {{ with .Params.neverLeftAlone.cta }}
+      <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
+      {{ range . }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap z-20"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+    {{ end }}
+    {{ with .Params.neverLeftAlone.image }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+    {{ end }}
+    {{ with .Params.neverLeftAlone.imageMobile }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16" "iClasses" "w-full" "size" 768) }}
+    {{ end }}
+  </div>
+</div>
+<div
+  id="executiveVip"
+  class="bg-background bg-no-repeat grid items-center justify-center relative w-full"
+  style='background-image: url("{{ $waveBgLight.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+  data-desktopflushed="true"
+>
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <p class="font-semibold mb-3 mt-0 mx-0 text-primary">The Benefits</p>
+    <h2 class="font-normal max-w-3xl mb-5 md:text-5xl mr-auto mt-0 p-0 text-3xl text-left w-full">
+      {{ .Params.realTimeAlerts.heading | safeHTML }}
+    </h2>
+    <p class="lg:pr-10 m-0 max-w-3xl opacity-60 w-full">{{ .Params.executiveVip.description }}</p>
+    {{ with .Params.executiveVip.cta }}
+      <nav id="hero-nav" class="auto-rows-auto gap-3 grid items-center justify-center mt-12 w-full">
+      {{ range . }}
+        {{ $color := cond (.alt) "bg-primary-transparent orange-link" "bg-primary white-link" }}
+
+        <a
+          class="{{ $color }} duration-200 ease-in-out focus:no-underline focus:shadow-lg font-semibold hover:no-underline hover:shadow-lg leading-snug max-w-xs md:w-auto min-w-xxxxs no-underline px-9 py-4 rounded-xl text-center transition-shadow w-full whitespace-nowrap z-20"
+          href="{{ .link | absURL }}"
+        >
+          {{ .label }}
+        </a>
+      {{ end }}
+      </nav>
+    {{ end }}
+    {{ with .Params.executiveVip.image }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "hidden md:flex md:items-end -mt-16 w-auto" "iClasses" "w-full" "size" 1300) }}
+    {{ end }}
+    {{ with .Params.executiveVip.imageMobile }}
+      {{ partial "img.html" (dict "src" . "alt" "" "pClasses" "md:hidden mt-16" "iClasses" "w-full" "size" 768) }}
+    {{ end }}
+  </div>
+</div>
+<div id="case-studies" class="bg-foreground grid items-center justify-center w-full">
+  <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+    <div class="grid grid-cols-1 grid-rows-2 md:grid-cols-3 md:grid-rows-1 w-full">
+      <h2 class="font-normal m-0 max-w-xs md:max-w-xs md:p-0 md:text-5xl pr-32 py-0 row-start-1 text-3xl text-background text-start w-full">{{ .Params.caseStudies.heading | safeHTML }}</h2>
+      <div class="flex items-end justify-start md:col-start-3 md:justify-end md:row-start-1 md:self-end row-start-2 w-auto">
+        <a
+          class="duration-200 ease-in-out focus:text-primary focus:underline hover:text-primary hover:underline m-0 md:text-right no-underline text-primary transition-colors visited:text-primary"
+          href='{{ "case-studies" | absURL }}'
+        >
+          View Case Studies &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="glide-2 col-start-2 mt-14 relative row-start-2 w-full">
+      <div class="glide__arrows absolute hidden items-center justify-between md:flex w-36" data-glide-el="controls">
+        <button
+          class="glide__arrow glide__arrow--left bg-foreground-light border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-background hover:bg-background items-center justify-center outline-none rounded-full transition-colors"
+          data-glide-dir="<"
+        >
+          <span class="sr-only">Go to previous slide</span>
+          {{ partial "arrow-left.html" . }}
+        </button>
+        <button
+          class="glide__arrow glide__arrow--right bg-foreground-light border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-background hover:bg-background items-center justify-center outline-none rounded-full transition-colors"
+          data-glide-dir=">"
+          >
+          <span class="sr-only">Go to next slide</span>
+          {{ partial "arrow-right.html" . }}
+        </button>
+      </div>
+
+      <div data-glide-el="track" class="glide__track max-w-5xl m-0 w-full">
+        <ul
+          id="article-cards"
+          class="glide__slides gap-8 m-0 p-0 list-none w-full"
+          style="--content-gap: {{ len .Params.caseStudies.studies }};"
+        >
+        {{ range .Params.caseStudies.studies }}
+        {{ with $.Site.GetPage . }}
+          {{ $heroMargin := "mb-6" }}
+          {{ $heroMax := "max-w-md mb-6" }}
+          {{ $heroSize := 500 }}
+          {{ $headingClasses := "max-w-lg md:text-4xl mb-8" }}
+          {{ $span := "glide__slide col-span-1 flex flex-col pb-7" }}
+
+          {{ partial "main/card.html" (dict "span" $span "featured" false "featuredList" true "image" .Params.image "title" .Title "heroMargin" $heroMargin "heroMax" $heroMax "heroSize" $heroSize "logo" .Params.logo "headingClasses" $headingClasses "subtitle" .Params.subtitle "description" .Params.description "permalink" .Permalink "ctaType" "button") }}
+        {{ end }}
+        {{ end }}
+        </ul>
+      </div>
+
+      <div class="glide__bullets flex items-center justify-start ml-0 mr-auto mt-10 w-full" data-glide-el="controls[nav]">
+        {{ range $i, $data := .Params.caseStudies.studies }}
+          <button
+            class="glide__bullet bg-background border-0 border-transparent cursor-pointer duration-200 ease-in-out focus:opacity-75 hover:opacity-75 md:mx-2 mr-3 opacity-50 outline-none p-1 rounded-full transition-opacity"
+            data-glide-dir="={{ $i }}"
+          >
+            <span class="sr-only">Go to slide {{ add $i 1 }}</span>
+          </button>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  id="clients"
+  class="grid items-center justify-center w-full"
+>
+  <div class="col-start-2 flex flex-col items-center justify-start overflow-hidden row-start-2 w-full">
+    <p class="leading-relaxed mb-10 mt-0 mx-0 max-w-2xl text-center text-meta w-full">
+      {{ .Site.Data.clients.heading }}
+    </p>
+    <ul
+      id="clients"
+      class="gap-x-16 grid grid-cols-6-auto grid-rows-1 items-center justify-start list-none md:justify-center md:m-0 mr-auto my-0 p-0 w-full"
+      style='--client-length: {{ len .Site.Data.clients.companies }};'
+    >
+      {{ range .Site.Data.clients.companies }}
+      <li class="h-auto m-0 p-0 w-auto">
+        {{ partial "img.html" (dict "src" .img "alt" .label "pClasses" "w-auto" "iClasses" "h-7 md:h-10 w-auto" "size" 240) }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+<div
+  id="cta"
+  class="grid items-center justify-center w-full"
+>
+  {{ partial "cta-block.html" (dict "data" .Site.Data.ctas.readyToBook "classes" "col-start-2 row-start-2") }}
+</div>
