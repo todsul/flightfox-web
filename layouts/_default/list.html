@@ -44,7 +44,7 @@
   {{ end }}
 {{ end }}
 {{ define "styles" }}
-  {{ if eq .Params.layout "case-studies" }}
+  {{ if .Params.glide }}
     {{ $glide := resources.Get "css/glide.scss" | resources.ToCSS | resources.Minify }}
     <link rel="stylesheet" href="{{ $glide.Permalink }}" />
   {{ end }}
@@ -52,10 +52,15 @@
 {{ define "scripts" }}
   {{ $opts := dict "minified" true "compact" true }}
 
-  {{ if eq .Params.layout "case-studies" }}
+  {{ if .Params.glide }}
     {{ $glide := resources.Get "scripts/glide.js" | resources.Minify }}
     <script src="{{ $glide.Permalink }}"></script>
-  {{ else if eq .Params.layout "blog-feed" }}
+  {{ end }}
+  {{ if .Params.glideAlt }}
+    {{ $glideAlt := resources.Get "scripts/glide-alt.js" | resources.Minify }}
+    <script src="{{ $glideAlt.Permalink }}"></script>
+  {{ end }}
+  {{ if eq .Params.layout "blog-feed" }}
     {{- $filterTS := resources.Get "scripts/blog-filter.ts" | babel -}}
     {{ $filterJS := slice $filterTS | resources.Concat "blog-filter.js" }}
     {{ $filter := $filterJS | resources.Minify }}

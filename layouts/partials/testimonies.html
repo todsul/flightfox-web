@@ -1,0 +1,65 @@
+{{ $bg := resources.Get "/img/bg-wave-dark.svg" }}
+
+<div
+  id="testimonies"
+  class="bg-footer bg-no-repeat grid items-center justify-center w-full"
+  style='background-image: url("{{ $bg.Permalink }}"); background-size: var(--hero-bg-size); background-position: right center;'
+>
+  <div class="glide col-start-2 relative row-start-2 w-full">
+    <div data-glide-el="track" class="glide__track max-w-5xl mx-auto w-full">
+      <ul class="glide__slides flex items-center justify-start list-none m-0 p-0 w-full">
+        {{ range .data }}
+        <li class="glide__slide flex flex-col item-center justify-between m-0 md:flex-row max-w-5xl w-full">
+          <div class="flex flex-col items-start justify-start max-w-xl md:pr-5 my-auto w-full">
+            <div class="flex items-center justify-start mb-10 sm:mb-14 w-full">
+              <div class="bg-primary flex h-10 items-center justify-center mr-4 rounded-full w-10">
+                {{ partial "img.html" (dict "src" "quote.svg" "alt" "" "iClasses" "w-5" "size" 40 "hidden" true) }}
+              </div>
+              <p class="m-0 text-primary whitespace-nowrap">What Companies Say</p>
+            </div>
+            {{ partial "img.html" (dict "src" .logo "alt" .name "iClasses" "h-5 mb-4 object-left sm:h-6" "size" 132 "hidden" true) }}
+            <p class="mb-8 sm:text-3xl text-background text-xl" style="line-height: 1.5;">
+              {{ .copy | safeHTML }}
+            </p>
+            <div class="flex items-center justify-start w-full">
+              {{ partial "img.html" (dict "src" .img "alt" .owner "pClasses" "sm:hidden max-w-card mr-4" "iClasses" "max-w-full" "size" 90 "hidden" true) }}
+              <p class="m-0 text-background">
+                {{ .owner }} <span class="opacity-50"> &bull; {{ .position }}</span>
+              </p>
+            </div>
+          </div>
+          {{ partial "img.html" (dict "src" .img "alt" .owner "pClasses" "hidden sm:flex max-w-md" "iClasses" "max-w-full" "size" 500 "hidden" true) }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <div class="glide__arrows absolute bottom-0 hidden items-center justify-between md:flex top-0 w-full" data-glide-el="controls">
+      <button
+        class="glide__arrow glide__arrow--left bg-foreground border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-background hover:bg-background items-center justify-center outline-none rounded-full transition-colors"
+        data-glide-dir="<"
+      >
+        <span class="sr-only">Go to previous slide</span>
+        {{ partial "arrow-left.html" . }}
+      </button>
+      <button
+        class="glide__arrow glide__arrow--right bg-foreground border-0 border-transparent cursor-pointer duration-200 ease-in-out flex focus:bg-background hover:bg-background items-center justify-center outline-none rounded-full transition-colors"
+        data-glide-dir=">"
+        >
+        <span class="sr-only">Go to next slide</span>
+        {{ partial "arrow-right.html" . }}
+      </button>
+    </div>
+
+    <div class="glide__bullets flex items-center justify-start mt-16 md:justify-center md:mx-auto ml-auto mr-auto w-full" data-glide-el="controls[nav]">
+      {{ range $i, $data := .Params.testimonies }}
+        <button
+          class="glide__bullet bg-background border-0 border-transparent cursor-pointer duration-200 ease-in-out focus:opacity-75 hover:opacity-75 md:mx-2 mr-3 opacity-50 outline-none p-1 rounded-full transition-opacity"
+          data-glide-dir="={{ $i }}"
+        >
+          <span class="sr-only">Go to slide {{ add $i 1 }}</span>
+        </button>
+      {{ end }}
+    </div>
+  </div>
+</div>

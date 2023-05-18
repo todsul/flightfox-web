@@ -53,7 +53,7 @@
   {{ end }}
 {{ end }}
 {{ define "styles" }}
-  {{ if eq .Params.layout "about" }}
+  {{ if .Params.glide }}
     {{ $glide := resources.Get "css/glide.scss" | resources.ToCSS | resources.Minify }}
     <link rel="stylesheet" href="{{ $glide.Permalink }}" />
   {{ end }}
@@ -70,7 +70,11 @@
       new Glide('.glide', { gap: 32 }).mount({ Controls });
     </script>
   {{ end }}
-  {{ if eq .Params.layout "about" }}
+  {{ if .Params.glide }}
+    {{ $glide := resources.Get "scripts/glide.js" | resources.Minify }}
+    <script src="{{ $glide.Permalink }}"></script>
+  {{ end }}
+  {{ if .Params.glideAlt }}
     {{ $glideAlt := resources.Get "scripts/glide-alt.js" | resources.Minify }}
     <script src="{{ $glideAlt.Permalink }}"></script>
   {{ end }}
