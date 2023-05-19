@@ -1,7 +1,7 @@
 ---
 layout: about
 flushed: true
-glideAlt: true
+glideCards: true
 title: <b>Hi</b>, we're <span>Flightfox!</span>
 tagLine: About Us
 description: We're a team of software engineers and travel experts changing the way companies travel. No competitor comes close to our technical expertise in helping teams travel better for less.

@@ -45,14 +45,31 @@
 {{ end }}
 {{ define "scripts" }}
   {{ $opts := dict "minified" true "compact" true }}
+  {{ $glide := resources.Get "scripts/glide.js" | resources.Minify }}
 
   {{ if .Params.glide }}
-    {{ $glide := resources.Get "scripts/glide.js" | resources.Minify }}
     <script src="{{ $glide.Permalink }}"></script>
+    <script>
+      new Glide('.glide').mount();
+    </script>
   {{ end }}
-  {{ if .Params.glideAlt }}
-    {{ $glideAlt := resources.Get "scripts/glide-alt.js" | resources.Minify }}
-    <script src="{{ $glideAlt.Permalink }}"></script>
+  {{ if .Params.glideCards }}
+    {{ if eq .Params.glide nil }}
+      <script src="{{ $glide.Permalink }}"></script>
+    {{ end }}
+    <script>
+      new Glide('.glideCards', {
+        type: 'slider',
+        startAt: 0,
+        perView: 3,
+        gap: 32,
+        breakpoints: {
+          768: {
+            perView: 1,
+          },
+        },
+      }).mount();
+    </script>
   {{ end }}
   {{ if eq .Params.layout "blog-feed" }}
     {{- $filterTS := resources.Get "scripts/blog-filter.ts" | babel -}}
