@@ -2,6 +2,8 @@
 
 The new standard in corporate travel.
 
+[DOCUMENTATION](https://github.com/todsul/flightfox-web/blob/main/DOCS.md)
+
 ## Stack
 
 - [Hugo](https://gohugo.io) (v0.93.0+)
@@ -27,4 +29,5 @@ To run the local server, you can use the start command:
 ```
 npm run start
 ```
+
 This will run a few scripts in parallel before Hugo starts, then run the Tailwind watcher alongside Hugo.
